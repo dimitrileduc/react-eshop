@@ -1,8 +1,25 @@
 import React from "react";
-import {BrowserRouter, Route, Link, useParams} from "react-router-dom";
+
+import {ContainerList} from "./styles";
+
+import ProductShopItem from "../../molecules/ProductShopItem";
 
 function ProductsList(productsItems) {
+    ///// test purpose
+    let numberProducts = 2;
+    let numberRows;
+    if (numberProducts % 4 === 0) {
+        numberRows = numberProducts / 4;
+        console.log("nb columns -> " + numberRows);
+    } else {
+        numberRows = Math.ceil(numberProducts / 4);
+        console.log("nb columns -> " + numberRows);
+    }
+
+    /////
+
     return (
+        /*
         <ul>
             {Object.entries(productsItems.productsItems).map(
                 ([slug, {title}]) => (
@@ -14,6 +31,14 @@ function ProductsList(productsItems) {
                 ),
             )}
         </ul>
+        */
+        <ContainerList>
+            <ProductShopItem></ProductShopItem>
+            <ProductShopItem></ProductShopItem>
+            <ProductShopItem></ProductShopItem>
+            <ProductShopItem></ProductShopItem>
+            <ProductShopItem></ProductShopItem>
+        </ContainerList>
     );
 }
 

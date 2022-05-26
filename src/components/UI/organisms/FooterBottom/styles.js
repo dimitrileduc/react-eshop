@@ -19,6 +19,8 @@ export const Container = styled.div`
     border-left-width: 0px;
     border-right-width: 0px;
 
+    opacity: 0.5;
+
     white-space: pre;
 
     font-family: "Inter", sans-serif;

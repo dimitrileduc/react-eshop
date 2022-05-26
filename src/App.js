@@ -13,6 +13,8 @@ import Product from "./components/UI/molecules/Product";
 
 import ScrollToTop from "./components/utils/ScrollToTop";
 
+import "./App.css";
+
 export default function App() {
     // Setting test products objects
     const [productsItems, setProductsItems] = useState({

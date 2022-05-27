@@ -12,4 +12,7 @@ export const HeaderDiv = styled.div`
     padding: 40px;
 
     overflow: visible;
+    position: fixed;
+    background-color: white;
+    z-index: 100;
 `;

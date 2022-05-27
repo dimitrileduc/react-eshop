@@ -4,6 +4,8 @@ import {ContainerList} from "./styles";
 
 import ProductShopItem from "../../molecules/ProductShopItem";
 
+import FilterWidget from "../../molecules/FilterWidget";
+
 function ProductsList(productsItems) {
     ///// test purpose
     let numberProducts = 2;
@@ -32,13 +34,16 @@ function ProductsList(productsItems) {
             )}
         </ul>
         */
-        <ContainerList>
-            <ProductShopItem></ProductShopItem>
-            <ProductShopItem></ProductShopItem>
-            <ProductShopItem></ProductShopItem>
-            <ProductShopItem></ProductShopItem>
-            <ProductShopItem></ProductShopItem>
-        </ContainerList>
+        <>
+            <FilterWidget />
+            <ContainerList>
+                <ProductShopItem></ProductShopItem>
+                <ProductShopItem></ProductShopItem>
+                <ProductShopItem></ProductShopItem>
+                <ProductShopItem></ProductShopItem>
+                <ProductShopItem></ProductShopItem>
+            </ContainerList>
+        </>
     );
 }
 

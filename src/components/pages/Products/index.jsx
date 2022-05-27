@@ -7,7 +7,6 @@ function Products() {
     return (
         <Container>
             <div>Products</div>
-            <FilterWidget />
 
             <Outlet />
         </Container>

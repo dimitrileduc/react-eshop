@@ -4,25 +4,35 @@ export const ContainerProduct = styled.div`
     margin-top: 85px;
     display: flex;
     justify-content: center;
+    margin-bottom: 120px;
 `;
 
 export const ContainerGrid = styled.div`
     border: red solid 1px;
     display: grid;
-    grid-template-columns: 40% 40% 20%;
+    grid-template-columns: 40% 50% 10%;
     grid-template-rows: 1fr 1fr 1fr;
     gap: 0px 0px;
     width: 100%;
 
     max-width: 1440px;
+
+    @media screen and (max-width: 992px) {
+        grid-template-columns: 100%;
+        grid-template-rows: auto auto auto;
+    }
 `;
 
 export const ContainerImage = styled.div`
-    justify-self: stretch;
-    align-self: stretch;
+    justify-self: center;
+    align-self: center;
     grid-area: 1 / 1 / 4 / 2;
 
     border: 1px blue solid;
+
+    @media screen and (max-width: 992px) {
+        grid-area: 1 / 1 / 2 / 2;
+    }
 `;
 
 export const Label = styled.div`
@@ -37,14 +47,20 @@ export const ContainerContent = styled.div`
     align-self: center;
     grid-area: 1 / 2 / 4 / 3;
     border: 1px dashed orange;
+
+    @media screen and (max-width: 992px) {
+        grid-area: 2 / 1 / 3 / 2;
+    }
 `;
 
 export const ContainerRelated = styled.div`
-    justify-self: stretch;
-    align-self: stretch;
     grid-area: 1 / 3 / 4 / 4;
-    height: 100%;
+
     border: 1px yellow solid;
+
+    @media screen and (max-width: 992px) {
+        grid-area: 3 / 1 / 4 / 2;
+    }
 `;
 
 export const LabelStyled = styled.p`

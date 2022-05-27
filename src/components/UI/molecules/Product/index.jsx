@@ -15,6 +15,9 @@ import ImageWebp from "../../../assets/imagesProducts/roseTea.webp";
 
 import Image from "../../atoms/Image/index.jsx";
 
+import ContentProduct from "../ContentProduct";
+import RelatedProducts from "../RelatedProducts";
+
 function Product(productsItems) {
     const {slug} = useParams();
     console.log(productsItems.productsItems);
@@ -40,11 +43,9 @@ function Product(productsItems) {
                         <LabelStyled>LABEL</LabelStyled>
                     </Label>
                     <ContainerContent>
-                        <div>Content</div>
+                        <ContentProduct />
                     </ContainerContent>
-                    <ContainerRelated>
-                        <div>related</div>
-                    </ContainerRelated>
+                    <ContainerRelated></ContainerRelated>
                 </ContainerGrid>
             </ContainerProduct>
         </>

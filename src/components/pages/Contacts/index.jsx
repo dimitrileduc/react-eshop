@@ -1,6 +1,6 @@
 import React from "react";
 
-import {Formik, Field, Form, ErrorMessage} from "formik";
+import {Formik, Field, Form, ErrorMessage, getIn} from "formik";
 import * as Yup from "yup";
 
 import ImageJpg from "../../assets/map/map.jpg";
@@ -28,6 +28,9 @@ import {
     InputEmail,
     InputFirstName,
     InputLastName,
+    Label,
+    LabelFirstName,
+    ButtonSend,
 } from "./styles";
 
 function Contact() {
@@ -79,71 +82,48 @@ function Contact() {
                             <Form>
                                 <ContainerForm>
                                     <ContainerFirstName>
-                                        <label htmlFor="firstName">
+                                        <LabelFirstName htmlFor="firstName">
                                             First Name:
-                                        </label>
+                                        </LabelFirstName>
                                         <InputFirstName
                                             type="text"
                                             id="firstName"
                                             name="firstName"
                                         />
-                                        <ErrorMessage
-                                            name="firstName"
-                                            component="small"
-                                        />
                                     </ContainerFirstName>
                                     <ContainerLastName>
-                                        <label htmlFor="lastName">
+                                        <Label htmlFor="lastName">
                                             Last Name
-                                        </label>
+                                        </Label>
                                         <InputLastName
                                             type="text"
                                             id="lastName"
                                             name="lastName"
                                         />
-                                        <ErrorMessage
-                                            name="lastName"
-                                            component="small"
-                                        />
                                     </ContainerLastName>
                                     <ContainerEmail>
-                                        <label htmlFor="email">Email:</label>
+                                        <Label htmlFor="email">Email:</Label>
                                         <InputEmail
                                             type="email"
                                             id="email"
                                             name="email"
                                         />
-                                        <ErrorMessage
-                                            name="email"
-                                            component="small"
-                                        />
                                     </ContainerEmail>
                                     <ContainerMessage>
-                                        <label htmlFor="message">Message</label>
+                                        <Label htmlFor="message">Message</Label>
                                         <TextArea
                                             type="text"
                                             id="message"
                                             name="message"
                                             component="textarea"
                                         />
-
-                                        <ErrorMessage
-                                            name="message"
-                                            component="small"
-                                        />
-
-                                        <div>
-                                            <button type="submit">
-                                                S'inscrire
-                                            </button>
-                                            <button
-                                                type="button"
-                                                onClick={resetForm}>
-                                                Annuler
-                                            </button>
-                                        </div>
                                     </ContainerMessage>
                                 </ContainerForm>
+                                <div>
+                                    <ButtonSend type="submit">
+                                        Send Message
+                                    </ButtonSend>
+                                </div>
                             </Form>
                         )}
                     </Formik>

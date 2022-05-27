@@ -7,6 +7,7 @@ export const ContainerPage = styled.div`
     justify-content: center;
     margin-left: 40px;
     margin-right: 40px;
+    margin-bottom: 80px;
 `;
 
 export const ContainerGrid = styled.div`
@@ -108,7 +109,7 @@ export const ContainerForm = styled.div`
 
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto auto;
-    gap: 0px 0px;
+    gap: 15px 0px;
     grid-template-areas:
         "lastName firstName"
         "email email"
@@ -150,26 +151,84 @@ export const ContainerMessage = styled.div`
     flex-direction: column;
 `;
 
-export const InputFirstName = styled(Field)`
+const Input = styled(Field)`
+    border: 0;
+    outline: 0;
+
+    border-bottom: 0.5px lightgray solid;
+    border-left: 0.5px lightgray solid;
+    border-right: 0.5px lightgray solid;
+    border-top: 0.5px lightgray solid;
+
+    &:focus {
+        outline: none;
+        box-shadow: 0px 0px 2px black;
+    }
+`;
+
+export const InputFirstName = styled(Input)`
+    margin-top: 0px;
     width: 90%;
     margin-left: 10%;
+
     @media screen and (max-width: 600px) {
         width: 100%;
         margin-left: 0;
     }
 `;
 
-export const InputLastName = styled(Field)`
+export const InputLastName = styled(Input)`
     width: 90%;
     @media screen and (max-width: 600px) {
         width: 100%;
     }
 `;
 
-export const InputEmail = styled(Field)`
+export const InputEmail = styled(Input)`
     width: 100%;
 `;
 
-export const TextArea = styled(Field)`
+export const TextArea = styled(Input)`
     width: 100%;
+`;
+
+export const Label = styled.label`
+    opacity: 0.8;
+    font-family: "Inter", sans-serif;
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0px;
+    line-height: 1.7;
+    @media screen and (max-width: 600px) {
+    }
+`;
+
+export const LabelFirstName = styled(Label)`
+    margin-left: 10%;
+
+    @media screen and (max-width: 600px) {
+        margin-left: 0;
+    }
+`;
+
+export const ButtonSend = styled.button`
+    opacity: 0.8;
+    font-family: "Inter", sans-serif;
+    color: black;
+
+    letter-spacing: 0px;
+    line-height: 1.7;
+    background-color: white;
+    all: unset;
+    cursor: pointer;
+    border: 1px grey solid;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 2px;
+    font-size: 12px;
+
+    :hover {
+        background-color: black;
+        color: white;
+    }
 `;

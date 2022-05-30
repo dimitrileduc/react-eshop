@@ -10,6 +10,10 @@ export const ProductContainer = styled.div`
     align-content: center;
     justify-items: center;
     align-items: center;
+    transition: all 0.2s ease-in-out;
+    :hover {
+        transform: scale(0.97);
+    }
 `;
 
 export const ImageContainer = styled.div`

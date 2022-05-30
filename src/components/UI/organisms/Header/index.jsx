@@ -12,7 +12,9 @@ function Header() {
     return (
         <HeaderDiv>
             <Navbar />
+
             <Logo logoPng={LogoPng} logoWebp={LogoWebp} />
+
             <IconsGroup />
         </HeaderDiv>
     );

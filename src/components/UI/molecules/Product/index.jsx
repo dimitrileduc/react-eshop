@@ -25,6 +25,7 @@ function Product(productsItems) {
     const product = productsItems.productsItems[slug];
     console.log(product);
     const {title, description} = product;
+    // <Image imageJpg={ImageJpg} imageWebp={ImageWebp} />
     return (
         /*
         <div style={{padding: 20}}>
@@ -36,9 +37,7 @@ function Product(productsItems) {
             <div>Back</div>
             <ContainerProduct>
                 <ContainerGrid>
-                    <ContainerImage>
-                        <Image imageJpg={ImageJpg} imageWebp={ImageWebp} />
-                    </ContainerImage>
+                    <ContainerImage></ContainerImage>
                     <Label>
                         <LabelStyled>LABEL</LabelStyled>
                     </Label>

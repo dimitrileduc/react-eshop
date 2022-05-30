@@ -18,7 +18,10 @@ function NavBarMobile() {
             <Link to="/contacts">
                 <IconInfo />
             </Link>
-            <IconUser />
+            <Link to="/myaccount">
+                <IconUser />
+            </Link>
+
             <IconBasket />
         </Container>
     );

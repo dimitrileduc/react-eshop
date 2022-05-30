@@ -55,7 +55,7 @@ export const ContentContainer = styled.div`
 export const ContainerMap = styled.div`
     justify-self: start;
     grid-area: map;
-    border: 1px green solid;
+    border: 1px lightgray solid;
     justify-content: center;
     width: 100%;
 

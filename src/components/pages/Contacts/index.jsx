@@ -116,6 +116,7 @@ function Contact() {
                                             id="message"
                                             name="message"
                                             component="textarea"
+                                            rows="15"
                                         />
                                     </ContainerMessage>
                                 </ContainerForm>

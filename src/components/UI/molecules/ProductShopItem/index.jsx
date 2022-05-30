@@ -12,28 +12,36 @@ import {
     Category,
 } from "./styles.js";
 
-import ImageJpg from "../../../assets/imagesProducts/roseTea.jpg";
-import ImageWebp from "../../../assets/imagesProducts/roseTea.webp";
-
 import Image from "../../atoms/Image/index.jsx";
 
-function ProductShopItem() {
+function ProductShopItem(props) {
+    /*
+    const baseUrl = "../../../assets/imagesProducts/";
+    const jpegLink = baseUrl + props.props.imageName + ".jpg";
+    const webpLink = baseUrl + props.props.imageName + ".webp";
+
+    console.log("?" + jpegLink);
+    console.log(webpLink);
+    */
+
+    //console.log(JSON.stringify(props.props));
+    //<Image imageJpg={jpegLink} imageWebp={webpLink} />
     return (
         <ProductContainer>
             <ImageContainer>
-                <Image imageJpg={ImageJpg} imageWebp={ImageWebp} />
+                <Image imageName={props.props.imageName} />
             </ImageContainer>
             <LabelContainer>
-                <Label>Label</Label>
+                <Label>{props.props.label}</Label>
             </LabelContainer>
             <InfosContainer>
                 <TitleContainer>
-                    <Title>Rose Tea</Title>
+                    <Title>{props.props.title}</Title>
                 </TitleContainer>
                 <CategoryContainer>
-                    <Category>Category</Category>
+                    <Category>{props.props.category}</Category>
                 </CategoryContainer>
-                <PriceContainer>Price</PriceContainer>
+                <PriceContainer>{props.props.price}</PriceContainer>
             </InfosContainer>
         </ProductContainer>
     );

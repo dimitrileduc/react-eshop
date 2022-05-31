@@ -20,7 +20,6 @@ export default function App() {
     // Setting test products objects
     const [productsItems, setProductsItems] = useState([
         {
-            id: 1,
             title: "The Empress of India",
             category: "Darjeeling tea",
             description:
@@ -32,7 +31,6 @@ export default function App() {
             price: 18,
         },
         {
-            id: 2,
             title: "The Delhi Sultanate",
             category: "Chai tea",
             description:
@@ -44,7 +42,17 @@ export default function App() {
             price: 12,
         },
         {
-            id: 3,
+            title: "Hama Sakura  Teapot",
+            category: "Accessoiries",
+            description:
+                "Iron teapots are handmade, forged by iron artisans, and following strict steps to ensure their quality. Therefore, each Tetsubin is unique and unrepeatable, giving a unique value to such a precious object. Perfect for a tea tasting due to its size.  ",
+            label: "",
+            stock: 8,
+            imageName: "hama_sakura_teapot",
+            review: 5,
+            price: 3,
+        },
+        {
             title: "The Ambassadore",
             category: "Chai tea",
             description:
@@ -54,6 +62,50 @@ export default function App() {
             imageName: "the_ambassadore",
             review: 4.8,
             price: 17,
+        },
+        {
+            title: "The Jasmine Pearl",
+            category: "Flavoured tea",
+            description:
+                " The Jasmine Pearl is a rare blend of high-grade Chinese green tea and the rarest, organic Jasmine. The 'pearls' of the jasmine are blended to give a subtle calming tone to the tea with a hint of sweetness. Perfect to calm nerves and settle yourself before going to bed.  ",
+            label: "",
+            stock: 19,
+            imageName: "the_jasmine_pearl",
+            review: 2.8,
+            price: 9,
+        },
+        {
+            title: "The Ambassadore",
+            category: "Chai tea",
+            description:
+                " The Ambassador is a spiced masala chai with roots in the finest Assam tea. A blend of the most exquisite, organic spices (a secret recipe), this tea brings the spiced sweetness of Madagascan Cinnamon to the shores of Calcuttan Chai. The tea has a succulent aroma of cinnamon among other spices. ",
+            label: "Best Seller",
+            stock: 1,
+            imageName: "the_ambassadore",
+            review: 4.8,
+            price: 17,
+        },
+        {
+            title: "Tea Valeriana",
+            category: "Flavoured tea",
+            description:
+                " Infusion of fruits, flowers and plants that help reduce stress. An ideal infusion to relax the body and mind, with a delicate aroma and enveloping taste. ",
+            label: "",
+            stock: 3,
+            imageName: "tea_valeriana",
+            review: 4.8,
+            price: 12,
+        },
+        {
+            title: "White Snow Tea",
+            category: "Darjeeling tea",
+            description:
+                " Sweet and creamy taste that evokes the classic caramelised baked apple tart. Ideal to enjoy in a festive and cosy winter. Its delicate and sweet aroma is an invitation to the well-being that cradles the magnificent properties of White Tea. ",
+            label: "",
+            stock: 6,
+            imageName: "white_snow_tea",
+            review: 4.8,
+            price: 12,
         },
     ]);
 

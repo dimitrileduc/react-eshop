@@ -1,6 +1,6 @@
 import React from "react";
 import {Outlet} from "react-router-dom";
-import FilterWidget from "../../UI/molecules/FilterWidget";
+
 import {Container} from "./styles";
 
 function Products() {

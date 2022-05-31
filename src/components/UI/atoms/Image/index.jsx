@@ -5,8 +5,10 @@ import {isWebpSupported} from "react-image-webp/dist/utils";
 
 import {Img} from "./styles";
 
+// import {roseTea as ImageTest} from "../../../assets/imagesProducts/roseTea.jpg";
+
 function Image({imageName}) {
-    const baseUrl = "./";
+    const baseUrl = "./imagesProducts/";
     const jpegLink = baseUrl + imageName + ".jpg";
     const webpLink = baseUrl + imageName + ".webp";
 

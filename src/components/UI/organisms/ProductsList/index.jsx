@@ -55,6 +55,8 @@ function ProductsList(productsItems, setProductsItems) {
                 return obj[lastFilteredData[0]] === lastFilteredData[1];
             });
             setFilteredItems(newItems);
+        } else {
+            setLastFilteredData([]);
         }
     }
 

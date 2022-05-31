@@ -6,7 +6,6 @@ import {ContainerList} from "./styles";
 import ProductShopItem from "../../molecules/ProductShopItem";
 
 import FilterWidget from "../../molecules/FilterWidget";
-import {useEffect} from "react";
 
 /*
 <li key={slug}>
@@ -22,42 +21,43 @@ function ProductsList(productsItems, setProductsItems) {
         productsItems.productsItems,
     );
     const [lastFilteredData, setLastFilteredData] = useState();
-    //const asArray = Object.entries(productsItems.productsItems);
-    //console.log(productsItems.productsItems[0]);
-    //console.log(typeof productsItems);
 
-    //filterLabel(filter, keyword);
+    //onClick function to set filter by filterType:keyword
     function setFilter(e) {
-        //console.log(e.currentTarget.dataset.val);
         let filter = e.currentTarget.dataset.filter;
         let keyword = e.currentTarget.dataset.keyword;
-        console.log(filter);
-        console.log(keyword);
-        console.log("onClick");
+        // call filter function
+        filterFunction(filter, keyword);
+        // save last filter by filterType:keyword
+        setLastFilteredData([filter, keyword]);
+    }
+
+    // function to reset filter
+    function resetFilter(e) {
+        // detet type filter to reset from button data attr
+        let buttonTypefilter = e.currentTarget.dataset.filter;
+
+        // call last filter
+        let filter = lastFilteredData[0];
+        let keyword = lastFilteredData[1];
+
+        // reset filter with all defaut values
+        setFilteredItems(productsItems.productsItems);
+
+        // filter new values from default with the last filter
+        if (buttonTypefilter !== lastFilteredData[0]) {
+            filterFunction(filter, keyword);
+        } else {
+            setLastFilteredData([]);
+        }
+    }
+
+    // filter function
+    function filterFunction(filter, keyword) {
         let newItems = filteredItems.filter(function (obj) {
             return obj[filter] === keyword;
         });
         setFilteredItems(newItems);
-        setLastFilteredData([filter, keyword]);
-    }
-
-    function resetFilter(e) {
-        let buttonTypefilter = e.currentTarget.dataset.filter;
-        console.log("data to maitain in filter is " + buttonTypefilter);
-
-        console.log("last filtering type" + lastFilteredData[0]);
-        console.log("last filtering keyword" + lastFilteredData[1]);
-
-        setFilteredItems(productsItems.productsItems);
-
-        if (buttonTypefilter !== lastFilteredData[0]) {
-            let newItems = filteredItems.filter(function (obj) {
-                return obj[lastFilteredData[0]] === lastFilteredData[1];
-            });
-            setFilteredItems(newItems);
-        } else {
-            setLastFilteredData([]);
-        }
     }
 
     return (
@@ -82,19 +82,29 @@ function ProductsList(productsItems, setProductsItems) {
                 {Object.entries(filteredItems).map(
                     ([
                         slug,
-                        {title, category, label, description, stock, imageName},
+                        {
+                            id,
+                            title,
+                            category,
+                            label,
+                            description,
+                            stock,
+                            imageName,
+                        },
                     ]) => (
-                        <ProductShopItem
-                            props={{
-                                slug,
-                                title,
-                                category,
-                                label,
-                                description,
-                                stock,
-                                imageName,
-                            }}
-                        />
+                        <Link to={`/products/${slug}`}>
+                            <ProductShopItem
+                                props={{
+                                    slug,
+                                    title,
+                                    category,
+                                    label,
+                                    description,
+                                    stock,
+                                    imageName,
+                                }}
+                            />
+                        </Link>
                     ),
                 )}
             </ContainerList>

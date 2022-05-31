@@ -20,6 +20,7 @@ export default function App() {
     // Setting test products objects
     const [productsItems, setProductsItems] = useState([
         {
+            id: 1,
             title: "The Empress of India",
             category: "Darjeeling tea",
             description:
@@ -31,6 +32,7 @@ export default function App() {
             price: 18,
         },
         {
+            id: 2,
             title: "The Delhi Sultanate",
             category: "Chai tea",
             description:
@@ -42,6 +44,7 @@ export default function App() {
             price: 12,
         },
         {
+            id: 3,
             title: "The Ambassadore",
             category: "Chai tea",
             description:

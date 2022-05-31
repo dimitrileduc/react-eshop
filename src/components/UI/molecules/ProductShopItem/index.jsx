@@ -23,7 +23,6 @@ function ProductShopItem(props) {
     console.log("?" + jpegLink);
     console.log(webpLink);
     */
-
     //console.log(JSON.stringify(props.props));
     //<Image imageJpg={jpegLink} imageWebp={webpLink} />
     return (

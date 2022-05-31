@@ -24,7 +24,7 @@ export default function App() {
             category: "Darjeeling tea",
             description:
                 "Our signature Darjeeling tea, The Empress of India is named after Queen Victoria for whom the Victoria Memorial in Calcutta was built. We acquired this tea straight from one of the best tea gardens in the world, located at the foothills of the Himalayas. With a warm muscatel aroma, this tea is the perfect complement to any occasion with subtle notes of grape and berries in the first sip.",
-            label: "",
+            label: "New",
             stock: 12,
             imageName: "empress_india",
             review: 4.1,
@@ -36,7 +36,7 @@ export default function App() {
             description:
                 "The Delhi Sultanate is a rich, saffron-infused masala chai that glows with a ruby-red hue when brewed. Named after the Mughal Court of Delhi and infused with the 'King of Spices' that is Saffron, this tea is truly royalty in a cup. Rich in the aftertaste and incredibly sought after, this tea has a natural, delicate sweetness that makes it a perfect masala chai for your evening tea party.",
             label: "New",
-            stock: 2,
+            stock: 12,
             imageName: "delhi_sultanate",
             review: 5,
             price: 12,
@@ -94,6 +94,7 @@ export default function App() {
                                     element={
                                         <ProductsList
                                             productsItems={productsItems}
+                                            setProductsItems={setProductsItems}
                                         />
                                     }
                                 />

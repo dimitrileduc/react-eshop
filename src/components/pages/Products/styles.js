@@ -6,3 +6,5 @@ export const Container = styled.div`
     margin-right: 40px;
     padding-top: 85px;
 `;
+
+export const ContainerChild = styled(Container)``;

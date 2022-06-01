@@ -100,6 +100,8 @@ function ProductsList(productsItems, setProductsItems) {
         console.log("Q is " + q);
     }
 
+    ///////////////////////// Filter Search
+
     function search(items) {
         return items.filter((item) => {
             return searchParam.some((newItem) => {
@@ -112,8 +114,6 @@ function ProductsList(productsItems, setProductsItems) {
             });
         });
     }
-
-    ///////////////////////// Filter Search
 
     if (filteredItems) {
         return (

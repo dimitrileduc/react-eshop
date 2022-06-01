@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Link} from "react-router-dom";
 import {
     ContainerList,
@@ -34,6 +34,16 @@ function ProductsList(productsItems, setProductsItems) {
 
     const [filterVisible, setFilterVisible] = useState(false);
 
+    const [searchInputValue, setSearchInputValue] = useState("");
+    const [foundItems, setFoundItems] = useState(filteredItems);
+
+    //     set search query to empty string
+    const [q, setQ] = useState("");
+
+    const [searchParam] = useState(["title"]);
+
+    // Display/Hide Filter bar
+
     function changeFilterVisible() {
         if (filterVisible === true) {
             setFilterVisible(false);
@@ -42,6 +52,8 @@ function ProductsList(productsItems, setProductsItems) {
         }
         console.log(filterVisible);
     }
+
+    // Set Filter
 
     function setFilter(e) {
         const filter = e.currentTarget.dataset.filter;
@@ -60,43 +72,6 @@ function ProductsList(productsItems, setProductsItems) {
         }
     }
 
-    function resetLabelFilter() {
-        setFilteredItemsByLabel(productsItems.productsItems);
-        setFilteredItems(filteredItemsByCategory);
-    }
-
-    /*
-    //onClick function to set filter by filterType:keyword
-    function setFilter(e) {
-        let filter = e.currentTarget.dataset.filter;
-        let keyword = e.currentTarget.dataset.keyword;
-
-        // call filter function
-        filterFunction(filter, keyword);
-        // save last filter by filterType:keyword
-        setLastFilteredData([filter, keyword]);
-    }
-
-    // function to reset filter
-    function resetFilter(e) {
-        // detect type filter to reset from button dataset
-        let buttonTypefilter = e.currentTarget.dataset.filter;
-
-        // call last filter
-        let filter = lastFilteredData[0];
-        let keyword = lastFilteredData[1];
-
-        // reset filter with all defaut values
-        setFilteredItems(productsItems.productsItems);
-        console.log("DIFF" + buttonTypefilter + " " + lastFilteredData[0]);
-        // filter new values from default with the last filter
-        if (buttonTypefilter !== lastFilteredData[0]) {
-            filterFunction(filter, keyword);
-        } else {
-            setLastFilteredData([]);
-        }
-    }
-*/
     // filter function
     function filterByLabel(filter, keyword) {
         let newItems = filteredItemsByCategory.filter(function (obj) {
@@ -116,6 +91,30 @@ function ProductsList(productsItems, setProductsItems) {
         setFilteredItems(newItems);
     }
 
+    function setFilterReset() {
+        setFilteredItems(productsItems.productsItems);
+    }
+
+    function onChangeInput(e) {
+        setQ(e.target.value);
+        console.log("Q is " + q);
+    }
+
+    function search(items) {
+        return items.filter((item) => {
+            return searchParam.some((newItem) => {
+                return (
+                    item[newItem]
+                        .toString()
+                        .toLowerCase()
+                        .indexOf(q.toLowerCase()) > -1
+                );
+            });
+        });
+    }
+
+    ///////////////////////// Filter Search
+
     if (filteredItems) {
         return (
             <>
@@ -128,38 +127,28 @@ function ProductsList(productsItems, setProductsItems) {
                     </Filter>
                     <FilterBox $visible={filterVisible}>
                         <Search>
-                            <DropDownLabel>
-                                <DropDownButton>
-                                    Select {selectedLabel}
-                                </DropDownButton>
-                                <DropDownContent $isRight={false}>
-                                    <Option onClick={resetLabelFilter}>
-                                        All
-                                    </Option>
-                                    <Option
-                                        onClick={setFilter}
-                                        data-filter="label"
-                                        data-keyword="New">
-                                        New
-                                    </Option>
-                                    <Option
-                                        onClick={setFilter}
-                                        data-filter="label"
-                                        data-keyword="Best Seller">
-                                        Best Sellers
-                                    </Option>
-                                </DropDownContent>
-                            </DropDownLabel>
-                        </Search>
-                        <Category>
                             <Input
                                 aria-label="search filter for products"
-                                placeholder="search"></Input>
-                        </Category>
+                                type="search"
+                                name="search-form"
+                                id="search-form"
+                                className="search-input"
+                                placeholder="Search for..."
+                                value={q}
+                                /*
+                                // set the value of our useState q
+                                //  anytime the user types in the search box
+                                */
+                                onChange={onChangeInput}></Input>
+                        </Search>
+                        <Category></Category>
                         <Price>
                             <DropDownLabel>
                                 <DropDownButton>Category</DropDownButton>
                                 <DropDownContent $isRight={true}>
+                                    <Option onClick={setFilterReset}>
+                                        All
+                                    </Option>
                                     <Option
                                         onClick={setFilter}
                                         data-filter="category"
@@ -191,7 +180,7 @@ function ProductsList(productsItems, setProductsItems) {
                 </FilterContainer>
 
                 <ContainerList>
-                    {Object.entries(filteredItems).map(
+                    {Object.entries(search(filteredItems)).map(
                         ([
                             slug,
                             {
@@ -201,6 +190,7 @@ function ProductsList(productsItems, setProductsItems) {
                                 description,
                                 stock,
                                 imageName,
+                                price,
                             },
                         ]) => (
                             <Link to={`/products/${slug}`}>
@@ -213,6 +203,7 @@ function ProductsList(productsItems, setProductsItems) {
                                         description,
                                         stock,
                                         imageName,
+                                        price,
                                     }}
                                 />
                             </Link>
@@ -225,3 +216,30 @@ function ProductsList(productsItems, setProductsItems) {
 }
 
 export default ProductsList;
+
+/* module for label search 
+<DropDownLabel>
+                                <DropDownButton>
+                                    Select {selectedLabel}
+                                </DropDownButton>
+                                <DropDownContent $isRight={false}>
+                                    <Option onClick={resetLabelFilter}>
+                                        All
+                                    </Option>
+                                    <Option
+                                        onClick={setFilter}
+                                        data-filter="label"
+                                        data-keyword="New">
+                                        New
+                                    </Option>
+                                    <Option
+                                        onClick={setFilter}
+                                        data-filter="label"
+                                        data-keyword="Best Seller">
+                                        Best Sellers
+                                    </Option>
+                                </DropDownContent>
+                            </DropDownLabel>
+
+
+*/

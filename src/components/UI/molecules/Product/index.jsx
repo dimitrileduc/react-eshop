@@ -22,9 +22,22 @@ function Product(productsItems) {
     const {slug} = useParams();
     console.log(productsItems.productsItems);
 
+    console.log("slug current is " + {slug}.slug);
+
     const product = productsItems.productsItems[slug];
     console.log(product);
-    const {title, description} = product;
+    const {
+        title,
+        description,
+        label,
+        category,
+        price,
+        review,
+        stock,
+        imageName,
+    } = product;
+
+    console.log(label);
     // <Image imageJpg={ImageJpg} imageWebp={ImageWebp} />
     return (
         /*
@@ -37,12 +50,21 @@ function Product(productsItems) {
             <div>Back</div>
             <ContainerProduct>
                 <ContainerGrid>
-                    <ContainerImage></ContainerImage>
+                    <ContainerImage>
+                        <Image imageName={imageName} />
+                    </ContainerImage>
                     <Label>
-                        <LabelStyled>LABEL</LabelStyled>
+                        <LabelStyled>{label}</LabelStyled>
                     </Label>
                     <ContainerContent>
-                        <ContentProduct />
+                        <ContentProduct
+                            title={title}
+                            description={description}
+                            category={category}
+                            price={price}
+                            review={review}
+                            stock={stock}
+                        />
                     </ContainerContent>
                     <ContainerRelated></ContainerRelated>
                 </ContainerGrid>

@@ -40,7 +40,7 @@ function ProductShopItem(props) {
                 <CategoryContainer>
                     <Category>{props.props.category}</Category>
                 </CategoryContainer>
-                <PriceContainer>{props.props.price}</PriceContainer>
+                <PriceContainer>{props.props.price} Eur</PriceContainer>
             </InfosContainer>
         </ProductContainer>
     );

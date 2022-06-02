@@ -21,15 +21,12 @@ import "./App.css";
 export default function App() {
     // Setting test products objects
     const {user, isAuthenticated, isLoading} = useAuth0();
-    const [currentUser, setcurrentUser] = useState();
-    const [currentBasket, setCurrentBasket] = useState();
-
+    const [isCartVisible, setIsCartVisible] = useState(false);
     useEffect(() => {
         if (isLoading) {
             console.log("...loading....");
         } else {
             if (user) {
-                setcurrentUser(user);
                 console.log(user);
             }
         }
@@ -161,7 +158,10 @@ export default function App() {
                                     ...(isMobile ? (
                                         <LayoutMobile />
                                     ) : (
-                                        <Layout />
+                                        <Layout
+                                            isCartVisible={isCartVisible}
+                                            setIsCartVisible={setIsCartVisible}
+                                        />
                                     )),
                                 }}>
                                 <Route index element={<Home />} />

@@ -8,14 +8,17 @@ import IconsGroup from "../../molecules/IconsGroup/index.jsx";
 import LogoPng from "../../../assets/logo/logo.png";
 import LogoWebp from "../../../assets/logo/logo.webp";
 
-function Header() {
+function Header({setIsCartVisible, isCartVisible}) {
     return (
         <HeaderDiv>
             <Navbar />
 
             <Logo logoPng={LogoPng} logoWebp={LogoWebp} />
 
-            <IconsGroup />
+            <IconsGroup
+                setIsCartVisible={setIsCartVisible}
+                isCartVisible={isCartVisible}
+            />
         </HeaderDiv>
     );
 }

@@ -6,27 +6,50 @@ import {Button} from "./styles.js";
 function IconUser() {
     const {loginWithRedirect} = useAuth0();
     const {logout} = useAuth0();
+    const {user, isAuthenticated, isLoading} = useAuth0();
 
-    return (
-        <>
-            <Button onClick={() => loginWithRedirect()}>
+    function setUser() {
+        if (!isLoading) {
+            if (isAuthenticated === true) {
+                logout({returnTo: window.location.origin});
+            } else {
+                loginWithRedirect();
+            }
+        }
+    }
+
+    let icon;
+    if (!isLoading) {
+        if (isAuthenticated === true) {
+            icon = (
                 <Icon
                     style={{
                         width: "24px",
                         height: "24px",
+                        fill: "green",
                     }}
                 />
-            </Button>
-            <Button onClick={() => logout({returnTo: window.location.origin})}>
+            );
+        } else {
+            icon = (
                 <Icon
                     style={{
                         width: "24px",
                         height: "24px",
+                        fill: "black",
                     }}
                 />
-            </Button>
-        </>
-    );
+            );
+        }
+    }
+
+    if (!isLoading) {
+        return (
+            <>
+                <Button onClick={() => setUser()}>{icon}</Button>
+            </>
+        );
+    }
 }
 
 export default IconUser;

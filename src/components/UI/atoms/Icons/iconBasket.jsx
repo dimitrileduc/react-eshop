@@ -1,18 +1,36 @@
 import React from "react";
-import {ReactComponent as Icon} from "../../../assets/icons/basket.svg";
+import {ReactComponent as IconeBasket} from "../../../assets/icons/basket.svg";
+import {ReactComponent as IconeClose} from "../../../assets/icons/close.svg";
 import {Button} from "./styles.js";
 
-function IconBasket() {
-    return (
-        <Button>
-            <Icon
+function IconBasket({setIsCartVisible, isCartVisible}) {
+    function handleClick() {
+        setIsCartVisible((prev) => !prev);
+    }
+    let icon;
+    if (isCartVisible) {
+        icon = (
+            <IconeClose
+                onClick={handleClick}
                 style={{
                     width: "24px",
                     height: "24px",
                 }}
             />
-        </Button>
-    );
+        );
+    } else {
+        icon = (
+            <IconeBasket
+                onClick={handleClick}
+                style={{
+                    width: "24px",
+                    height: "24px",
+                }}
+            />
+        );
+    }
+
+    return <Button>{icon}</Button>;
 }
 
 export default IconBasket;

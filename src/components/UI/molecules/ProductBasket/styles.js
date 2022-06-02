@@ -8,14 +8,17 @@ export const Container = styled.div`
     gap: 0px 0px;
     grid-template-areas: "image content";
     border-top: lightgrey 1px solid;
+
+    padding-bottom: 10px;
+    padding-top: 10px;
 `;
 
 export const ImageContainer = styled.div`
     justify-self: start;
     align-self: center;
     grid-area: image;
-    width: 80px;
-    height: 80px;
+    height: 100%;
+    width: auto;
     background-color: yellow;
 `;
 
@@ -72,6 +75,8 @@ export const QuantityContainer = styled.div`
     color: #000000;
     font-size: 14px;
     letter-spacing: 0.4px;
+
+    padding-bottom: 10px;
 `;
 
 export const PriceContainer = styled.div`
@@ -85,6 +90,7 @@ export const PriceContainer = styled.div`
     color: #000000;
     font-size: 14px;
     letter-spacing: 0.4px;
+    padding-bottom: 10px;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -115,6 +121,20 @@ export const Button = styled.button`
     cursor: pointer;
     border: lightgray 1px solid;
     padding: 5px;
-    width: 90%;
+    width: 88%;
     text-align: center;
+
+    font-weight: 600;
+    font-family: "Inter-Medium", "Inter", sans-serif;
+    color: #000000;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+
+    opacity: 0.6;
+
+    //text-transform: uppercase;
+
+    :hover {
+        border: black 1px solid;
+    }
 `;

@@ -22,12 +22,12 @@ function ProductBasket() {
                 <ContentContainer>
                     <TitleContainer>The Delhi Sultanate</TitleContainer>
                     <InfosContainer>
-                        <QuantityContainer>Quantity : 2</QuantityContainer>
+                        <QuantityContainer>Quantity : 2 </QuantityContainer>
                         <PriceContainer>24 Eur</PriceContainer>
                     </InfosContainer>
                     <ButtonsContainer>
                         <ButtonLeftContainer>
-                            <Button>Edit</Button>
+                            <Button>View</Button>
                         </ButtonLeftContainer>
                         <ButtonRightContainer>
                             <Button>Remove</Button>
@@ -45,7 +45,7 @@ function ProductBasket() {
                     </InfosContainer>
                     <ButtonsContainer>
                         <ButtonLeftContainer>
-                            <Button>Edit</Button>
+                            <Button>View</Button>
                         </ButtonLeftContainer>
                         <ButtonRightContainer>
                             <Button>Remove</Button>

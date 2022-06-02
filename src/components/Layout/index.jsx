@@ -5,13 +5,15 @@ import Footer from "../UI/organisms/Footer";
 
 import {ContainerLayout} from "./styles";
 
-const Layout = ({setIsCartVisible, isCartVisible}) => {
+const Layout = ({setIsCartVisible, isCartVisible, basket, setBasket}) => {
     return (
         <>
             <ContainerLayout>
                 <Header
                     setIsCartVisible={setIsCartVisible}
                     isCartVisible={isCartVisible}
+                    setBasket={setBasket}
+                    basket={basket}
                 />
                 <Outlet />
                 <Footer />

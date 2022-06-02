@@ -38,14 +38,8 @@ export default function App() {
             }
         }
     }, [isLoading, user]);
-    /*
-    useEffect(() => {
-        var retrievedObject = JSON.parse(
-            window.localStorage.getItem("products"),
-        );
-        console.log("retrieved" + retrievedObject);
-    }, []);*/
 
+    // update localStorage value when basket Items changed
     useEffect(() => {
         // setBasket(JSON.parse(window.localStorage.getItem("products")));
         console.log("new Basket" + JSON.stringify(basket));
@@ -53,6 +47,10 @@ export default function App() {
     }, [basket]);
 
     console.log(basket);
+
+    function removeItemFromBasket() {
+        window.localStorage.clear();
+    }
 
     const [productsItems, setProductsItems] = useState([
         {
@@ -183,6 +181,8 @@ export default function App() {
                                         <Layout
                                             isCartVisible={isCartVisible}
                                             setIsCartVisible={setIsCartVisible}
+                                            setBasket={setBasket}
+                                            basket={basket}
                                         />
                                     )),
                                 }}>

@@ -14,13 +14,13 @@ import {
     Button,
 } from "./styles";
 
-function ProductBasket() {
+function ProductBasket({product}) {
     return (
         <>
             <Container>
                 <ImageContainer>Image</ImageContainer>
                 <ContentContainer>
-                    <TitleContainer>The Delhi Sultanate</TitleContainer>
+                    <TitleContainer>{product.title}</TitleContainer>
                     <InfosContainer>
                         <QuantityContainer>Quantity : 2 </QuantityContainer>
                         <PriceContainer>24 Eur</PriceContainer>

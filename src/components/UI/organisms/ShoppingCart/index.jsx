@@ -14,15 +14,21 @@ import {
 
 import ProductBasket from "../../molecules/ProductBasket";
 
-function ShoppingCart({isCartVisible}) {
+function ShoppingCart({isCartVisible, basket, setBasket}) {
+    console.log("basket in card" + JSON.stringify(basket[0]));
+
+    const renderList = basket.map((item, index) => (
+        //<div key={index}>{item.product.title}</div>,
+        //console.log(item.product.title),
+        <ProductBasket product={item.product}></ProductBasket>
+    ));
+
     return (
         <ContainerCart $isVisible={isCartVisible}>
             <ContainerBorder>
                 <ContainerGrid>
                     <TitleCart>SHOPPING BAG</TitleCart>
-                    <ContainerProducts>
-                        <ProductBasket></ProductBasket>
-                    </ContainerProducts>
+                    <ContainerProducts>{renderList}</ContainerProducts>
                     <ContainerButtonsCart>
                         <ContainerButtonLeftCart>
                             <SubButton>

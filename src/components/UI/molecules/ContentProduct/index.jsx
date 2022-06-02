@@ -26,12 +26,28 @@ function ContentProduct({
     imageName,
 }) {
     function addToBasket(e) {
-        const newBasketItem = {
-            product: {title: title, imageName: imageName},
-            quantity: 1,
-        };
-        setBasket((oldArray) => oldArray.concat(newBasketItem));
-        //setBasket([...basket, newBasketItem]);
+        let isPresent = false;
+        let newArray = [];
+        basket.forEach(function (element) {
+            if (element.product.title === title) {
+                isPresent = true;
+                console.log("is object present in basket" + isPresent);
+                element.quantity += 1;
+            }
+            newArray.push(element);
+        });
+        if (isPresent === true) {
+            setBasket(newArray);
+        }
+        if (isPresent === false) {
+            //console.log(basket.some((item) => item.a === "b"));
+            const newBasketItem = {
+                product: {title: title, imageName: imageName},
+                quantity: 1,
+            };
+            setBasket((oldArray) => oldArray.concat(newBasketItem));
+            //setBasket([...basket, newBasketItem]);
+        }
     }
 
     return (

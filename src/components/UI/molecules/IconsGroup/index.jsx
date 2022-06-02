@@ -6,7 +6,7 @@ import ShoppingCart from "../../organisms/ShoppingCart";
 
 import {BrowserRouter, Route, Link} from "react-router-dom";
 
-function IconsGroup({setIsCartVisible, isCartVisible}) {
+function IconsGroup({setIsCartVisible, isCartVisible, basket, setBasket}) {
     return (
         <>
             <Container>
@@ -17,7 +17,11 @@ function IconsGroup({setIsCartVisible, isCartVisible}) {
                     isCartVisible={isCartVisible}
                 />
             </Container>
-            <ShoppingCart isCartVisible={isCartVisible} />
+            <ShoppingCart
+                isCartVisible={isCartVisible}
+                setBasket={setBasket}
+                basket={basket}
+            />
         </>
     );
 }

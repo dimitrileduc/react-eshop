@@ -14,10 +14,26 @@ import Account from "./components/pages/Account";
 
 import ScrollToTop from "./components/utils/ScrollToTop";
 
+import {useAuth0} from "@auth0/auth0-react";
+
 import "./App.css";
 
 export default function App() {
     // Setting test products objects
+    const {user, isAuthenticated, isLoading} = useAuth0();
+    const [currentUser, setcurrentUser] = useState();
+
+    useEffect(() => {
+        if (isLoading) {
+            console.log("...loading....");
+        } else {
+            if (user) {
+                setcurrentUser(user);
+                console.log(user);
+            }
+        }
+    }, [isLoading, user]);
+
     const [productsItems, setProductsItems] = useState([
         {
             title: "The Empress of India",
@@ -126,48 +142,59 @@ export default function App() {
     }, []);
 
     const isMobile = windowDimension <= 680;
-    console.log(isMobile);
+    //console.log(isMobile);
 
     // Test purpose
-    console.log("render count ");
+    //console.log("render count ");
 
     // return jsx
-    return (
-        <>
-            <Router>
-                <ScrollToTop>
-                    <Routes>
-                        <Route
-                            path="/"
-                            element={{
-                                ...(isMobile ? <LayoutMobile /> : <Layout />),
-                            }}>
-                            <Route index element={<Home />} />
-                            <Route path="products" element={<Products />}>
+    if (!isLoading) {
+        return (
+            <>
+                <Router>
+                    <ScrollToTop>
+                        <Routes>
+                            <Route
+                                path="/"
+                                element={{
+                                    ...(isMobile ? (
+                                        <LayoutMobile />
+                                    ) : (
+                                        <Layout />
+                                    )),
+                                }}>
+                                <Route index element={<Home />} />
+                                <Route path="products" element={<Products />}>
+                                    <Route
+                                        index
+                                        element={
+                                            <ProductsList
+                                                productsItems={productsItems}
+                                                setProductsItems={
+                                                    setProductsItems
+                                                }
+                                            />
+                                        }
+                                    />
+                                    <Route
+                                        path=":slug"
+                                        element={
+                                            <Product
+                                                productsItems={productsItems}
+                                            />
+                                        }
+                                    />
+                                </Route>
+                                <Route path="contacts" element={<Contacts />} />
                                 <Route
-                                    index
-                                    element={
-                                        <ProductsList
-                                            productsItems={productsItems}
-                                            setProductsItems={setProductsItems}
-                                        />
-                                    }
-                                />
-                                <Route
-                                    path=":slug"
-                                    element={
-                                        <Product
-                                            productsItems={productsItems}
-                                        />
-                                    }
+                                    path="myaccount"
+                                    element={<Account userCurrent={user} />}
                                 />
                             </Route>
-                            <Route path="contacts" element={<Contacts />} />
-                            <Route path="myaccount" element={<Account />} />
-                        </Route>
-                    </Routes>
-                </ScrollToTop>
-            </Router>
-        </>
-    );
+                        </Routes>
+                    </ScrollToTop>
+                </Router>
+            </>
+        );
+    }
 }

@@ -1,4 +1,5 @@
 import React from "react";
+
 import {
     Container,
     ContainerPersonnal,
@@ -12,11 +13,18 @@ import {
     Title,
 } from "./styles";
 
-function Account() {
+function Account(user) {
+    console.log(user.userCurrent);
+
     return (
         <>
             <MainContainer>
                 <Container>
+                    <div>
+                        <img src={user.userCurrent.picture} alt="profile pic" />
+                        <h2>{user.userCurrent.name}</h2>
+                        <p>{user.userCurrent.email}</p>
+                    </div>
                     <ContainerPersonnal>
                         <ContainerTitle>
                             <Title>Personnal informations</Title>

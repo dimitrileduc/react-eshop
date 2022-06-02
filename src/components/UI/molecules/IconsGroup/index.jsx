@@ -8,12 +8,14 @@ import {BrowserRouter, Route, Link} from "react-router-dom";
 function IconsGroup() {
     return (
         <Container>
-            <Link to="/myaccount">
-                <IconUser />
-            </Link>
+            <IconUser />
+
             <IconBasket />
         </Container>
     );
 }
 
 export default IconsGroup;
+
+//<Link to="/myaccount">
+//  </Link>

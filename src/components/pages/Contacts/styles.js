@@ -56,8 +56,16 @@ export const ContainerMap = styled.div`
     justify-self: start;
     grid-area: map;
     border: 1px lightgray solid;
-    justify-content: center;
+
     width: 100%;
+    //height: 400px;
+    -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+
+    :hover {
+        filter: grayscale(0%);
+    }
 
     @media screen and (max-width: 600px) {
         display: none;

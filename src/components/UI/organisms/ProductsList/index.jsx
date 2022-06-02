@@ -50,7 +50,6 @@ function ProductsList(productsItems, setProductsItems) {
         } else {
             setFilterVisible(true);
         }
-        console.log(filterVisible);
     }
 
     // Set Filter
@@ -60,14 +59,12 @@ function ProductsList(productsItems, setProductsItems) {
         const keyword = e.currentTarget.dataset.keyword;
 
         setFilteredItems(productsItems.productsItems);
-        console.log("current Filtered items " + productsItems.productsItems);
 
         if (filter === "label") {
             setSelectedLabel(keyword);
             filterByLabel(filter, keyword);
         }
         if (filter === "category") {
-            console.log("filter is category");
             filterByCategory(filter, keyword);
         }
     }
@@ -77,7 +74,7 @@ function ProductsList(productsItems, setProductsItems) {
         let newItems = filteredItemsByCategory.filter(function (obj) {
             return obj[filter] === keyword;
         });
-        console.log(newItems + " Newitems");
+
         setFilteredItemsByLabel(newItems);
         setFilteredItems(newItems);
     }
@@ -86,7 +83,7 @@ function ProductsList(productsItems, setProductsItems) {
         let newItems = filteredItemsByLabel.filter(function (obj) {
             return obj[filter] === keyword;
         });
-        console.log(newItems + " Newitems");
+
         setFilteredItemsByCategory(newItems);
         setFilteredItems(newItems);
     }
@@ -97,7 +94,6 @@ function ProductsList(productsItems, setProductsItems) {
 
     function onChangeInput(e) {
         setQ(e.target.value);
-        console.log("Q is " + q);
     }
 
     ///////////////////////// Filter Search

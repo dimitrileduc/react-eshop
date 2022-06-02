@@ -8,6 +8,8 @@ import ImageWebp from "../../assets/map/map.webp";
 
 import Image from "../../UI/atoms/Image";
 
+import Map from "../../UI/atoms/Map";
+
 import {
     ContainerForm,
     ContainerPage,
@@ -129,7 +131,9 @@ function Contact() {
                         )}
                     </Formik>
 
-                    <ContainerMap>Map</ContainerMap>
+                    <ContainerMap>
+                        <Map />
+                    </ContainerMap>
                 </ContentContainer>
             </ContainerGrid>
         </ContainerPage>

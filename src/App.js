@@ -22,6 +22,7 @@ export default function App() {
     // Setting test products objects
     const {user, isAuthenticated, isLoading} = useAuth0();
     const [currentUser, setcurrentUser] = useState();
+    const [currentBasket, setCurrentBasket] = useState();
 
     useEffect(() => {
         if (isLoading) {

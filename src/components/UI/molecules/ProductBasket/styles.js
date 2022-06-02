@@ -1,17 +1,22 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+    //padding-top: 20px;
     display: grid;
     grid-template-columns: 1fr 2fr;
     grid-template-rows: 1fr;
     gap: 0px 0px;
     grid-template-areas: "image content";
+    border-top: lightgrey 1px solid;
 `;
 
 export const ImageContainer = styled.div`
-    justify-self: center;
+    justify-self: start;
     align-self: center;
     grid-area: image;
+    width: 80px;
+    height: 80px;
+    background-color: yellow;
 `;
 
 export const ContentContainer = styled.div`
@@ -23,15 +28,26 @@ export const ContentContainer = styled.div`
         "title"
         "infos"
         "buttons";
-    justify-self: center;
+    justify-self: stretch;
     align-self: center;
     grid-area: content;
+
+    //border: red dashed 1px;
 `;
 
 export const TitleContainer = styled.div`
     justify-self: start;
     align-self: start;
     grid-area: title;
+
+    text-align: center;
+    font-weight: 600;
+    font-family: "Inter-Medium", "Inter", sans-serif;
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0.2px;
+
+    opacity: 0.8;
 `;
 
 export const InfosContainer = styled.div`
@@ -49,12 +65,26 @@ export const QuantityContainer = styled.div`
     justify-self: start;
     align-self: center;
     grid-area: quantity;
+
+    opacity: 0.6;
+    font-weight: 500;
+    font-family: "Inter-Medium", "Inter", sans-serif;
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0.4px;
 `;
 
 export const PriceContainer = styled.div`
     justify-self: end;
     align-self: center;
     grid-area: price;
+
+    opacity: 0.8;
+    font-weight: 500;
+    font-family: "Inter-Medium", "Inter", sans-serif;
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0.4px;
 `;
 
 export const ButtonsContainer = styled.div`
@@ -70,10 +100,21 @@ export const ButtonLeftContainer = styled.div`
     justify-self: start;
     align-self: center;
     grid-area: buttonLeft;
+    width: 100%;
 `;
 
 export const ButtonRightContainer = styled.div`
     justify-self: end;
     align-self: center;
     grid-area: buttonRight;
+    width: 90%;
+`;
+
+export const Button = styled.button`
+    all: unset;
+    cursor: pointer;
+    border: lightgray 1px solid;
+    padding: 5px;
+    width: 90%;
+    text-align: center;
 `;

@@ -1,20 +1,27 @@
 import styled from "styled-components";
 
 export const ContainerCart = styled.div`
-    width: 300px;
+    width: 385px;
     height: auto;
-    border: solid lightgrey 1px;
-    margin-left: -300px;
+    border: dashed lightgrey 1px;
+    margin-left: -385px;
     position: relative;
     margin-top: auto;
     padding-top: 50px;
 `;
 
+export const ContainerBorder = styled.div`
+    border: solid lightgrey 1px;
+    background-color: white;
+`;
+
 export const ContainerGrid = styled.div`
     border: solid grey 1px;
-    background-color: white;
+
     display: flex;
     flex-direction: column;
+    margin-left: 20px;
+    margin-right: 20px;
 `;
 
 export const TitleCart = styled.div`
@@ -27,12 +34,31 @@ export const TitleCart = styled.div`
     text-transform: uppercase;
     opacity: 0.7;
     padding-top: 10px;
-    padding-bottom: 10px;
+    //padding-bottom: 10px;
 `;
 
 export const ContainerProducts = styled.div`
-    border: 1px dashed lightblue;
+    //padding-top: 10px;
+    //padding-bottom: 10px;
+`;
 
-    padding-top: 10px;
-    padding-bottom: 10px;
+export const ContainerButtonsCart = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-template-areas: "buttonLeft buttonRight";
+    border-top: lightgrey 1px solid;
+`;
+
+export const ContainerButtonLeftCart = styled.div`
+    justify-self: end;
+    align-self: center;
+    grid-area: buttonLeft;
+`;
+
+export const ContainerButtonRightCart = styled.div`
+    justify-self: start;
+    align-self: center;
+    grid-area: buttonRight;
 `;

@@ -11,24 +11,49 @@ import {
     ButtonsContainer,
     ButtonLeftContainer,
     ButtonRightContainer,
+    Button,
 } from "./styles";
 
 function ProductBasket() {
     return (
-        <Container>
-            <ImageContainer>Image</ImageContainer>
-            <ContentContainer>
-                <TitleContainer>Title</TitleContainer>
-                <InfosContainer>
-                    <QuantityContainer>Quantity</QuantityContainer>
-                    <PriceContainer>Price</PriceContainer>
-                </InfosContainer>
-                <ButtonsContainer>
-                    <ButtonLeftContainer>Left B</ButtonLeftContainer>
-                    <ButtonRightContainer>Right B</ButtonRightContainer>
-                </ButtonsContainer>
-            </ContentContainer>
-        </Container>
+        <>
+            <Container>
+                <ImageContainer>Image</ImageContainer>
+                <ContentContainer>
+                    <TitleContainer>The Delhi Sultanate</TitleContainer>
+                    <InfosContainer>
+                        <QuantityContainer>Quantity : 2</QuantityContainer>
+                        <PriceContainer>24 Eur</PriceContainer>
+                    </InfosContainer>
+                    <ButtonsContainer>
+                        <ButtonLeftContainer>
+                            <Button>Edit</Button>
+                        </ButtonLeftContainer>
+                        <ButtonRightContainer>
+                            <Button>Remove</Button>
+                        </ButtonRightContainer>
+                    </ButtonsContainer>
+                </ContentContainer>
+            </Container>
+            <Container>
+                <ImageContainer>Image</ImageContainer>
+                <ContentContainer>
+                    <TitleContainer>The Delhi Sultanate</TitleContainer>
+                    <InfosContainer>
+                        <QuantityContainer>Quantity : 2</QuantityContainer>
+                        <PriceContainer>24 Eur</PriceContainer>
+                    </InfosContainer>
+                    <ButtonsContainer>
+                        <ButtonLeftContainer>
+                            <Button>Edit</Button>
+                        </ButtonLeftContainer>
+                        <ButtonRightContainer>
+                            <Button>Remove</Button>
+                        </ButtonRightContainer>
+                    </ButtonsContainer>
+                </ContentContainer>
+            </Container>
+        </>
     );
 }
 

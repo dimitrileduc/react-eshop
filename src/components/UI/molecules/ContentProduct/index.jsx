@@ -14,7 +14,26 @@ import {
     Button,
 } from "./styles";
 
-function ContentProduct({title, description, category, price, review, stock}) {
+function ContentProduct({
+    title,
+    description,
+    category,
+    price,
+    review,
+    stock,
+    setBasket,
+    basket,
+    imageName,
+}) {
+    function addToBasket(e) {
+        const newBasketItem = {
+            product: {title: title, imageName: imageName},
+            quantity: 1,
+        };
+        setBasket((oldArray) => oldArray.concat(newBasketItem));
+        //setBasket([...basket, newBasketItem]);
+    }
+
     return (
         <Container>
             <TitleContainer>
@@ -30,7 +49,7 @@ function ContentProduct({title, description, category, price, review, stock}) {
                 <Price>{price} EUR</Price>
             </PriceContainer>
             <ButtonContainer>
-                <Button>Add to cart</Button>
+                <Button onClick={addToBasket}>Add to cart</Button>
             </ButtonContainer>
         </Container>
     );

@@ -22,6 +22,13 @@ export default function App() {
     // Setting test products objects
     const {user, isAuthenticated, isLoading} = useAuth0();
     const [isCartVisible, setIsCartVisible] = useState(false);
+    const [basket, setBasket] = useState(() => {
+        // getting stored value
+        const saved = localStorage.getItem("products");
+        const initialValue = JSON.parse(saved);
+        return initialValue || [];
+    });
+
     useEffect(() => {
         if (isLoading) {
             console.log("...loading....");
@@ -31,6 +38,21 @@ export default function App() {
             }
         }
     }, [isLoading, user]);
+    /*
+    useEffect(() => {
+        var retrievedObject = JSON.parse(
+            window.localStorage.getItem("products"),
+        );
+        console.log("retrieved" + retrievedObject);
+    }, []);*/
+
+    useEffect(() => {
+        // setBasket(JSON.parse(window.localStorage.getItem("products")));
+        console.log("new Basket" + JSON.stringify(basket));
+        window.localStorage.setItem("products", JSON.stringify(basket));
+    }, [basket]);
+
+    console.log(basket);
 
     const [productsItems, setProductsItems] = useState([
         {
@@ -182,6 +204,8 @@ export default function App() {
                                         element={
                                             <Product
                                                 productsItems={productsItems}
+                                                setBasket={setBasket}
+                                                basket={basket}
                                             />
                                         }
                                     />

@@ -18,13 +18,11 @@ import Image from "../../atoms/Image/index.jsx";
 import ContentProduct from "../ContentProduct";
 import RelatedProducts from "../RelatedProducts";
 
-function Product(productsItems) {
+function Product({productsItems, setBasket, basket}) {
     const {slug} = useParams();
-    console.log(productsItems.productsItems);
+    console.log(productsItems);
 
-    console.log("slug current is " + {slug}.slug);
-
-    const product = productsItems.productsItems[slug];
+    const product = productsItems[slug];
     console.log(product);
     const {
         title,
@@ -64,6 +62,9 @@ function Product(productsItems) {
                             price={price}
                             review={review}
                             stock={stock}
+                            setBasket={setBasket}
+                            imageName={imageName}
+                            basket={basket}
                         />
                     </ContainerContent>
                     <ContainerRelated></ContainerRelated>

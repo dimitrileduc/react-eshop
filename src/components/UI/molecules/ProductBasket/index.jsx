@@ -38,13 +38,13 @@ function ProductBasket({
 
                 // Check if quantity change is from this component or if product is added from single product page
                 // if from product page => incr price
-                if (!changeQuantityIsFromBasket) {
-                    const newPrice = currentPrice + product.price;
+                if (changeQuantityIsFromBasket === false) {
+                    const newPrice = currentPrice + element.product.price;
                     setCurrentPrice(newPrice);
                 }
             }
         });
-    }, [basket]);
+    }, [quantity]);
 
     // remove item from basket
     function removeItem(e) {

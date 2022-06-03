@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import {
     ContainerCart,
     ContainerGrid,
@@ -15,7 +15,20 @@ import {
 import ProductBasket from "../../molecules/ProductBasket";
 
 function ShoppingCart({isCartVisible, basket, setBasket}) {
+    const [total, setTotal] = useState(0);
+
     console.log("basket in card" + JSON.stringify(basket[0]));
+
+    useEffect(() => {
+        setTotal(0);
+        let subTotal = 0;
+        basket.map(
+            (item, index) =>
+                (subTotal = subTotal + item.quantity * item.product.price),
+        );
+        setTotal(subTotal);
+        console.log(total);
+    }, [basket]);
 
     const renderList = basket.map((item, index) => (
         //<div key={index}>{item.product.title}</div>,
@@ -36,7 +49,7 @@ function ShoppingCart({isCartVisible, basket, setBasket}) {
                     <ContainerButtonsCart>
                         <ContainerButtonLeftCart>
                             <SubButton>
-                                Total : <strong>€99</strong>{" "}
+                                Total : <strong>€{total}</strong>{" "}
                             </SubButton>
                         </ContainerButtonLeftCart>
                         <ContainerButtonRightCart>

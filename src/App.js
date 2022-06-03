@@ -206,6 +206,9 @@ export default function App() {
                                                 productsItems={productsItems}
                                                 setBasket={setBasket}
                                                 basket={basket}
+                                                setIsCartVisible={
+                                                    setIsCartVisible
+                                                }
                                             />
                                         }
                                     />

@@ -1,5 +1,7 @@
 import React from "react";
 
+import Image from "../../atoms/Image";
+
 import {
     Container,
     ImageContainer,
@@ -17,6 +19,7 @@ import {
 function ProductBasket({product, basket, setBasket, quantity}) {
     function removeItem(e) {
         let newArray = [];
+        // TO DO : convert to .map function
         basket.forEach(function (element) {
             if (element.product.title === product.title) {
             } else {
@@ -31,12 +34,14 @@ function ProductBasket({product, basket, setBasket, quantity}) {
     return (
         <>
             <Container>
-                <ImageContainer>Image</ImageContainer>
+                <ImageContainer>
+                    <Image imageName={product.imageName} />
+                </ImageContainer>
                 <ContentContainer>
                     <TitleContainer>{product.title}</TitleContainer>
                     <InfosContainer>
                         <QuantityContainer>{quantity}</QuantityContainer>
-                        <PriceContainer>24 Eur</PriceContainer>
+                        <PriceContainer>{product.price}</PriceContainer>
                     </InfosContainer>
                     <ButtonsContainer>
                         <ButtonLeftContainer>

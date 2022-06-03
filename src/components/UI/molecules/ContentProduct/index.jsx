@@ -24,8 +24,10 @@ function ContentProduct({
     setBasket,
     basket,
     imageName,
+    setIsCartVisible,
 }) {
     function addToBasket(e) {
+        setIsCartVisible(true);
         let isPresent = false;
         let newArray = [];
         basket.forEach(function (element) {
@@ -41,7 +43,7 @@ function ContentProduct({
         }
         if (isPresent === false) {
             const newBasketItem = {
-                product: {title: title, imageName: imageName},
+                product: {title: title, imageName: imageName, price: price},
                 quantity: 1,
             };
             setBasket((oldArray) => oldArray.concat(newBasketItem));

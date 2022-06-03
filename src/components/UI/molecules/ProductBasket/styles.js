@@ -19,7 +19,8 @@ export const ImageContainer = styled.div`
     grid-area: image;
     height: 100%;
     width: auto;
-    background-color: yellow;
+    margin-right: 10px;
+    //background-color: yellow;
 `;
 
 export const ContentContainer = styled.div`

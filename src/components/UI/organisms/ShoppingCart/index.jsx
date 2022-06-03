@@ -20,7 +20,11 @@ function ShoppingCart({isCartVisible, basket, setBasket}) {
     const renderList = basket.map((item, index) => (
         //<div key={index}>{item.product.title}</div>,
         //console.log(item.product.title),
-        <ProductBasket product={item.product}></ProductBasket>
+        <ProductBasket
+            product={item.product}
+            basket={basket}
+            setBasket={setBasket}
+            quantity={item.quantity}></ProductBasket>
     ));
 
     return (

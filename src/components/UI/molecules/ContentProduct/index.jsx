@@ -40,7 +40,6 @@ function ContentProduct({
             setBasket(newArray);
         }
         if (isPresent === false) {
-            //console.log(basket.some((item) => item.a === "b"));
             const newBasketItem = {
                 product: {title: title, imageName: imageName},
                 quantity: 1,

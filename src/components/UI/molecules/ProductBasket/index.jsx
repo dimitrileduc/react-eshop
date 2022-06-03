@@ -28,7 +28,7 @@ function ProductBasket({
     setChangeQuantityIsFromBasket,
 }) {
     const [currentQuantity, setCurrentQuantity] = useState(quantity);
-    const [currentPrice, setCurrentPrice] = useState(product.price);
+    const [currentPrice, setCurrentPrice] = useState(0);
 
     // if basket state change --> update currentQuantity and currentPrice
     useEffect(() => {

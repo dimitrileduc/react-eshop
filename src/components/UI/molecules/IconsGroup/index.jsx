@@ -21,6 +21,7 @@ function IconsGroup({setIsCartVisible, isCartVisible, basket, setBasket}) {
                 isCartVisible={isCartVisible}
                 setBasket={setBasket}
                 basket={basket}
+                setIsCartVisible={setIsCartVisible}
             />
         </>
     );

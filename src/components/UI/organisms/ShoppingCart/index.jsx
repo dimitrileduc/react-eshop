@@ -14,7 +14,7 @@ import {
 
 import ProductBasket from "../../molecules/ProductBasket";
 
-function ShoppingCart({isCartVisible, basket, setBasket}) {
+function ShoppingCart({isCartVisible, basket, setBasket, setIsCartVisible}) {
     const [total, setTotal] = useState(0);
 
     console.log("basket in card" + JSON.stringify(basket[0]));
@@ -28,6 +28,15 @@ function ShoppingCart({isCartVisible, basket, setBasket}) {
         );
         setTotal(subTotal);
         console.log(total);
+    }, [basket]);
+
+    useEffect(() => {
+        if (Object.keys(basket).length === 0) {
+            console.log("Object basket is empty");
+            setIsCartVisible(false);
+        }
+
+        console.log("check if basket is empty" + basket);
     }, [basket]);
 
     const renderList = basket.map((item, index) => (

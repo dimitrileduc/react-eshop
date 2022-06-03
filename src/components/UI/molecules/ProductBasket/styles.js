@@ -139,3 +139,33 @@ export const Button = styled.button`
         border: black 1px solid;
     }
 `;
+
+const ButtonQuantity = styled.button`
+    all: unset;
+    cursor: pointer;
+    border: lightgray 1px solid;
+    padding: 5px;
+
+    text-align: center;
+
+    font-weight: 600;
+    font-family: "Inter-Medium", "Inter", sans-serif;
+    color: #000000;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+
+    opacity: 1;
+    padding-left: 8px;
+    padding-right: 8px;
+`;
+
+export const ButtonQuantityL = styled(ButtonQuantity)`
+    margin-right: 10px;
+    color: #000000;
+`;
+export const ButtonQuantityR = styled(ButtonQuantity)`
+    background-color: black;
+    color: #ffffff;
+
+    margin-left: 10px;
+`;

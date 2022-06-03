@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState} from "react";
 
 import Image from "../../atoms/Image";
 
@@ -14,11 +14,15 @@ import {
     ButtonLeftContainer,
     ButtonRightContainer,
     Button,
+    ButtonQuantityL,
+    ButtonQuantityR,
 } from "./styles";
 
 function ProductBasket({product, basket, setBasket, quantity}) {
+    const [currentQuantity, setCurrentQuantity] = useState(quantity);
+    const [currentPrice, setCurrentPrice] = useState(product.price);
     function removeItem(e) {
-        let newArray = [];
+        const newArray = [];
         // TO DO : convert to .map function
         basket.forEach(function (element) {
             if (element.product.title === product.title) {
@@ -31,6 +35,40 @@ function ProductBasket({product, basket, setBasket, quantity}) {
     console.log("title" + product.title);
     console.log("quantity" + quantity);
 
+    function incrQuantity() {
+        const newArray = [];
+        // TO DO : convert to .map function
+        basket.forEach(function (element) {
+            if (element.product.title === product.title) {
+                element.quantity += 1;
+                setCurrentQuantity(element.quantity);
+                const newPrice = currentPrice + product.price;
+                setCurrentPrice(newPrice);
+            } else {
+            }
+            newArray.push(element);
+            setBasket(newArray);
+        });
+    }
+
+    function decrQuantity() {
+        const newArray = [];
+        // TO DO : convert to .map function
+        basket.forEach(function (element) {
+            if (element.product.title === product.title) {
+                if (element.quantity > 0) {
+                    element.quantity -= 1;
+                    setCurrentQuantity(element.quantity);
+                    const newPrice = currentPrice - product.price;
+                    setCurrentPrice(newPrice);
+                }
+            } else {
+            }
+            newArray.push(element);
+            setBasket(newArray);
+        });
+    }
+
     return (
         <>
             <Container>
@@ -40,8 +78,16 @@ function ProductBasket({product, basket, setBasket, quantity}) {
                 <ContentContainer>
                     <TitleContainer>{product.title}</TitleContainer>
                     <InfosContainer>
-                        <QuantityContainer>{quantity}</QuantityContainer>
-                        <PriceContainer>{product.price}</PriceContainer>
+                        <QuantityContainer>
+                            <ButtonQuantityL onClick={decrQuantity}>
+                                -
+                            </ButtonQuantityL>
+                            {currentQuantity}
+                            <ButtonQuantityR onClick={incrQuantity}>
+                                +
+                            </ButtonQuantityR>
+                        </QuantityContainer>
+                        <PriceContainer>{currentPrice}</PriceContainer>
                     </InfosContainer>
                     <ButtonsContainer>
                         <ButtonLeftContainer>

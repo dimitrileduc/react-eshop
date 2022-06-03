@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import {Link} from "react-router-dom";
 
 import Image from "../../atoms/Image";
 
@@ -67,6 +68,9 @@ function ProductBasket({product, basket, setBasket, quantity}) {
             newArray.push(element);
             setBasket(newArray);
         });
+        if (currentPrice === 0) {
+            removeItem();
+        }
     }
 
     return (
@@ -87,11 +91,13 @@ function ProductBasket({product, basket, setBasket, quantity}) {
                                 +
                             </ButtonQuantityR>
                         </QuantityContainer>
-                        <PriceContainer>{currentPrice}</PriceContainer>
+                        <PriceContainer>€{currentPrice}</PriceContainer>
                     </InfosContainer>
                     <ButtonsContainer>
                         <ButtonLeftContainer>
-                            <Button>View</Button>
+                            <Link to={`/products/${product.slug}`}>
+                                <Button>View</Button>
+                            </Link>
                         </ButtonLeftContainer>
                         <ButtonRightContainer>
                             <Button onClick={removeItem}>Remove</Button>

@@ -66,6 +66,7 @@ function Product({productsItems, setBasket, basket, setIsCartVisible}) {
                             imageName={imageName}
                             basket={basket}
                             setIsCartVisible={setIsCartVisible}
+                            slug={slug}
                         />
                     </ContainerContent>
                     <ContainerRelated></ContainerRelated>

@@ -26,8 +26,10 @@ function ContentProduct({
     imageName,
     setIsCartVisible,
     slug,
+    setChangeQuantityIsFromBasket,
 }) {
     function addToBasket(e) {
+        setChangeQuantityIsFromBasket(false);
         setIsCartVisible(true);
         let isPresent = false;
         let newArray = [];

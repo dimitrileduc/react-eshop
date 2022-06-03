@@ -18,7 +18,13 @@ import Image from "../../atoms/Image/index.jsx";
 import ContentProduct from "../ContentProduct";
 import RelatedProducts from "../RelatedProducts";
 
-function Product({productsItems, setBasket, basket, setIsCartVisible}) {
+function Product({
+    productsItems,
+    setBasket,
+    basket,
+    setIsCartVisible,
+    setChangeQuantityIsFromBasket,
+}) {
     const {slug} = useParams();
     console.log(productsItems);
 
@@ -67,6 +73,9 @@ function Product({productsItems, setBasket, basket, setIsCartVisible}) {
                             basket={basket}
                             setIsCartVisible={setIsCartVisible}
                             slug={slug}
+                            setChangeQuantityIsFromBasket={
+                                setChangeQuantityIsFromBasket
+                            }
                         />
                     </ContainerContent>
                     <ContainerRelated></ContainerRelated>

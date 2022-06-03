@@ -14,7 +14,14 @@ import {
 
 import ProductBasket from "../../molecules/ProductBasket";
 
-function ShoppingCart({isCartVisible, basket, setBasket, setIsCartVisible}) {
+function ShoppingCart({
+    isCartVisible,
+    basket,
+    setBasket,
+    setIsCartVisible,
+    changeQuantityIsFromBasket,
+    setChangeQuantityIsFromBasket,
+}) {
     const [total, setTotal] = useState(0);
 
     console.log("basket in card" + JSON.stringify(basket[0]));
@@ -46,7 +53,11 @@ function ShoppingCart({isCartVisible, basket, setBasket, setIsCartVisible}) {
             product={item.product}
             basket={basket}
             setBasket={setBasket}
-            quantity={item.quantity}></ProductBasket>
+            quantity={item.quantity}
+            changeQuantityIsFromBasket={changeQuantityIsFromBasket}
+            setChangeQuantityIsFromBasket={
+                setChangeQuantityIsFromBasket
+            }></ProductBasket>
     ));
 
     return (

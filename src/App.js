@@ -22,6 +22,8 @@ export default function App() {
     // Setting test products objects
     const {user, isAuthenticated, isLoading} = useAuth0();
     const [isCartVisible, setIsCartVisible] = useState(false);
+    const [changeQuantityIsFromBasket, setChangeQuantityIsFromBasket] =
+        useState(false);
     const [basket, setBasket] = useState(() => {
         // getting stored value
         const saved = localStorage.getItem("products");
@@ -183,6 +185,12 @@ export default function App() {
                                             setIsCartVisible={setIsCartVisible}
                                             setBasket={setBasket}
                                             basket={basket}
+                                            changeQuantityIsFromBasket={
+                                                changeQuantityIsFromBasket
+                                            }
+                                            setChangeQuantityIsFromBasket={
+                                                setChangeQuantityIsFromBasket
+                                            }
                                         />
                                     )),
                                 }}>
@@ -208,6 +216,9 @@ export default function App() {
                                                 basket={basket}
                                                 setIsCartVisible={
                                                     setIsCartVisible
+                                                }
+                                                setChangeQuantityIsFromBasket={
+                                                    setChangeQuantityIsFromBasket
                                                 }
                                             />
                                         }

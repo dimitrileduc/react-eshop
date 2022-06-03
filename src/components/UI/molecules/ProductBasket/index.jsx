@@ -57,7 +57,7 @@ function ProductBasket({product, basket, setBasket, quantity}) {
         // TO DO : convert to .map function
         basket.forEach(function (element) {
             if (element.product.title === product.title) {
-                if (element.quantity > 0) {
+                if (element.quantity > 1) {
                     element.quantity -= 1;
                     setCurrentQuantity(element.quantity);
                     const newPrice = currentPrice - product.price;
@@ -69,7 +69,7 @@ function ProductBasket({product, basket, setBasket, quantity}) {
             setBasket(newArray);
         });
         if (currentPrice === 0) {
-            removeItem();
+            //removeItem();
         }
     }
 

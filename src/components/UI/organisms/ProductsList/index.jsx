@@ -189,7 +189,7 @@ function ProductsList(productsItems, setProductsItems) {
                                 price,
                             },
                         ]) => (
-                            <Link to={`/products/${slug}`}>
+                            <Link key={slug} to={`/products/${slug}`}>
                                 <ProductShopItem
                                     props={{
                                         slug,

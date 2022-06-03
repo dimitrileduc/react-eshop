@@ -18,6 +18,8 @@ import {useAuth0} from "@auth0/auth0-react";
 
 import "./App.css";
 
+import createUser from "./components/utils/axiosRequest/createUser";
+
 export default function App() {
     // Setting test products objects
     const {user, isAuthenticated, isLoading} = useAuth0();
@@ -35,11 +37,12 @@ export default function App() {
         if (isLoading) {
             console.log("...loading....");
         } else {
-            if (user) {
+            if (isAuthenticated) {
                 console.log(user);
+                createUser(user);
             }
         }
-    }, [isLoading, user]);
+    }, [user]);
 
     // update localStorage value when basket Items changed
     useEffect(() => {

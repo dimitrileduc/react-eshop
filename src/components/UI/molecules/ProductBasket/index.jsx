@@ -30,21 +30,23 @@ function ProductBasket({
     const [currentQuantity, setCurrentQuantity] = useState(quantity);
     const [currentPrice, setCurrentPrice] = useState(0);
 
-    // if basket state change --> update currentQuantity and currentPrice
+    // if quantity change --> update currentQuantity and currentPrice
     useEffect(() => {
         basket.forEach(function (element) {
             if (element.product.title === product.title) {
                 setCurrentQuantity(element.quantity);
-
                 // Check if quantity change is from this component or if product is added from single product page
                 // if from product page => incr price
                 if (changeQuantityIsFromBasket === false) {
                     const newPrice = currentPrice + element.product.price;
+                    console.log(
+                        "new remove" + (currentPrice + element.product.price),
+                    );
                     setCurrentPrice(newPrice);
                 }
             }
         });
-    }, [quantity]);
+    }, [quantity, product]);
 
     // remove item from basket
     function removeItem(e) {
@@ -56,6 +58,7 @@ function ProductBasket({
                 newArray.push(element);
             }
         });
+
         setBasket(newArray);
     }
 
@@ -67,7 +70,7 @@ function ProductBasket({
         basket.forEach(function (element) {
             if (element.product.title === product.title) {
                 element.quantity += 1;
-
+                setCurrentQuantity(element.quantity);
                 const newPrice = currentPrice + product.price;
                 setCurrentPrice(newPrice);
             } else {
@@ -86,7 +89,7 @@ function ProductBasket({
             if (element.product.title === product.title) {
                 if (element.quantity > 1) {
                     element.quantity -= 1;
-
+                    setCurrentQuantity(element.quantity);
                     const newPrice = currentPrice - product.price;
                     setCurrentPrice(newPrice);
                 }
@@ -95,9 +98,6 @@ function ProductBasket({
             newArray.push(element);
             setBasket(newArray);
         });
-        if (currentPrice === 0) {
-            //removeItem();
-        }
     }
 
     return (

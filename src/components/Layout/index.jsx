@@ -8,10 +8,10 @@ import {ContainerLayout} from "./styles";
 const Layout = ({
     setIsCartVisible,
     isCartVisible,
-    basket,
-    setBasket,
-    changeQuantityIsFromBasket,
-    setChangeQuantityIsFromBasket,
+    cart,
+    orders,
+    productsItems,
+    setOrders,
 }) => {
     return (
         <>
@@ -19,12 +19,10 @@ const Layout = ({
                 <Header
                     setIsCartVisible={setIsCartVisible}
                     isCartVisible={isCartVisible}
-                    setBasket={setBasket}
-                    basket={basket}
-                    changeQuantityIsFromBasket={changeQuantityIsFromBasket}
-                    setChangeQuantityIsFromBasket={
-                        setChangeQuantityIsFromBasket
-                    }
+                    cart={cart}
+                    orders={orders}
+                    productsItems={productsItems}
+                    setOrders={setOrders}
                 />
                 <Outlet />
                 <Footer />

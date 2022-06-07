@@ -16,56 +16,58 @@ import ProductBasket from "../../molecules/ProductBasket";
 
 function ShoppingCart({
     isCartVisible,
-    basket,
-    setBasket,
     setIsCartVisible,
-    changeQuantityIsFromBasket,
-    setChangeQuantityIsFromBasket,
+    cart,
+    orders,
+    productsItems,
+    setOrders,
 }) {
     const [total, setTotal] = useState(0);
 
-    console.log("basket in card" + JSON.stringify(basket[0]));
-
+    // Update total price if orders is updated
     useEffect(() => {
         setTotal(0);
         let subTotal = 0;
-        basket.map(
-            (item, index) =>
-                (subTotal = subTotal + item.quantity * item.product.price),
-        );
+        orders.forEach(function (order) {
+            productsItems.forEach(function (item) {
+                console.log("IFIF " + order.productID + " IFIF " + item.id);
+                if (order.productID === item.id) {
+                    subTotal = subTotal + order.quantity * item.price;
+                } else {
+                }
+            });
+        });
         setTotal(subTotal);
         console.log(total);
-    }, [basket]);
+    }, [orders]);
 
+    // Hide shop cart if no orders
     useEffect(() => {
-        if (Object.keys(basket).length === 0) {
-            console.log("Object basket is empty");
+        if (Object.keys(orders).length === 0) {
             setIsCartVisible(false);
         }
+    }, [orders]);
 
-        console.log("check if basket is empty" + basket);
-    }, [basket]);
-
-    const renderList = basket.map((item, index) => (
-        //<div key={index}>{item.product.title}</div>,
-        //console.log(item.product.title),
-        <ProductBasket
-            product={item.product}
-            basket={basket}
-            setBasket={setBasket}
-            quantity={item.quantity}
-            changeQuantityIsFromBasket={changeQuantityIsFromBasket}
-            setChangeQuantityIsFromBasket={
-                setChangeQuantityIsFromBasket
-            }></ProductBasket>
-    ));
+    const listOrders = orders.map((order) =>
+        order.cartID === cart.id
+            ? productsItems.map((product) =>
+                  order.productID === product.id ? (
+                      <ProductBasket
+                          product={product}
+                          order={order}
+                          orders={orders}
+                          setOrders={setOrders}></ProductBasket>
+                  ) : null,
+              )
+            : null,
+    );
 
     return (
         <ContainerCart $isVisible={isCartVisible}>
             <ContainerBorder>
                 <ContainerGrid>
                     <TitleCart>SHOPPING BAG</TitleCart>
-                    <ContainerProducts>{renderList}</ContainerProducts>
+                    <ContainerProducts>{listOrders}</ContainerProducts>
                     <ContainerButtonsCart>
                         <ContainerButtonLeftCart>
                             <SubButton>

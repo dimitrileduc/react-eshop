@@ -18,19 +18,14 @@ import Image from "../../atoms/Image/index.jsx";
 import ContentProduct from "../ContentProduct";
 import RelatedProducts from "../RelatedProducts";
 
-function Product({
-    productsItems,
-    setBasket,
-    basket,
-    setIsCartVisible,
-    setChangeQuantityIsFromBasket,
-}) {
+function Product({productsItems, setOrders, setIsCartVisible, cart, orders}) {
     const {slug} = useParams();
     console.log(productsItems);
 
     const product = productsItems[slug];
     console.log(product);
     const {
+        id,
         title,
         description,
         label,
@@ -62,20 +57,17 @@ function Product({
                     </Label>
                     <ContainerContent>
                         <ContentProduct
+                            id={id}
                             title={title}
                             description={description}
                             category={category}
                             price={price}
                             review={review}
                             stock={stock}
-                            setBasket={setBasket}
-                            imageName={imageName}
-                            basket={basket}
                             setIsCartVisible={setIsCartVisible}
-                            slug={slug}
-                            setChangeQuantityIsFromBasket={
-                                setChangeQuantityIsFromBasket
-                            }
+                            setOrders={setOrders}
+                            cart={cart}
+                            orders={orders}
                         />
                     </ContainerContent>
                     <ContainerRelated></ContainerRelated>

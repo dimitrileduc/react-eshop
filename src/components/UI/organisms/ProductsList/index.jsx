@@ -18,7 +18,7 @@ import {
 } from "./styles";
 import ProductShopItem from "../../molecules/ProductShopItem";
 
-function ProductsList(productsItems, setProductsItems) {
+function ProductsList(productsItems) {
     const [filteredItems, setFilteredItems] = useState(
         productsItems.productsItems,
     );

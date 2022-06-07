@@ -11,10 +11,10 @@ import LogoWebp from "../../../assets/logo/logo.webp";
 function Header({
     setIsCartVisible,
     isCartVisible,
-    basket,
-    setBasket,
-    changeQuantityIsFromBasket,
-    setChangeQuantityIsFromBasket,
+    cart,
+    orders,
+    productsItems,
+    setOrders,
 }) {
     return (
         <HeaderDiv>
@@ -25,10 +25,10 @@ function Header({
             <IconsGroup
                 setIsCartVisible={setIsCartVisible}
                 isCartVisible={isCartVisible}
-                setBasket={setBasket}
-                basket={basket}
-                changeQuantityIsFromBasket={changeQuantityIsFromBasket}
-                setChangeQuantityIsFromBasket={setChangeQuantityIsFromBasket}
+                cart={cart}
+                orders={orders}
+                productsItems={productsItems}
+                setOrders={setOrders}
             />
         </HeaderDiv>
     );

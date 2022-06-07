@@ -19,85 +19,41 @@ import {
     ButtonQuantityR,
 } from "./styles";
 
-function ProductBasket({
-    product,
-    basket,
-    setBasket,
-    quantity,
-    changeQuantityIsFromBasket,
-    setChangeQuantityIsFromBasket,
-}) {
-    const [currentQuantity, setCurrentQuantity] = useState(quantity);
-    const [currentPrice, setCurrentPrice] = useState(0);
-
-    // if quantity change --> update currentQuantity and currentPrice
-    useEffect(() => {
-        basket.forEach(function (element) {
-            if (element.product.title === product.title) {
-                setCurrentQuantity(element.quantity);
-                // Check if quantity change is from this component or if product is added from single product page
-                // if from product page => incr price
-                if (changeQuantityIsFromBasket === false) {
-                    const newPrice = currentPrice + element.product.price;
-                    console.log(
-                        "new remove" + (currentPrice + element.product.price),
-                    );
-                    setCurrentPrice(newPrice);
-                }
-            }
-        });
-    }, [quantity, product]);
-
-    // remove item from basket
-    function removeItem(e) {
-        const newArray = [];
-        // TO DO : convert to .map function
-        basket.forEach(function (element) {
-            if (element.product.title === product.title) {
-            } else {
-                newArray.push(element);
-            }
-        });
-
-        setBasket(newArray);
-    }
-
-    // incr quantity
+function ProductBasket({product, order, orders, setOrders}) {
+    // To do check cartId
     function incrQuantity() {
-        setChangeQuantityIsFromBasket(true);
-        const newArray = [];
-        // TO DO : convert to .map function
-        basket.forEach(function (element) {
-            if (element.product.title === product.title) {
+        const nOrders = [];
+        orders.forEach(function (element) {
+            if (element.productID === product.id) {
                 element.quantity += 1;
-                setCurrentQuantity(element.quantity);
-                const newPrice = currentPrice + product.price;
-                setCurrentPrice(newPrice);
-            } else {
             }
-            newArray.push(element);
-            setBasket(newArray);
+            nOrders.push(element);
         });
+        setOrders(nOrders);
     }
 
-    // decr quantity
     function decrQuantity() {
-        setChangeQuantityIsFromBasket(true);
-        const newArray = [];
-        // TO DO : convert to .map function
-        basket.forEach(function (element) {
-            if (element.product.title === product.title) {
+        const nOrders = [];
+        orders.forEach(function (element) {
+            if (element.productID === product.id) {
                 if (element.quantity > 1) {
                     element.quantity -= 1;
-                    setCurrentQuantity(element.quantity);
-                    const newPrice = currentPrice - product.price;
-                    setCurrentPrice(newPrice);
                 }
-            } else {
             }
-            newArray.push(element);
-            setBasket(newArray);
+            nOrders.push(element);
         });
+        setOrders(nOrders);
+    }
+
+    function removeItem() {
+        const nOrders = [];
+        orders.forEach(function (element) {
+            if (element.productID === product.id) {
+            } else {
+                nOrders.push(element);
+            }
+        });
+        setOrders(nOrders);
     }
 
     return (
@@ -113,12 +69,14 @@ function ProductBasket({
                             <ButtonQuantityL onClick={decrQuantity}>
                                 -
                             </ButtonQuantityL>
-                            {currentQuantity}
+                            {order.quantity}
                             <ButtonQuantityR onClick={incrQuantity}>
                                 +
                             </ButtonQuantityR>
                         </QuantityContainer>
-                        <PriceContainer>€{currentPrice}</PriceContainer>
+                        <PriceContainer>
+                            {product.price * order.quantity}
+                        </PriceContainer>
                     </InfosContainer>
                     <ButtonsContainer>
                         <ButtonLeftContainer>

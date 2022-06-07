@@ -4,15 +4,13 @@ import IconBasket from "../../atoms/Icons/iconBasket";
 import {Container} from "./styles";
 import ShoppingCart from "../../organisms/ShoppingCart";
 
-import {BrowserRouter, Route, Link} from "react-router-dom";
-
 function IconsGroup({
     setIsCartVisible,
     isCartVisible,
-    basket,
-    setBasket,
-    changeQuantityIsFromBasket,
-    setChangeQuantityIsFromBasket,
+    cart,
+    orders,
+    productsItems,
+    setOrders,
 }) {
     return (
         <>
@@ -26,11 +24,11 @@ function IconsGroup({
             </Container>
             <ShoppingCart
                 isCartVisible={isCartVisible}
-                setBasket={setBasket}
-                basket={basket}
                 setIsCartVisible={setIsCartVisible}
-                changeQuantityIsFromBasket={changeQuantityIsFromBasket}
-                setChangeQuantityIsFromBasket={setChangeQuantityIsFromBasket}
+                cart={cart}
+                orders={orders}
+                productsItems={productsItems}
+                setOrders={setOrders}
             />
         </>
     );

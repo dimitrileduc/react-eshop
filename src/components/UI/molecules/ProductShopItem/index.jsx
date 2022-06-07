@@ -15,6 +15,7 @@ import {
 import Image from "../../atoms/Image/index.jsx";
 
 function ProductShopItem(props) {
+    console.log("props + " + JSON.stringify(props.props));
     /*
     const baseUrl = "../../../assets/imagesProducts/";
     const jpegLink = baseUrl + props.props.imageName + ".jpg";

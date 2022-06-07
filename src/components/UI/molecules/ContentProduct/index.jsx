@@ -1,4 +1,5 @@
 import React from "react";
+import uuid from "react-uuid";
 
 import {
     Container,
@@ -15,47 +16,40 @@ import {
 } from "./styles";
 
 function ContentProduct({
+    id,
     title,
     description,
     category,
     price,
-    review,
-    stock,
-    setBasket,
-    basket,
-    imageName,
     setIsCartVisible,
-    slug,
-    setChangeQuantityIsFromBasket,
+    setOrders,
+    cart,
+    orders,
 }) {
     function addToBasket(e) {
-        setChangeQuantityIsFromBasket(false);
         setIsCartVisible(true);
-        let isPresent = false;
-        let newArray = [];
-        basket.forEach(function (element) {
-            if (element.product.title === title) {
-                isPresent = true;
-                console.log("is object present in basket" + isPresent);
-                element.quantity += 1;
-            }
-            newArray.push(element);
-        });
-        if (isPresent === true) {
-            setBasket(newArray);
-        }
-        if (isPresent === false) {
-            const newBasketItem = {
-                product: {
-                    slug: slug,
-                    title: title,
-                    imageName: imageName,
-                    price: price,
-                },
+
+        // check if order already exist in orders
+        const checkProductId = (obj) => obj.productID === id;
+
+        // if exist : increment quantity . Else : add new order to cart
+        if (orders.some(checkProductId)) {
+            const nOrders = [];
+            orders.forEach(function (element) {
+                if (element.productID === id) {
+                    element.quantity += 1;
+                }
+                nOrders.push(element);
+            });
+            setOrders(nOrders);
+        } else {
+            const newOrder = {
+                id: uuid(),
+                productID: id,
+                cartID: cart.id,
                 quantity: 1,
             };
-            setBasket((oldArray) => oldArray.concat(newBasketItem));
-            //setBasket([...basket, newBasketItem]);
+            setOrders((oldArray) => oldArray.concat(newOrder));
         }
     }
 

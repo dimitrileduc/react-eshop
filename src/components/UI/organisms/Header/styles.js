@@ -13,12 +13,19 @@ export const HeaderDiv = styled.div`
 
     overflow: visible;
     position: fixed;
-    background: rgb(255, 255, 255);
+
+    z-index: 100;
+
+    background-color: ${({$scrollDirection}) =>
+        $scrollDirection === "up" ? "none" : "none"};
+`;
+
+/*
+background: rgb(255, 255, 255);
     background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 1) 0%,
         rgba(255, 255, 255, 1) 96%,
         rgba(0, 212, 255, 0) 100%
     );
-    z-index: 100;
-`;
+    */

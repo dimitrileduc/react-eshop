@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import uuid from "react-uuid";
+import {ParallaxProvider} from "react-scroll-parallax";
+import useScrollPosition from "./components/utils/useScrollPosition";
 
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
@@ -23,7 +25,10 @@ import createUser from "./components/utils/axiosRequest/createUser";
 import getAllProducts from "./components/utils/axiosRequest/getAllProducts";
 
 export default function App() {
+    // state for products from strapi cms
     const [products, setProducts] = useState(null);
+
+    // state for products from dummy data
     const [productsItems, setProductsItems] = useState([
         {
             id: uuid(),
@@ -130,6 +135,9 @@ export default function App() {
     const {user, isAuthenticated, isLoading} = useAuth0();
     const [isCartVisible, setIsCartVisible] = useState(false);
 
+    const scrollPosition = useScrollPosition();
+    console.log(scrollPosition);
+
     // when user is logged w/ auth0 :
     // 1. Add user to Strapi DB,
     // 2. Set user in active user state
@@ -168,72 +176,80 @@ export default function App() {
         if (products) {
             return (
                 <>
-                    <Router>
-                        <ScrollToTop>
-                            <Routes>
-                                <Route
-                                    path="/"
-                                    element={{
-                                        ...(isMobile ? (
-                                            <LayoutMobile />
-                                        ) : (
-                                            <Layout
-                                                isCartVisible={isCartVisible}
-                                                setIsCartVisible={
-                                                    setIsCartVisible
-                                                }
-                                                cart={cart}
-                                                orders={orders}
-                                                productsItems={productsItems}
-                                                setOrders={setOrders}
-                                            />
-                                        )),
-                                    }}>
-                                    <Route index element={<Home />} />
+                    <ParallaxProvider>
+                        <Router>
+                            <ScrollToTop>
+                                <Routes>
                                     <Route
-                                        path="products"
-                                        element={<Products />}>
-                                        <Route
-                                            index
-                                            element={
-                                                <ProductsList
-                                                    productsItems={
-                                                        productsItems
+                                        path="/"
+                                        element={{
+                                            ...(isMobile ? (
+                                                <LayoutMobile />
+                                            ) : (
+                                                <Layout
+                                                    isCartVisible={
+                                                        isCartVisible
                                                     }
-                                                    products={products}
-                                                />
-                                            }
-                                        />
-                                        <Route
-                                            path=":slug"
-                                            element={
-                                                <Product
+                                                    setIsCartVisible={
+                                                        setIsCartVisible
+                                                    }
+                                                    cart={cart}
+                                                    orders={orders}
                                                     productsItems={
                                                         productsItems
                                                     }
                                                     setOrders={setOrders}
-                                                    orders={orders}
-                                                    activeUser={activeUser}
-                                                    cart={cart}
-                                                    setIsCartVisible={
-                                                        setIsCartVisible
-                                                    }
                                                 />
+                                            )),
+                                        }}>
+                                        <Route index element={<Home />} />
+                                        <Route
+                                            path="products"
+                                            element={<Products />}>
+                                            <Route
+                                                index
+                                                element={
+                                                    <ProductsList
+                                                        productsItems={
+                                                            productsItems
+                                                        }
+                                                        products={products}
+                                                    />
+                                                }
+                                            />
+                                            <Route
+                                                path=":slug"
+                                                element={
+                                                    <Product
+                                                        productsItems={
+                                                            productsItems
+                                                        }
+                                                        setOrders={setOrders}
+                                                        orders={orders}
+                                                        activeUser={activeUser}
+                                                        cart={cart}
+                                                        setIsCartVisible={
+                                                            setIsCartVisible
+                                                        }
+                                                    />
+                                                }
+                                            />
+                                        </Route>
+                                        <Route
+                                            path="contacts"
+                                            element={<Contacts />}
+                                        />
+                                        <Route
+                                            path="myaccount"
+                                            element={
+                                                <Account userCurrent={user} />
                                             }
                                         />
                                     </Route>
-                                    <Route
-                                        path="contacts"
-                                        element={<Contacts />}
-                                    />
-                                    <Route
-                                        path="myaccount"
-                                        element={<Account userCurrent={user} />}
-                                    />
-                                </Route>
-                            </Routes>
-                        </ScrollToTop>
-                    </Router>
+                                </Routes>
+                            </ScrollToTop>
+                        </Router>
+                    </ParallaxProvider>
                 </>
             );
         }

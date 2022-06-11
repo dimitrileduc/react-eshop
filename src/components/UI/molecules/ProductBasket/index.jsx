@@ -75,12 +75,14 @@ function ProductBasket({product, order, orders, setOrders}) {
                             </ButtonQuantityR>
                         </QuantityContainer>
                         <PriceContainer>
-                            {product.price * order.quantity}
+                            €{product.price * order.quantity}
                         </PriceContainer>
                     </InfosContainer>
                     <ButtonsContainer>
                         <ButtonLeftContainer>
-                            <Link to={`/products/${product.slug}`}>
+                            <Link
+                                style={{textDecoration: "none"}}
+                                to={`/products/${product.slug}`}>
                                 <Button>View</Button>
                             </Link>
                         </ButtonLeftContainer>

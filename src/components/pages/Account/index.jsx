@@ -1,5 +1,6 @@
 import React from "react";
 
+import ProfileForm from "../../UI/organisms/ProfileForm";
 import {
     Container,
     ContainerPersonnal,
@@ -16,9 +17,13 @@ import {
 function Account(user) {
     console.log(user.userCurrent);
 
-    return (
-        <>
-            <MainContainer>
+    return <ProfileForm />;
+}
+
+export default Account;
+
+/*
+<MainContainer>
                 <Container>
                     <div>
                         <img src={user.userCurrent.picture} alt="profile pic" />
@@ -37,8 +42,5 @@ function Account(user) {
                     </ContainerPersonnal>
                 </Container>
             </MainContainer>
-        </>
-    );
-}
 
-export default Account;
+            */

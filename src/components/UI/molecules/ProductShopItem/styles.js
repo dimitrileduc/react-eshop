@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ProductContainer = styled.div`
-    border: 1px green solid;
+    //border: 1px green solid;
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 3fr 1fr;
@@ -17,7 +17,7 @@ export const ProductContainer = styled.div`
 `;
 
 export const ImageContainer = styled.div`
-    border: 1px red solid;
+    //border: 1px red solid;
     justify-self: center;
     align-self: center;
     grid-area: 1 / 1 / 2 / 2;
@@ -27,7 +27,7 @@ export const ImageContainer = styled.div`
 `;
 
 export const LabelContainer = styled.div`
-    border: 1px orange solid;
+    //border: 1px orange solid;
     justify-self: end;
     align-self: start;
     grid-area: 1 / 1 / 2 / 2;
@@ -47,18 +47,18 @@ export const TitleContainer = styled.div`
     justify-self: center;
     align-self: center;
     grid-area: 1 / 1 / 2 / 2;
-    border: 1px yellowgreen solid;
+    // border: 1px yellowgreen solid;
 `;
 
 export const CategoryContainer = styled.div`
-    border: 1px brown solid;
+    //border: 1px brown solid;
     justify-self: center;
     align-self: center;
     grid-area: 2 / 1 / 3 / 2;
 `;
 
 export const PriceContainer = styled.div`
-    border: 1px yellow solid;
+    //border: 1px yellow solid;
     justify-self: center;
     align-self: center;
     grid-area: 3 / 1 / 4 / 2;
@@ -100,4 +100,19 @@ export const Category = styled.div`
     letter-spacing: 0.4px;
 
     text-align: center;
+    text-decoration: none;
+    padding-top: 2px; ;
+`;
+
+export const Price = styled.div`
+    opacity: 0.8;
+    font-weight: 500;
+    font-family: "Inter-Medium", "Inter", sans-serif;
+    color: #000000;
+    font-size: 14px;
+    letter-spacing: 0.4px;
+
+    text-align: center;
+    text-decoration: none;
+    padding-top: 5px; ;
 `;

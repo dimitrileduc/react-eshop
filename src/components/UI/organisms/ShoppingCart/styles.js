@@ -115,3 +115,8 @@ export const Button = styled.button`
         color: black;
     }
 `;
+
+export const ContainerFixed = styled.div`
+    max-height: 500px;
+    overflow-y: scroll;
+`;

@@ -4,7 +4,7 @@ export default async function getAllProducts(setProducts) {
     axios
         .get("http://localhost:1337/api/products")
         .then((response) => {
-            console.log(response.data.data);
+            console.log(JSON.stringify(response.data.data));
             setProducts(response.data.data);
         })
         .catch((error) => {

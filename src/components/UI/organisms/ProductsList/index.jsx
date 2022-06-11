@@ -18,7 +18,7 @@ import {
 } from "./styles";
 import ProductShopItem from "../../molecules/ProductShopItem";
 
-function ProductsList(productsItems) {
+function ProductsList(productsItems, products) {
     const [filteredItems, setFilteredItems] = useState(
         productsItems.productsItems,
     );
@@ -180,6 +180,7 @@ function ProductsList(productsItems) {
                         ([
                             slug,
                             {
+                                id,
                                 title,
                                 category,
                                 label,
@@ -189,7 +190,10 @@ function ProductsList(productsItems) {
                                 price,
                             },
                         ]) => (
-                            <Link key={slug} to={`/products/${slug}`}>
+                            <Link
+                                key={slug}
+                                to={`/products/${slug}`}
+                                style={{textDecoration: "none"}}>
                                 <ProductShopItem
                                     props={{
                                         slug,
@@ -200,6 +204,7 @@ function ProductsList(productsItems) {
                                         stock,
                                         imageName,
                                         price,
+                                        id,
                                     }}
                                 />
                             </Link>

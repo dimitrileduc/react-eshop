@@ -1,12 +1,14 @@
 import styled from "styled-components";
 
 export const ContainerList = styled.div`
+    //border: 1px yellow solid;
     display: grid;
     grid-template-columns: repeat(5, calc(100% / 5));
 
-    justify-items: center;
-    align-items: center;
     row-gap: 40px;
+
+    align-content: space-around;
+    justify-content: space-between;
 
     @media (max-width: 1440px) {
         grid-template-columns: repeat(4, calc(100% / 4));

@@ -55,7 +55,7 @@ export const Title = styled.p`
 `;
 
 export const Category = styled.p`
-    opacity: 0.8;
+    opacity: 0.6;
     font-family: "Inter", sans-serif;
     color: #000000;
     font-size: 20px;
@@ -94,4 +94,30 @@ export const Price = styled.p`
     padding: 0;
 `;
 
-export const Button = styled.button``;
+export const Button = styled.button`
+    all: unset;
+    cursor: pointer;
+
+    background-color: black;
+    border: white 1px solid;
+
+    padding: 10px;
+    width: 88%;
+    text-align: center;
+
+    font-weight: 600;
+    font-family: "Inter-Medium", "Inter", sans-serif;
+    color: white;
+    font-size: 12px;
+    letter-spacing: 0.2px;
+
+    opacity: 0.6;
+
+    text-transform: uppercase;
+
+    :hover {
+        border: black 1px solid;
+        background-color: white;
+        color: black;
+    }
+`;

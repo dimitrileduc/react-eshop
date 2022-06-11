@@ -10,6 +10,7 @@ import {
     Label,
     Title,
     Category,
+    Price,
 } from "./styles.js";
 
 import Image from "../../atoms/Image/index.jsx";
@@ -41,7 +42,9 @@ function ProductShopItem(props) {
                 <CategoryContainer>
                     <Category>{props.props.category}</Category>
                 </CategoryContainer>
-                <PriceContainer>{props.props.price} Eur</PriceContainer>
+                <PriceContainer>
+                    <Price>€{props.props.price}</Price>
+                </PriceContainer>
             </InfosContainer>
         </ProductContainer>
     );

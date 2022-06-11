@@ -20,9 +20,10 @@ import {useAuth0} from "@auth0/auth0-react";
 import "./App.css";
 
 import createUser from "./components/utils/axiosRequest/createUser";
-//import getAllProducts from "./components/utils/axiosRequest/getAllProducts";
+import getAllProducts from "./components/utils/axiosRequest/getAllProducts";
 
 export default function App() {
+    const [products, setProducts] = useState(null);
     const [productsItems, setProductsItems] = useState([
         {
             id: uuid(),
@@ -101,7 +102,7 @@ export default function App() {
             title: "Tea Valeriana",
             category: "Flavoured tea",
             description:
-                " Infusion of fruits, flowers and plants that help reduce stress. An ideal infusion to relax the body and mind, with a delicate aroma and enveloping taste. ",
+                "Infusion of fruits, flowers and plants that help reduce stress. An ideal infusion to relax the body and mind, with a delicate aroma and enveloping taste. ",
             label: "",
             stock: 3,
             imageName: "tea_valeriana",
@@ -144,6 +145,11 @@ export default function App() {
         }
     }, [user]);
 
+    // get list of Products
+    useEffect(() => {
+        getAllProducts(setProducts);
+    }, []);
+
     // detect resize window
     useEffect(() => {
         setWindowDimension(window.innerWidth);
@@ -159,7 +165,7 @@ export default function App() {
     // return jsx
     // return different Layout if mobile
     if (!isLoading) {
-        if (productsItems) {
+        if (products) {
             return (
                 <>
                     <Router>
@@ -194,6 +200,7 @@ export default function App() {
                                                     productsItems={
                                                         productsItems
                                                     }
+                                                    products={products}
                                                 />
                                             }
                                         />

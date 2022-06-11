@@ -65,7 +65,7 @@ function ContentProduct({
                 <Description>{description}</Description>
             </DescriptionContainer>
             <PriceContainer>
-                <Price>{price} EUR</Price>
+                <Price>€{price}</Price>
             </PriceContainer>
             <ButtonContainer>
                 <Button onClick={addToBasket}>Add to cart</Button>

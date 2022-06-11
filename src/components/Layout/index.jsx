@@ -12,6 +12,7 @@ const Layout = ({
     orders,
     productsItems,
     setOrders,
+    products,
 }) => {
     return (
         <>

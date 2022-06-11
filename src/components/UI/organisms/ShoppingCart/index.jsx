@@ -10,6 +10,7 @@ import {
     ContainerButtonLeftCart,
     Button,
     SubButton,
+    ContainerFixed,
 } from "./styles";
 
 import ProductBasket from "../../molecules/ProductBasket";
@@ -67,7 +68,9 @@ function ShoppingCart({
             <ContainerBorder>
                 <ContainerGrid>
                     <TitleCart>SHOPPING BAG</TitleCart>
-                    <ContainerProducts>{listOrders}</ContainerProducts>
+                    <ContainerFixed>
+                        <ContainerProducts>{listOrders}</ContainerProducts>
+                    </ContainerFixed>
                     <ContainerButtonsCart>
                         <ContainerButtonLeftCart>
                             <SubButton>

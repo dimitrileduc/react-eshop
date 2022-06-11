@@ -17,7 +17,7 @@ export const HeaderDiv = styled.div`
     background: linear-gradient(
         180deg,
         rgba(255, 255, 255, 1) 0%,
-        rgba(255, 255, 255, 1) 89%,
+        rgba(255, 255, 255, 1) 96%,
         rgba(0, 212, 255, 0) 100%
     );
     z-index: 100;

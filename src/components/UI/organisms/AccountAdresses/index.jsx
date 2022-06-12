@@ -1,5 +1,12 @@
 import React, {useState} from "react";
-import {ContainerMargin, Title, SubText, ContainerAdresses} from "./styles";
+import {
+    ContainerMargin,
+    Title,
+    SubText,
+    ContainerAdresses,
+    Button,
+    ContainerButton,
+} from "./styles";
 import uuid from "react-uuid";
 
 import AdresseItem from "../../molecules/AdresseItem";
@@ -17,7 +24,7 @@ function AccountAdresses() {
         },
         {
             id: uuid(),
-            adressName: "Home",
+            adressName: "Work",
             name: "Louis Durant",
             street: "rue du Mayeur 46",
             cp: "4000",
@@ -26,16 +33,7 @@ function AccountAdresses() {
         },
         {
             id: uuid(),
-            adressName: "Home",
-            name: "Louis Durant",
-            street: "rue du Mayeur 46",
-            cp: "4000",
-            city: "Saint Nicolas",
-            country: "Belgium",
-        },
-        {
-            id: uuid(),
-            adressName: "Home",
+            adressName: "Family",
             name: "Louis Durant",
             street: "rue du Mayeur 46",
             cp: "4000",
@@ -59,6 +57,9 @@ function AccountAdresses() {
                 Please find your previous and current addresses here
             </SubText>
             <ContainerAdresses>{rendAdresses}</ContainerAdresses>
+            <ContainerButton>
+                <Button>Add new adress</Button>
+            </ContainerButton>
         </ContainerMargin>
     );
 }

@@ -11,4 +11,5 @@ export const Ul = styled.div`
     display: flex;
     flex-direction: row;
     gap: 30px;
+    color: inherit;
 `;

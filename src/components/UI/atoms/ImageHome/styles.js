@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ContainerImage = styled.div`
     grid-area: 1 / 1 / 4 / 4;
+
     @media (max-width: 680px) {
     }
 `;

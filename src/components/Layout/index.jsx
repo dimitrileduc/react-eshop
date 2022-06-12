@@ -13,21 +13,29 @@ const Layout = ({
     productsItems,
     setOrders,
     products,
+    isImageHeaderVisible,
+    scrollDirection,
+    isHederVisible,
 }) => {
     return (
         <>
-            <ContainerLayout>
-                <Header
-                    setIsCartVisible={setIsCartVisible}
-                    isCartVisible={isCartVisible}
-                    cart={cart}
-                    orders={orders}
-                    productsItems={productsItems}
-                    setOrders={setOrders}
-                />
-                <Outlet />
-                <Footer />
-            </ContainerLayout>
+            <div>
+                <ContainerLayout>
+                    <Header
+                        setIsCartVisible={setIsCartVisible}
+                        isCartVisible={isCartVisible}
+                        cart={cart}
+                        orders={orders}
+                        productsItems={productsItems}
+                        setOrders={setOrders}
+                        isImageHeaderVisible={isImageHeaderVisible}
+                        scrollDirection={scrollDirection}
+                        isHederVisible={isHederVisible}
+                    />
+                    <Outlet />
+                    <Footer />
+                </ContainerLayout>
+            </div>
         </>
     );
 };

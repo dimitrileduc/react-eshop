@@ -25,6 +25,7 @@ function IconBasket({setIsCartVisible, isCartVisible}) {
                 style={{
                     width: "24px",
                     height: "24px",
+                    fill: "ECECEC",
                 }}
             />
         );

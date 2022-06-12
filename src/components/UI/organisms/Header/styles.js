@@ -7,7 +7,7 @@ export const HeaderDiv = styled.div`
     align-items: center;
 
     width: 100vw;
-    height: 125px;
+    height: 90px;
 
     padding: 40px;
 
@@ -15,9 +15,13 @@ export const HeaderDiv = styled.div`
     position: fixed;
 
     z-index: 100;
+    color: #ececec;
+    color: black;
+    background-color: white;
 
-    background-color: ${({$scrollDirection}) =>
-        $scrollDirection === "up" ? "none" : "none"};
+    transition: opacity 0.5s ease-in-out;
+
+    opacity: ${({$scrollDirection}) => ($scrollDirection === "up" ? "1" : "0")};
 `;
 
 /*

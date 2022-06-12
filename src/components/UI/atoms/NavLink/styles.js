@@ -7,18 +7,18 @@ export const StyledLink = styled(Link)`
     height: auto; /* 17px */
     white-space: pre;
     overflow: visible;
-    opacity: 0.7;
-    font-weight: 600;
+    opacity: 1;
+    font-weight: 500;
     font-family: "Inter-SemiBold", "Inter", sans-serif;
-    color: #000000;
+
     font-size: 14px;
     letter-spacing: 0.4px;
     line-height: 1.2;
     text-transform: uppercase;
     text-align: center;
 
-    color: Black;
     text-decoration: none;
+    color: inherit;
 
     display: inline-block;
     position: relative;

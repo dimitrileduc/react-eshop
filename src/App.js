@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useMemo} from "react";
 import uuid from "react-uuid";
 import {ParallaxProvider} from "react-scroll-parallax";
 import useScrollPosition from "./components/utils/useScrollPosition";
@@ -16,6 +16,7 @@ import Product from "./components/UI/molecules/Product";
 import Account from "./components/pages/Account";
 
 import ScrollToTop from "./components/utils/ScrollToTop";
+import useScrollDirection from "./components/utils/useScrollDirection";
 
 import {useAuth0} from "@auth0/auth0-react";
 
@@ -23,7 +24,7 @@ import "./App.css";
 
 import createUser from "./components/utils/axiosRequest/createUser";
 import getAllProducts from "./components/utils/axiosRequest/getAllProducts";
-
+var _ = require("lodash");
 export default function App() {
     // state for products from strapi cms
     const [products, setProducts] = useState(null);
@@ -134,9 +135,18 @@ export default function App() {
     const [cart, setCart] = useState([]);
     const {user, isAuthenticated, isLoading} = useAuth0();
     const [isCartVisible, setIsCartVisible] = useState(false);
+    const [isImageHeaderVisible, setIsImageHeaderVisible] = useState(true);
+
+    const [isHederVisible, setIsHeaderVisible] = useState();
 
     const scrollPosition = useScrollPosition();
-    console.log(scrollPosition);
+    //console.log(scrollPosition);
+
+    //console.log(isImageHeaderVisible + " ? is visible ? ");
+
+    const scrollDirection = useScrollDirection();
+    //const scrollDirection = false;
+    //console.log("scroll direction is" + scrollDirection);
 
     // when user is logged w/ auth0 :
     // 1. Add user to Strapi DB,
@@ -170,6 +180,44 @@ export default function App() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    /*
+
+    useEffect(() => {
+        if (scrollDirection === "down") {
+            setIsHeaderVisible(false);
+
+            handleEndScroll();
+        }
+        if (scrollDirection === "up") {
+            console.log("scroll scroll scroll");
+            setIsHeaderVisible(true);
+
+            handleEndScrollUp();
+        }
+
+        //}
+    }, [scrollDirection]);
+
+    const handleEndScrollUp = useMemo(
+        () => _.debounce(() => showHeader(), 1000),
+        [],
+    );
+
+    const handleEndScroll = useMemo(
+        () => _.debounce(() => hideHeader(), 1000),
+        [],
+    );
+
+    function hideHeader() {
+        console.log("header not visibility" + isHederVisible);
+    }
+
+    function showHeader() {
+        console.log("header visibility" + isHederVisible);
+    }
+
+    */
+
     // return jsx
     // return different Layout if mobile
     if (!isLoading) {
@@ -199,10 +247,28 @@ export default function App() {
                                                         productsItems
                                                     }
                                                     setOrders={setOrders}
+                                                    isImageHeaderVisible={
+                                                        isImageHeaderVisible
+                                                    }
+                                                    scrollDirection={
+                                                        scrollDirection
+                                                    }
+                                                    isHederVisible={
+                                                        isHederVisible
+                                                    }
                                                 />
                                             )),
                                         }}>
-                                        <Route index element={<Home />} />
+                                        <Route
+                                            index
+                                            element={
+                                                <Home
+                                                    setIsImageHeaderVisible={
+                                                        setIsImageHeaderVisible
+                                                    }
+                                                />
+                                            }
+                                        />
                                         <Route
                                             path="products"
                                             element={<Products />}>

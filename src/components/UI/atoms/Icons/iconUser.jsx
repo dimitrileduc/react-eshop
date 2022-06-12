@@ -26,7 +26,7 @@ function IconUser() {
                     style={{
                         width: "24px",
                         height: "24px",
-                        fill: "green",
+                        fill: "F5F5F5",
                     }}
                 />
             );
@@ -36,7 +36,7 @@ function IconUser() {
                     style={{
                         width: "24px",
                         height: "24px",
-                        fill: "black",
+                        fill: "F5F5F5",
                     }}
                 />
             );

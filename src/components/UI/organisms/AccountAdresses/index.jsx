@@ -10,7 +10,9 @@ import {
 import uuid from "react-uuid";
 
 import AdresseItem from "../../molecules/AdresseItem";
+import FormNewAdress from "../FormNewAdress";
 
+import Modal from "../Modal";
 function AccountAdresses() {
     const [adresses, setAdresse] = useState([
         {
@@ -42,6 +44,8 @@ function AccountAdresses() {
         },
     ]);
 
+    const [showModal, setShowModal] = useState(false);
+
     adresses.map(function (adress, idx) {
         console.log(adress.adressName);
     });
@@ -51,16 +55,26 @@ function AccountAdresses() {
     });
 
     return (
-        <ContainerMargin>
-            <Title>My Adresses</Title>
-            <SubText>
-                Please find your previous and current addresses here
-            </SubText>
-            <ContainerAdresses>{rendAdresses}</ContainerAdresses>
-            <ContainerButton>
-                <Button>Add new adress</Button>
-            </ContainerButton>
-        </ContainerMargin>
+        <>
+            <Modal
+                show={showModal}
+                onClose={() => setShowModal(false)}
+                title="New adress"
+                content={FormNewAdress}
+            />
+            <ContainerMargin>
+                <Title>My Adresses</Title>
+                <SubText>
+                    Please find your previous and current addresses here
+                </SubText>
+                <ContainerAdresses>{rendAdresses}</ContainerAdresses>
+                <ContainerButton>
+                    <Button onClick={() => setShowModal(true)}>
+                        Add new adress
+                    </Button>
+                </ContainerButton>
+            </ContainerMargin>
+        </>
     );
 }
 

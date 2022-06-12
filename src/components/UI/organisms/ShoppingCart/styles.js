@@ -9,6 +9,7 @@ export const ContainerCart = styled.div`
     margin-top: auto;
     padding-top: 50px;
     display: ${({$isVisible}) => ($isVisible ? "block" : "none")};
+    z-index: 100;
 `;
 
 export const ContainerBorder = styled.div`

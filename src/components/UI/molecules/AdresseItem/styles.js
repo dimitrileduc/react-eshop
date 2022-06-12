@@ -38,7 +38,7 @@ export const ContainerButtonEdit = styled.div`
     width: 25%;
     color: black;
     background-color: white;
-    border-bottom: 1px lightgray solid;
+    border-bottom: 1px white solid;
     padding: 2px;
 
     :hover {

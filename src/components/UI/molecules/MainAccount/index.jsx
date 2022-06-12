@@ -1,5 +1,7 @@
 import React from "react";
-import {ContainerMargin} from "./styles";
+
+import AccountOrders from "../../organisms/AccountOrders";
+import AccountAdresses from "../../organisms/AccountAdresses";
 
 function MainAccount({selectedMenuItem}) {
     console.log(selectedMenuItem.name);
@@ -8,11 +10,11 @@ function MainAccount({selectedMenuItem}) {
         case "Infos":
             return <div>Infos</div>;
         case "Adresses":
-            return <div>Adresses</div>;
+            return <AccountAdresses></AccountAdresses>;
         case "Preferences":
             return <div>Preferences</div>;
         default:
-            return <div>Orders</div>;
+            return <AccountOrders />;
     }
 }
 

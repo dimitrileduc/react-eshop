@@ -14,14 +14,18 @@ export const HeaderDiv = styled.div`
     overflow: visible;
     position: fixed;
 
-    z-index: 100;
+    z-index: 40;
     color: #ececec;
     color: black;
     background-color: white;
 
-    transition: opacity 0.5s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
+    transition: display 0.2s ease-in-out;
 
     opacity: ${({$scrollDirection}) => ($scrollDirection === "up" ? "1" : "0")};
+
+    display: ${({$scrollDirection}) =>
+        $scrollDirection === "up" ? "flex" : "none"};
 `;
 
 /*

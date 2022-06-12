@@ -13,6 +13,8 @@ import {
     Button,
 } from "./styles";
 
+import SelectCountry from "../../molecules/SelectCountry";
+
 function FormNewAdress() {
     return (
         <ContainerForm>
@@ -32,7 +34,7 @@ function FormNewAdress() {
                 <InputField placeholder="City" />
             </ContainerCity>
             <ContainerCountry>
-                <InputField placeholder="Country" />
+                <SelectCountry />
             </ContainerCountry>
             <ContainerButton>
                 <Button>Add new adress</Button>

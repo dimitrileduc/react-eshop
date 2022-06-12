@@ -4,10 +4,14 @@ export const ContainerCart = styled.div`
     width: 385px;
     height: auto;
     //border: dashed lightgrey 1px;
-    margin-left: -385px;
-    position: relative;
+
+    padding-right: 40px;
+    margin-top: 20px;
+    position: fixed;
+    right: 0;
+    top: 0;
     margin-top: auto;
-    padding-top: 50px;
+    margin-top: 65px;
     display: ${({$isVisible}) => ($isVisible ? "block" : "none")};
     z-index: 100;
 `;

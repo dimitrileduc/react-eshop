@@ -33,9 +33,11 @@ function Home({setIsImageHeaderVisible}) {
                     </ContainerHeadImage>
                 </div>
             </Parallax>
-            <Parallax translateY={["0px", "-500px"]}>
+            <Parallax translateY={["0px", "-1000px"]}>
                 <ContainerMain>
-                    <MainText>.....Our signature Darjeeling tea</MainText>
+                    <MainText>
+                        Discover our new Darjeeling collection !
+                    </MainText>
 
                     <MainText2>
                         Our signature Darjeeling tea, The Empress of India is

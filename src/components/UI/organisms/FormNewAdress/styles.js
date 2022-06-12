@@ -69,8 +69,8 @@ export const InputField = styled.input`
 
     padding-left: 10px;
 
-    border: 0.5px lightgray solid;
-    border-radius: 2px;
+    border: 0.5px gray solid;
+    border-radius: 5px;
 
     font-size: 13px;
 `;

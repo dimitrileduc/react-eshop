@@ -1,68 +1,43 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.div`
-    padding-top: 125px;
+export const ContainerMargin = styled.div`
+    padding-top: 100px;
     margin-left: 40px;
     margin-right: 40px;
-    display: flex;
-
-    justify-content: center;
-    margin: 0 auto;
+    //border: 1px green dashed;
 `;
 
-export const Container = styled.div`
-    justify-items: center;
-`;
-
-export const ContainerPersonnal = styled.div`
+export const ContainerGrid = styled.div`
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    gap: 20px 20px;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    gap: 0px 0px;
+    border: 1px solid lightgray;
     grid-template-areas:
-        "titleContainer ."
-        "firstName lastName"
-        "birth phone"
-        "button .";
+        "menuContainer ContainerMain"
+        "menuContainer ContainerMain"
+        "logoutContainer ContainerMain";
 `;
-
-export const ContainerTitle = styled.div`
-    grid-area: titleContainer;
+export const ContainerMenu = styled.div`
+    justify-self: start;
+    align-self: start;
+    grid-area: menuContainer;
+    margin-left: 20px;
+    margin-top: 20px;
 `;
-
-export const ContainerFirstName = styled.div`
-    grid-area: firstName;
+export const ContainerLogout = styled.div`
+    justify-self: start;
+    align-self: end;
+    grid-area: logoutContainer;
+    margin-bottom: 20px;
+    margin-left: 20px;
 `;
-
-export const ContainerLastName = styled.div`
-    grid-area: lastName;
-`;
-
-export const ContainerBirth = styled.div`
-    grid-area: birth;
-`;
-
-export const ContainerPhone = styled.div`
-    grid-area: phone;
-`;
-
-export const ContainerButton = styled.div`
-    grid-area: button;
-`;
-
-export const Title = styled.div`
-    padding-left: 40px;
-    padding-right: 40px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    word-break: break-word;
-    font-weight: 400;
-
-    opacity: 0.8;
-    font-family: "Inter", sans-serif;
-    color: #000000;
-    font-size: 16px;
-    letter-spacing: 0px;
-    line-height: 1.7;
-    text-align: left;
+export const ContainerMain = styled.div`
+    justify-self: start;
+    align-self: start;
+    grid-area: ContainerMain;
+    width: 100%;
+    height: 100%;
+    border-left: 1px solid lightgray;
 `;

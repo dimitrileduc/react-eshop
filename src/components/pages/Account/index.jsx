@@ -1,46 +1,34 @@
-import React from "react";
+import React, {useState} from "react";
 
-import ProfileForm from "../../UI/organisms/ProfileForm";
 import {
-    Container,
-    ContainerPersonnal,
-    ContainerFirstName,
-    ContainerLastName,
-    ContainerBirth,
-    ContainerPhone,
-    ContainerButton,
-    ContainerTitle,
-    MainContainer,
-    Title,
+    ContainerMargin,
+    ContainerGrid,
+    ContainerMenu,
+    ContainerLogout,
+    ContainerMain,
 } from "./styles";
 
-function Account(user) {
-    console.log(user.userCurrent);
+import MenuAccount from "../../UI/molecules/MenuAccount";
+import MainAccount from "../../UI/molecules/MainAccount";
 
-    return <ProfileForm />;
+function Account(user) {
+    const [selectedMenuItem, setSelectedMenuItem] = useState("my orders");
+
+    return (
+        <ContainerMargin>
+            <ContainerGrid>
+                <ContainerMenu>
+                    <MenuAccount setSelectedMenuItem={setSelectedMenuItem} />
+                </ContainerMenu>
+
+                <ContainerLogout>Logout</ContainerLogout>
+
+                <ContainerMain>
+                    <MainAccount selectedMenuItem={selectedMenuItem} />
+                </ContainerMain>
+            </ContainerGrid>
+        </ContainerMargin>
+    );
 }
 
 export default Account;
-
-/*
-<MainContainer>
-                <Container>
-                    <div>
-                        <img src={user.userCurrent.picture} alt="profile pic" />
-                        <h2>{user.userCurrent.name}</h2>
-                        <p>{user.userCurrent.email}</p>
-                    </div>
-                    <ContainerPersonnal>
-                        <ContainerTitle>
-                            <Title>Personnal informations</Title>
-                        </ContainerTitle>
-                        <ContainerFirstName>FirstN</ContainerFirstName>
-                        <ContainerLastName>LastN</ContainerLastName>
-                        <ContainerBirth>Birthdate</ContainerBirth>
-                        <ContainerPhone>Phone</ContainerPhone>
-                        <ContainerButton>Button</ContainerButton>
-                    </ContainerPersonnal>
-                </Container>
-            </MainContainer>
-
-            */

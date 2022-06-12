@@ -11,6 +11,8 @@ export const ProductContainer = styled.div`
     justify-items: center;
     align-items: center;
     transition: all 0.2s ease-in-out;
+    border: 1px white solid;
+
     :hover {
         transform: scale(0.97);
     }
@@ -101,7 +103,7 @@ export const Category = styled.div`
 
     text-align: center;
     text-decoration: none;
-    padding-top: 2px; ;
+    padding-top: 2px;
 `;
 
 export const Price = styled.div`
@@ -114,5 +116,5 @@ export const Price = styled.div`
 
     text-align: center;
     text-decoration: none;
-    padding-top: 5px; ;
+    padding-top: 5px;
 `;

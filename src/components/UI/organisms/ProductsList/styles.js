@@ -157,13 +157,14 @@ export const FilterButton = styled.button`
 
 export const Input = styled.input`
     width: 25vw;
-    border: 1px lightgray solid;
+    border: none;
+    border-bottom: 1px lightgray solid;
     border-radius: 3px;
+    padding-bottom: 5px;
     :hover {
-        border: 1px gray solid;
     }
     :focus {
         outline: none !important;
-        border: 1px solid green;
+        border-bottom: 1px black solid;
     }
 `;

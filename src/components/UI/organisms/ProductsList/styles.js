@@ -27,13 +27,18 @@ export const ContainerList = styled.div`
 `;
 
 export const FilterContainer = styled.div`
+    position: sticky;
+    top: 0;
     margin-top: 40px;
     margin-bottom: 40px;
     display: grid;
     grid-auto-rows: 1fr;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
     gap: 0px 0px;
+    z-index: 100;
+    background-color: white;
+
     grid-template-areas:
         "label . filter"
         "filterBox filterBox filterBox";

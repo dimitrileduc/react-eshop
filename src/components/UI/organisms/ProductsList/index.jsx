@@ -32,7 +32,7 @@ function ProductsList(productsItems, products) {
 
     const [selectedLabel, setSelectedLabel] = useState("option");
 
-    const [filterVisible, setFilterVisible] = useState(false);
+    const [filterVisible, setFilterVisible] = useState(true);
 
     const [searchInputValue, setSearchInputValue] = useState("");
     const [foundItems, setFoundItems] = useState(filteredItems);
@@ -46,9 +46,9 @@ function ProductsList(productsItems, products) {
 
     function changeFilterVisible() {
         if (filterVisible === true) {
-            setFilterVisible(false);
+            //setFilterVisible(false);
         } else {
-            setFilterVisible(true);
+            //setFilterVisible(true);
         }
     }
 
@@ -116,11 +116,7 @@ function ProductsList(productsItems, products) {
             <>
                 <FilterContainer>
                     <Label></Label>
-                    <Filter>
-                        <FilterButton onClick={changeFilterVisible}>
-                            Filter
-                        </FilterButton>
-                    </Filter>
+
                     <FilterBox $visible={filterVisible}>
                         <Search>
                             <Input

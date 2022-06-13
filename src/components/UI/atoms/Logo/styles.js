@@ -10,7 +10,7 @@ export const ContainerImage = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-
+    width: 100%;
     @media (max-width: 680px) {
         flex-basis: 100%;
     }

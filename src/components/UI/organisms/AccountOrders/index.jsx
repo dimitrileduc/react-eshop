@@ -8,7 +8,7 @@ function AccountOrders() {
             <SubText>
                 The carrier will pick up your package at the Warehouse
             </SubText>
-            <Status>Status of your order : </Status>
+            <Status>Status of your order : no active order </Status>
         </ContainerMargin>
     );
 }

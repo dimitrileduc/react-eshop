@@ -38,6 +38,7 @@ export const FilterContainer = styled.div`
     gap: 0px 0px;
     z-index: 50;
     background-color: white;
+    border-bottom: 1px black solid;
 
     grid-template-areas:
         "label . filter"
@@ -158,7 +159,7 @@ export const FilterButton = styled.button`
 export const Input = styled.input`
     width: 25vw;
     border: none;
-    border-bottom: 1px lightgray solid;
+    //border-bottom: 1px lightgray solid;
     border-radius: 3px;
     padding-bottom: 5px;
     :hover {

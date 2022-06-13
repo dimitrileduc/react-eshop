@@ -5,14 +5,18 @@ import {isWebpSupported} from "react-image-webp/dist/utils";
 
 import {Img} from "./styles";
 
+import {Link} from "react-router-dom";
+
 function Logo({logoPng, logoWebp}) {
     return (
         <ContainerImage>
-            {isWebpSupported() ? (
-                <Img alt="pic image of website company" src={logoWebp} />
-            ) : (
-                <Img alt="pic image of website company" src={logoPng} />
-            )}
+            <Link to="/" style={{textDecoration: "none"}}>
+                {isWebpSupported() ? (
+                    <Img alt="pic image of website company" src={logoWebp} />
+                ) : (
+                    <Img alt="pic image of website company" src={logoPng} />
+                )}
+            </Link>
         </ContainerImage>
     );
 }

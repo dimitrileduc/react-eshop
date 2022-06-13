@@ -3,6 +3,8 @@ import {useAuth0} from "@auth0/auth0-react";
 import {ReactComponent as Icon} from "../../../assets/icons/user.svg";
 import {Button} from "./styles.js";
 
+import {Link} from "react-router-dom";
+
 function IconUser() {
     const {loginWithRedirect} = useAuth0();
     const {logout} = useAuth0();
@@ -46,11 +48,15 @@ function IconUser() {
     if (!isLoading) {
         return (
             <>
-                <Button onClick={() => setUser()}>{icon}</Button>
+                <Link to="/myaccount">
+                    <Button>{icon}</Button>
+                </Link>
             </>
         );
     }
 }
+
+// <Button onClick={() => setUser()}>{icon}</Button>
 
 export default IconUser;
 /*

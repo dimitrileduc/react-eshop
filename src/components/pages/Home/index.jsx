@@ -1,7 +1,7 @@
 import React, {useRef, useEffect} from "react";
 
-import ImageJpg from "../../assets/images/slide4.jpeg";
-import ImageWebp from "../../assets/images/slide4.webp";
+import ImageJpg from "../../assets/images/slide7.jpg";
+import ImageWebp from "../../assets/images/slide7.webp";
 
 import ImageHome from "../../UI/atoms/ImageHome";
 import {
@@ -16,38 +16,55 @@ import {
 import useOnScreen from "../../utils/useOnScreen";
 import {Parallax, ParallaxBanner} from "react-scroll-parallax";
 
-function Home({setIsImageHeaderVisible}) {
-    const ref = useRef();
-    const isVisible = useOnScreen(ref);
+import CollectionHome from "../../UI/molecules/CollectionHome";
 
-    useEffect(() => {
-        setIsImageHeaderVisible(isVisible);
-    }, []);
+function Home({setIsImageHeaderVisible}) {
+    ///// Scroll to ref
+    function scrollToRef(ref) {
+        let offsetBottom = ref.current.offsetTop;
+        console.log("scroll to ref");
+
+        window.scrollTo({
+            top: offsetBottom,
+            left: 0,
+            behavior: "smooth",
+        });
+    }
+
+    const myRef = useRef(null);
+    const executeScroll = () => scrollToRef(myRef);
+    ////
 
     return (
         <Container>
-            <Parallax translateY={["0px", "0px"]}>
-                <div ref={ref}>
-                    <ContainerHeadImage>
-                        <ImageHome imageJpg={ImageJpg} imageWebp={ImageWebp} />
-                    </ContainerHeadImage>
-                </div>
-            </Parallax>
-            <Parallax translateY={["0px", "-1000px"]}>
-                <ContainerMain>
-                    <MainText>
-                        Discover our new Darjeeling collection !
-                    </MainText>
+            <ContainerHeadImage onClick={executeScroll}>
+                <ImageHome imageJpg={ImageJpg} imageWebp={ImageWebp} />
+            </ContainerHeadImage>
 
-                    <MainText2>
-                        Our signature Darjeeling tea, The Empress of India is
-                        named after Queen Victoria for whom the Victoria
-                        Memorial in Calcutta was built.
-                    </MainText2>
-                </ContainerMain>
-            </Parallax>
+            <ContainerMain>
+                <MainText ref={myRef}>
+                    Discover our new Darjeeling collection !
+                </MainText>
+                <CollectionHome />
+            </ContainerMain>
         </Container>
     );
 }
 
 export default Home;
+
+/*
+ function scrollToRef(ref) {
+        let offsetBottom = ref.current.offsetTop + ref.current.offsetHeight;
+        console.log("scroll to ref");
+
+        window.scrollTo({
+            top: offsetBottom,
+            left: 0,
+            behavior: "smooth",
+        });
+    }
+
+    const myRef = useRef(null);
+    const executeScroll = () => scrollToRef(myRef);
+    */

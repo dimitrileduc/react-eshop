@@ -35,11 +35,12 @@ export const ContainerButtonEdit = styled.div`
     cursor: pointer;
     color: white;
 
-    width: 25%;
+    width: 45%;
     color: black;
     background-color: white;
     border-bottom: 1px white solid;
     padding: 2px;
+    font-size: 14px;
 
     :hover {
         border-bottom: 1px black solid;
@@ -55,6 +56,7 @@ export const ContainerButtonDelete = styled.div`
 export const FieldAdressInfos = styled.div`
     margin-top: 5px;
     opacity: 0.6;
+    font-size: 14px;
 `;
 
 export const Line = styled.div`

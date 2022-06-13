@@ -20,12 +20,8 @@ export const HeaderDiv = styled.div`
     background-color: white;
 
     transition: opacity 0.2s ease-in-out;
-    transition: display 0.2s ease-in-out;
 
     opacity: ${({$scrollDirection}) => ($scrollDirection === "up" ? "1" : "0")};
-
-    display: ${({$scrollDirection}) =>
-        $scrollDirection === "up" ? "flex" : "none"};
 `;
 
 /*

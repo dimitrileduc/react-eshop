@@ -6,6 +6,7 @@ import {
     ContainerMenu,
     ContainerLogout,
     ContainerMain,
+    Button,
 } from "./styles";
 
 import MenuAccount from "../../UI/molecules/MenuAccount";
@@ -21,7 +22,9 @@ function Account(user) {
                     <MenuAccount setSelectedMenuItem={setSelectedMenuItem} />
                 </ContainerMenu>
 
-                <ContainerLogout>Logout</ContainerLogout>
+                <ContainerLogout>
+                    <Button>Logout</Button>
+                </ContainerLogout>
 
                 <ContainerMain>
                     <MainAccount selectedMenuItem={selectedMenuItem} />

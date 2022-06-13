@@ -6,10 +6,11 @@ export const ContainerMargin = styled.div`
 
 export const Title = styled.div`
     font-weight: 600;
-    font-size: 28px;
+    font-size: 20px;
 `;
 export const SubText = styled.div`
     margin-top: 10px;
+    font-size: 14px;
 `;
 
 export const ContainerAdresses = styled.div`
@@ -40,4 +41,5 @@ export const Button = styled.button`
 
 export const ContainerButton = styled.div`
     margin-top: 40px;
+    font-size: 14px;
 `;

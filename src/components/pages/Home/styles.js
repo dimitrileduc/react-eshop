@@ -4,12 +4,15 @@ export const Container = styled.div`
     // margin-top: -120px;
 `;
 
-export const ContainerHeadImage = styled.div``;
+export const ContainerHeadImage = styled.div`
+    background-color: white;
+`;
 
 export const MainText = styled.div`
-    font-size: 72px;
+    font-size: 36px;
 
-    white-space: nowrap;
+    background-color: white;
+    color: black;
 `;
 
 export const MainText2 = styled.div`

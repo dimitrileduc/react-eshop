@@ -24,7 +24,7 @@ function AdresseItem({adress}) {
                 <FieldAdressInfos>{adress.city}</FieldAdressInfos>
                 <FieldAdressInfos>{adress.country}</FieldAdressInfos>
             </ContainerInfos>
-            <ContainerButtonEdit>edit</ContainerButtonEdit>
+            <ContainerButtonEdit>Delete</ContainerButtonEdit>
             <ContainerButtonDelete></ContainerButtonDelete>
         </Container>
     );

@@ -46,10 +46,6 @@ function AccountAdresses() {
 
     const [showModal, setShowModal] = useState(false);
 
-    adresses.map(function (adress, idx) {
-        console.log(adress.adressName);
-    });
-
     const rendAdresses = adresses.map(function (adress, idx) {
         return <AdresseItem key={adress.id} adress={adress} />;
     });

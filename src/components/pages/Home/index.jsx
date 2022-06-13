@@ -18,7 +18,7 @@ import {Parallax, ParallaxBanner} from "react-scroll-parallax";
 
 import CollectionHome from "../../UI/molecules/CollectionHome";
 
-function Home({setIsImageHeaderVisible}) {
+function Home({setIsImageHeaderVisible, setIsCustomCursor}) {
     ///// Scroll to ref
     function scrollToRef(ref) {
         let offsetBottom = ref.current.offsetTop;
@@ -37,7 +37,10 @@ function Home({setIsImageHeaderVisible}) {
 
     return (
         <Container>
-            <ContainerHeadImage onClick={executeScroll}>
+            <ContainerHeadImage
+                onClick={executeScroll}
+                onMouseEnter={() => setIsCustomCursor(true)}
+                onMouseLeave={() => setIsCustomCursor(false)}>
                 <ImageHome imageJpg={ImageJpg} imageWebp={ImageWebp} />
             </ContainerHeadImage>
 

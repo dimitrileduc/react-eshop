@@ -3,6 +3,8 @@ import uuid from "react-uuid";
 import {ParallaxProvider} from "react-scroll-parallax";
 import useScrollPosition from "./components/utils/useScrollPosition";
 
+import {CustomCursor} from "react-svg-cursor";
+
 import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
 
 import Layout from "./components/Layout";
@@ -21,6 +23,8 @@ import useScrollDirection from "./components/utils/useScrollDirection";
 import {useAuth0} from "@auth0/auth0-react";
 
 import "./App.css";
+
+import svg from "./components/assets/icons/arrow2.svg";
 
 import createUser from "./components/utils/axiosRequest/createUser";
 import getAllProducts from "./components/utils/axiosRequest/getAllProducts";
@@ -138,6 +142,8 @@ export default function App() {
     const [isImageHeaderVisible, setIsImageHeaderVisible] = useState(true);
 
     const [isHederVisible, setIsHeaderVisible] = useState();
+
+    const [isCustomCursor, setIsCustomCursor] = useState(false);
 
     const scrollPosition = useScrollPosition();
     //console.log(scrollPosition);
@@ -266,6 +272,9 @@ export default function App() {
                                                     setIsImageHeaderVisible={
                                                         setIsImageHeaderVisible
                                                     }
+                                                    setIsCustomCursor={
+                                                        setIsCustomCursor
+                                                    }
                                                 />
                                             }
                                         />
@@ -315,6 +324,14 @@ export default function App() {
                                 </Routes>
                             </ScrollToTop>
                         </Router>
+                        <CustomCursor
+                            component={svg}
+                            isDisabled={!isCustomCursor}
+                            width={50}
+                            height={50}
+                            zIndex={420}
+                            //transform="translate(-30%, -10%) rotateZ(-22deg)"
+                        />
                     </ParallaxProvider>
                 </>
             );

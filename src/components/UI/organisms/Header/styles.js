@@ -7,7 +7,7 @@ export const HeaderDiv = styled.div`
     align-items: center;
 
     width: 100vw;
-    height: 90px;
+    height: 20px;
 
     padding: 40px;
 
@@ -15,7 +15,7 @@ export const HeaderDiv = styled.div`
     position: fixed;
 
     z-index: 40;
-    color: #ececec;
+
     color: black;
     background-color: white;
 

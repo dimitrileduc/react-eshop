@@ -166,6 +166,5 @@ export const Input = styled.input`
     }
     :focus {
         outline: none !important;
-        border-bottom: 1px black solid;
     }
 `;

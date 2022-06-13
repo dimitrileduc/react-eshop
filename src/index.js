@@ -5,7 +5,11 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "normalize.css";
 
+//import svg from "./components/assets/icons/arrow.svg";
+
 import {Auth0Provider} from "@auth0/auth0-react";
+
+//import {CustomCursor} from "react-svg-cursor";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(

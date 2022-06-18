@@ -25,7 +25,6 @@ const Layout = ({
                     <Header
                         setIsCartVisible={setIsCartVisible}
                         isCartVisible={isCartVisible}
-                        cart={cart}
                         orders={orders}
                         productsItems={productsItems}
                         setOrders={setOrders}

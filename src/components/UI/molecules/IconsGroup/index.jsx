@@ -7,7 +7,7 @@ import {Container} from "./styles";
 function IconsGroup({
     setIsCartVisible,
     isCartVisible,
-    cart,
+
     orders,
     productsItems,
     setOrders,
@@ -16,7 +16,6 @@ function IconsGroup({
         <>
             <Container>
                 <IconUser />
-
                 <IconBasket
                     setIsCartVisible={setIsCartVisible}
                     isCartVisible={isCartVisible}

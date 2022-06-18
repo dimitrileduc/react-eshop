@@ -11,7 +11,7 @@ import LogoWebp from "../../../assets/logo/logo.webp";
 function Header({
     setIsCartVisible,
     isCartVisible,
-    cart,
+
     orders,
     productsItems,
     setOrders,
@@ -29,7 +29,6 @@ function Header({
             <IconsGroup
                 setIsCartVisible={setIsCartVisible}
                 isCartVisible={isCartVisible}
-                cart={cart}
                 orders={orders}
                 productsItems={productsItems}
                 setOrders={setOrders}

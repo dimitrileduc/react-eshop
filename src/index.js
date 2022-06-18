@@ -15,21 +15,14 @@ import {
 
 //import svg from "./components/assets/icons/arrow.svg";
 
-import {Auth0Provider} from "@auth0/auth0-react";
-
 //import {CustomCursor} from "react-svg-cursor";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
     <React.StrictMode>
-        <Auth0Provider
-            domain="dev-7wxame8p.us.auth0.com"
-            clientId="sqqFOx7tq6qjPZ5MmuA6WERT9h3GsDa8"
-            redirectUri={window.location.origin}>
-            <Router>
-                <App />
-            </Router>
-        </Auth0Provider>
+        <Router>
+            <App />
+        </Router>
     </React.StrictMode>,
 );
 

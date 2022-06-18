@@ -6,6 +6,7 @@ import useScrollPosition from "./components/utils/useScrollPosition";
 import {CustomCursor} from "react-svg-cursor";
 
 import {ContainerAnim, BlackBox, TextBox} from "./styles";
+import useScrollBlock from "./components/utils/useScrollBlock";
 
 import {
     BrowserRouter as Router,
@@ -29,6 +30,7 @@ import Account from "./components/pages/Account";
 
 import ScrollToTop from "./components/utils/ScrollToTop";
 import useScrollDirection from "./components/utils/useScrollDirection";
+import SmoothScrollBar from "./components/utils/SmoothScrollBar";
 
 import {useAuth0} from "@auth0/auth0-react";
 
@@ -53,6 +55,7 @@ const names = [
 ];
 
 export default function App() {
+    const [blockScroll, allowScroll] = useScrollBlock();
     // state for products from strapi cms
     const [products, setProducts] = useState(null);
 
@@ -171,6 +174,8 @@ export default function App() {
 
     const [isCustomCursor, setIsCustomCursor] = useState(false);
 
+    const [isAnimationRunning, setIsAnimationRunning] = useState(true);
+
     const scrollPosition = useScrollPosition();
 
     useEffect(() => {
@@ -188,12 +193,14 @@ export default function App() {
             height: "100vh",
             top: "0vh",
             borderRadius: "0% 0% 0% 0%",
+            overflow: "hidden",
         },
         // animate
         animate: {
             height: "0vh",
             top: "0vh",
-            borderRadius: "0% 0% 17% 17%",
+            borderRadius: "0% 0% 27% 27%",
+            overflow: "hidden",
 
             transition: {
                 delay: 2,
@@ -254,6 +261,9 @@ export default function App() {
         [],
     );
     */
+    function changeStateAnimation() {
+        setIsAnimationRunning(false);
+    }
 
     // return jsx
     // return different Layout if mobile
@@ -261,10 +271,11 @@ export default function App() {
         if (products) {
             return (
                 <>
-                    <ContainerAnim>
+                    <ContainerAnim $isAnimationRunning={isAnimationRunning}>
                         <BlackBox
                             initial="initial"
                             animate="animate"
+                            onAnimationComplete={changeStateAnimation}
                             variants={blackBox}>
                             <TextBox>{newName}</TextBox>
                         </BlackBox>

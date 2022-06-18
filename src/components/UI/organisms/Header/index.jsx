@@ -17,13 +17,11 @@ function Header({
     setOrders,
     isImageHeaderVisible,
     scrollDirection,
-    isHederVisible,
 }) {
     return (
         <HeaderDiv
             $scrollDirection={scrollDirection}
-            $isImageHeaderVisible={isImageHeaderVisible}
-            $isHederVisible={isHederVisible}>
+            $isImageHeaderVisible={isImageHeaderVisible}>
             <Navbar />
 
             <Logo logoPng={LogoPng} logoWebp={LogoWebp} />

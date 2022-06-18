@@ -1,26 +1,17 @@
-import React, {useState, useEffect, useMemo} from "react";
+import React, {useState, useEffect} from "react";
+import {Routes, Route, useLocation, useHistory} from "react-router-dom";
+
 import uuid from "react-uuid";
 import {ParallaxProvider} from "react-scroll-parallax";
-import useScrollPosition from "./components/utils/useScrollPosition";
-
 import {CustomCursor} from "react-svg-cursor";
+import ScrollToTop from "./components/utils/ScrollToTop";
+import useScrollDirection from "./components/utils/useScrollDirection";
+import {useAuth0} from "@auth0/auth0-react";
 
 import {ContainerAnim, BlackBox, TextBox} from "./styles";
-import useScrollBlock from "./components/utils/useScrollBlock";
-
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    useLocation,
-    useHistory,
-} from "react-router-dom";
-
-import {AnimatePresence} from "framer-motion";
 
 import Layout from "./components/Layout";
 import LayoutMobile from "./components/Layout/LayoutMobile";
-
 import Home from "./components/pages/Home";
 import Products from "./components/pages/Products";
 import ProductsList from "./components/UI/organisms/ProductsList";
@@ -28,39 +19,17 @@ import Contacts from "./components/pages/Contacts";
 import Product from "./components/UI/molecules/Product";
 import Account from "./components/pages/Account";
 
-import ScrollToTop from "./components/utils/ScrollToTop";
-import useScrollDirection from "./components/utils/useScrollDirection";
-import SmoothScrollBar from "./components/utils/SmoothScrollBar";
-
-import {useAuth0} from "@auth0/auth0-react";
-
-import "./App.css";
-
-import svg from "./components/assets/icons/arrow2.svg";
+import IntroTransition from "./components/transitions/IntroTransition";
 
 import createUser from "./components/utils/axiosRequest/createUser";
 import getAllProducts from "./components/utils/axiosRequest/getAllProducts";
-var _ = require("lodash");
 
-const names = [
-    "Bonjour",
-    "你们好",
-    "Ẹ ku arọ",
-    "Salam",
-    "Guten Tag",
-    "Dobar den",
-    "xiàwǔ hǎo",
-    "hola!",
-    "Hello.",
-];
+import svg from "./components/assets/icons/arrow2.svg";
 
 export default function App() {
-    const [blockScroll, allowScroll] = useScrollBlock();
-    // state for products from strapi cms
     const [products, setProducts] = useState(null);
 
     const location = useLocation();
-    const [newName, setnewName] = useState("");
 
     // state for products from dummy data
     const [productsItems, setProductsItems] = useState([
@@ -170,45 +139,10 @@ export default function App() {
     const [isCartVisible, setIsCartVisible] = useState(false);
     const [isImageHeaderVisible, setIsImageHeaderVisible] = useState(true);
 
-    const [isHederVisible, setIsHeaderVisible] = useState();
-
     const [isCustomCursor, setIsCustomCursor] = useState(false);
 
     const [isAnimationRunning, setIsAnimationRunning] = useState(true);
 
-    const scrollPosition = useScrollPosition();
-
-    useEffect(() => {
-        let x = -1;
-        const intervalID = setInterval(() => {
-            if (++x === names.length - 1) {
-                window.clearInterval(intervalID);
-            }
-            setnewName(names[x]);
-        }, 200);
-    }, []);
-
-    const blackBox = {
-        initial: {
-            height: "100vh",
-            top: "0vh",
-            borderRadius: "0% 0% 0% 0%",
-            overflow: "hidden",
-        },
-        // animate
-        animate: {
-            height: "0vh",
-            top: "0vh",
-            borderRadius: "0% 0% 27% 27%",
-            overflow: "hidden",
-
-            transition: {
-                delay: 2,
-                duration: 2,
-                ease: [0.87, 0, 0.13, 1],
-            },
-        },
-    };
     ////
     //console.log(scrollPosition);
 
@@ -250,17 +184,6 @@ export default function App() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    /*
-    const handleEndScrollUp = useMemo(
-        () => _.debounce(() => showHeader(), 1000),
-        [],
-    );
-
-    const handleEndScroll = useMemo(
-        () => _.debounce(() => hideHeader(), 1000),
-        [],
-    );
-    */
     function changeStateAnimation() {
         setIsAnimationRunning(false);
     }
@@ -272,14 +195,9 @@ export default function App() {
             return (
                 <>
                     <ContainerAnim $isAnimationRunning={isAnimationRunning}>
-                        <BlackBox
-                            initial="initial"
-                            animate="animate"
-                            onAnimationComplete={changeStateAnimation}
-                            variants={blackBox}>
-                            <TextBox>{newName}</TextBox>
-                        </BlackBox>
-
+                        <IntroTransition
+                            changeStateAnimation={changeStateAnimation}
+                        />
                         <ParallaxProvider>
                             <ScrollToTop>
                                 <Routes
@@ -309,9 +227,6 @@ export default function App() {
                                                     }
                                                     scrollDirection={
                                                         scrollDirection
-                                                    }
-                                                    isHederVisible={
-                                                        isHederVisible
                                                     }
                                                 />
                                             )),
@@ -421,4 +336,16 @@ export default function App() {
     useEffect(() => {
         getAllProducts(setProducts);
     }, []);
+    */
+
+/*
+    const handleEndScrollUp = useMemo(
+        () => _.debounce(() => showHeader(), 1000),
+        [],
+    );
+
+    const handleEndScroll = useMemo(
+        () => _.debounce(() => hideHeader(), 1000),
+        [],
+    );
     */

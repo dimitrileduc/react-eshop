@@ -17,7 +17,6 @@ const Layout = ({
     products,
     isImageHeaderVisible,
     scrollDirection,
-    isHederVisible,
 }) => {
     return (
         <>
@@ -32,7 +31,6 @@ const Layout = ({
                         setOrders={setOrders}
                         isImageHeaderVisible={isImageHeaderVisible}
                         scrollDirection={scrollDirection}
-                        isHederVisible={isHederVisible}
                     />
                     <ShoppingCart
                         isCartVisible={isCartVisible}

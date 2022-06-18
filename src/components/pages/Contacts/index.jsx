@@ -2,6 +2,7 @@ import React from "react";
 
 import {Formik, Field, Form, ErrorMessage, getIn} from "formik";
 import * as Yup from "yup";
+import {motion} from "framer-motion";
 
 import ImageJpg from "../../assets/map/map.jpg";
 import ImageWebp from "../../assets/map/map.webp";

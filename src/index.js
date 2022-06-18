@@ -5,6 +5,14 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "normalize.css";
 
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    useLocation,
+    useHistory,
+} from "react-router-dom";
+
 //import svg from "./components/assets/icons/arrow.svg";
 
 import {Auth0Provider} from "@auth0/auth0-react";
@@ -18,7 +26,9 @@ root.render(
             domain="dev-7wxame8p.us.auth0.com"
             clientId="sqqFOx7tq6qjPZ5MmuA6WERT9h3GsDa8"
             redirectUri={window.location.origin}>
-            <App />
+            <Router>
+                <App />
+            </Router>
         </Auth0Provider>
     </React.StrictMode>,
 );

@@ -5,7 +5,17 @@ import useScrollPosition from "./components/utils/useScrollPosition";
 
 import {CustomCursor} from "react-svg-cursor";
 
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
+import {ContainerAnim, BlackBox, TextBox} from "./styles";
+
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    useLocation,
+    useHistory,
+} from "react-router-dom";
+
+import {AnimatePresence} from "framer-motion";
 
 import Layout from "./components/Layout";
 import LayoutMobile from "./components/Layout/LayoutMobile";
@@ -29,9 +39,25 @@ import svg from "./components/assets/icons/arrow2.svg";
 import createUser from "./components/utils/axiosRequest/createUser";
 import getAllProducts from "./components/utils/axiosRequest/getAllProducts";
 var _ = require("lodash");
+
+const names = [
+    "Bonjour",
+    "你们好",
+    "Ẹ ku arọ",
+    "Salam",
+    "Guten Tag",
+    "Dobar den",
+    "xiàwǔ hǎo",
+    "hola!",
+    "Hello.",
+];
+
 export default function App() {
     // state for products from strapi cms
     const [products, setProducts] = useState(null);
+
+    const location = useLocation();
+    const [newName, setnewName] = useState("");
 
     // state for products from dummy data
     const [productsItems, setProductsItems] = useState([
@@ -146,6 +172,37 @@ export default function App() {
     const [isCustomCursor, setIsCustomCursor] = useState(false);
 
     const scrollPosition = useScrollPosition();
+
+    useEffect(() => {
+        let x = -1;
+        const intervalID = setInterval(() => {
+            if (++x === names.length - 1) {
+                window.clearInterval(intervalID);
+            }
+            setnewName(names[x]);
+        }, 200);
+    }, []);
+
+    const blackBox = {
+        initial: {
+            height: "100vh",
+            top: "0vh",
+            borderRadius: "0% 0% 0% 0%",
+        },
+        // animate
+        animate: {
+            height: "0vh",
+            top: "0vh",
+            borderRadius: "0% 0% 17% 17%",
+
+            transition: {
+                delay: 2,
+                duration: 2,
+                ease: [0.87, 0, 0.13, 1],
+            },
+        },
+    };
+    ////
     //console.log(scrollPosition);
 
     //console.log(isImageHeaderVisible + " ? is visible ? ");
@@ -187,23 +244,6 @@ export default function App() {
     }, []);
 
     /*
-
-    useEffect(() => {
-        if (scrollDirection === "down") {
-            setIsHeaderVisible(false);
-
-            handleEndScroll();
-        }
-        if (scrollDirection === "up") {
-            console.log("scroll scroll scroll");
-            setIsHeaderVisible(true);
-
-            handleEndScrollUp();
-        }
-
-        //}
-    }, [scrollDirection]);
-
     const handleEndScrollUp = useMemo(
         () => _.debounce(() => showHeader(), 1000),
         [],
@@ -213,15 +253,6 @@ export default function App() {
         () => _.debounce(() => hideHeader(), 1000),
         [],
     );
-
-    function hideHeader() {
-        console.log("header not visibility" + isHederVisible);
-    }
-
-    function showHeader() {
-        console.log("header visibility" + isHederVisible);
-    }
-
     */
 
     // return jsx
@@ -230,10 +261,19 @@ export default function App() {
         if (products) {
             return (
                 <>
-                    <ParallaxProvider>
-                        <Router>
+                    <ContainerAnim>
+                        <BlackBox
+                            initial="initial"
+                            animate="animate"
+                            variants={blackBox}>
+                            <TextBox>{newName}</TextBox>
+                        </BlackBox>
+
+                        <ParallaxProvider>
                             <ScrollToTop>
-                                <Routes>
+                                <Routes
+                                    location={location}
+                                    key={location.pathname}>
                                     <Route
                                         path="/"
                                         element={{
@@ -274,6 +314,9 @@ export default function App() {
                                                     }
                                                     setIsCustomCursor={
                                                         setIsCustomCursor
+                                                    }
+                                                    scrollDirection={
+                                                        scrollDirection
                                                     }
                                                 />
                                             }
@@ -323,16 +366,17 @@ export default function App() {
                                     </Route>
                                 </Routes>
                             </ScrollToTop>
-                        </Router>
-                        <CustomCursor
-                            component={svg}
-                            isDisabled={!isCustomCursor}
-                            width={50}
-                            height={50}
-                            zIndex={420}
-                            //transform="translate(-30%, -10%) rotateZ(-22deg)"
-                        />
-                    </ParallaxProvider>
+
+                            <CustomCursor
+                                component={svg}
+                                isDisabled={!isCustomCursor}
+                                width={50}
+                                height={50}
+                                zIndex={420}
+                                //transform="translate(-30%, -10%) rotateZ(-22deg)"
+                            />
+                        </ParallaxProvider>
+                    </ContainerAnim>
                 </>
             );
         }

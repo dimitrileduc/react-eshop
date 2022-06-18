@@ -9,6 +9,8 @@ import {
     Button,
 } from "./styles";
 
+import {motion} from "framer-motion";
+
 import MenuAccount from "../../UI/molecules/MenuAccount";
 import MainAccount from "../../UI/molecules/MainAccount";
 

@@ -12,7 +12,7 @@ const blackBox = {
     animate: {
         height: "0vh",
         top: "0vh",
-        borderRadius: "0% 0% 27% 27%",
+        borderRadius: "0% 0% 40% 40%",
         overflow: "hidden",
 
         transition: {

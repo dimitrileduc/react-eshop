@@ -6,6 +6,7 @@ import {ParallaxProvider} from "react-scroll-parallax";
 import {CustomCursor} from "react-svg-cursor";
 import ScrollToTop from "./components/utils/ScrollToTop";
 import useScrollDirection from "./components/utils/useScrollDirection";
+import {AnimatePresence} from "framer-motion";
 
 import {ContainerAnim, BlackBox, TextBox} from "./styles";
 
@@ -50,6 +51,16 @@ export default function App() {
 
     const [isLogged, setIsLogged] = useState(false);
 
+    const [currentPageIsHome, setCurrentPageIsHome] = useState(false);
+
+    // detect if page is Home .
+    useEffect(() => {
+        if (location.pathname === "/") {
+            setCurrentPageIsHome(true);
+        }
+    }, [location]);
+
+    // Get products - axios
     useEffect(() => {
         getAllProducts(
             "http://localhost:3001/products",
@@ -73,16 +84,25 @@ export default function App() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
+    // change state animation running
     function changeStateAnimation() {
         setIsAnimationRunning(false);
     }
+
+    // display intro animation when refresh page only if page is Home
+    let intro;
+    if (currentPageIsHome) {
+        intro = <IntroTransition changeStateAnimation={changeStateAnimation} />;
+    } else {
+        intro = null;
+    }
+
+    // render only if !isLoading
     if (!isLoading) {
         return (
             <>
                 <ContainerAnim $isAnimationRunning={isAnimationRunning}>
-                    <IntroTransition
-                        changeStateAnimation={changeStateAnimation}
-                    />
+                    {intro}
 
                     <ScrollToTop>
                         <Routes location={location} key={location.pathname}>

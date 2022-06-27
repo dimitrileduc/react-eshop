@@ -9,7 +9,7 @@ export const StyledLink = styled(Link)`
     overflow: visible;
     opacity: 1;
     font-weight: 500;
-    font-family: "Inter-SemiBold", "Inter", sans-serif;
+    font-family: inherit;
 
     font-size: 14px;
     letter-spacing: 0.4px;

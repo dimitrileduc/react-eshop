@@ -37,6 +37,7 @@ export const FilterContainer = styled.div`
     grid-template-rows: 1fr 2fr;
     gap: 0px 0px;
     z-index: 50;
+
     background-color: white;
     border-bottom: 1px black solid;
 

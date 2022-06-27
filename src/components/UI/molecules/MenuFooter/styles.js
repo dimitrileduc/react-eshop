@@ -15,7 +15,7 @@ export const LI = styled.li`
     white-space: pre;
     overflow: visible;
     opacity: 0.6;
-    font-family: "Inter", sans-serif;
+
     color: #000000;
     font-size: 14px;
     letter-spacing: 0px;

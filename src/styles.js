@@ -2,7 +2,7 @@ import styled from "styled-components";
 import {motion} from "framer-motion";
 
 export const ContainerAnim = styled.div`
-    position: absolute;
+    //position: absolute;
 
     overflow: ${({$isAnimationRunning}) =>
         $isAnimationRunning ? "hidden" : "visible"};

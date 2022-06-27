@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import {motion} from "framer-motion";
 import {
     ContainerCart,
     ContainerGrid,
@@ -65,24 +66,29 @@ function ShoppingCart({
 
     return (
         <ContainerCart $isVisible={isCartVisible}>
-            <ContainerBorder>
-                <ContainerGrid>
-                    <TitleCart>SHOPPING BAG</TitleCart>
-                    <ContainerFixed>
-                        <ContainerProducts>{listOrders}</ContainerProducts>
-                    </ContainerFixed>
-                    <ContainerButtonsCart>
-                        <ContainerButtonLeftCart>
-                            <SubButton>
-                                Total : <strong>€{total}</strong>{" "}
-                            </SubButton>
-                        </ContainerButtonLeftCart>
-                        <ContainerButtonRightCart>
-                            <Button>checkout</Button>
-                        </ContainerButtonRightCart>
-                    </ContainerButtonsCart>
-                </ContainerGrid>
-            </ContainerBorder>
+            <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}>
+                <ContainerBorder>
+                    <ContainerGrid>
+                        <TitleCart>SHOPPING BAG</TitleCart>
+                        <ContainerFixed>
+                            <ContainerProducts>{listOrders}</ContainerProducts>
+                        </ContainerFixed>
+                        <ContainerButtonsCart>
+                            <ContainerButtonLeftCart>
+                                <SubButton>
+                                    Total : <strong>€{total}</strong>{" "}
+                                </SubButton>
+                            </ContainerButtonLeftCart>
+                            <ContainerButtonRightCart>
+                                <Button>checkout</Button>
+                            </ContainerButtonRightCart>
+                        </ContainerButtonsCart>
+                    </ContainerGrid>
+                </ContainerBorder>
+            </motion.div>
         </ContainerCart>
     );
 }

@@ -8,7 +8,7 @@ export const P = styled.p`
     word-break: break-word;
     overflow: hidden;
     opacity: 0.8;
-    font-family: "Inter", sans-serif;
+
     color: #000000;
     font-size: 14px;
     letter-spacing: 0px;

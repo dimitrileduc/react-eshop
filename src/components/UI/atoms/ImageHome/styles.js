@@ -12,5 +12,5 @@ export const Img = styled.img.attrs((props) => ({
 }))`
     //width: 200px;
     width: 100%;
-    height: auto;
+    //height: 800px;
 `;

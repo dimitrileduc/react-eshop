@@ -1,8 +1,10 @@
 import styled from "styled-components";
 
 export const ContainerStyled = styled.div`
+    padding-left: 40px;
+    padding-right: 40px;
     padding-top: 40px;
-    border-top: 1px solid lightgrey;
+    border-top: 1px solid black;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 3fr;
@@ -50,7 +52,7 @@ export const TitleSectionFooter = styled.h4`
     overflow: visible;
     opacity: 0.8;
     font-weight: 700;
-    font-family: "Inter-Bold", "Inter", sans-serif;
+
     color: #000000;
     font-size: 16px;
     letter-spacing: 0.4px;

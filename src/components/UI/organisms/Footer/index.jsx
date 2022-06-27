@@ -7,7 +7,6 @@ function Footer() {
     return (
         <Container>
             <FooterMain />
-            <FooterBottom />
         </Container>
     );
 }

@@ -68,7 +68,7 @@ export const LabelStyled = styled.p`
     overflow: visible;
     opacity: 0.8;
     font-weight: 600;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: #000000;
     font-size: 12px;
     letter-spacing: 0.4px;

@@ -25,19 +25,26 @@ function Account({isLogged, setIsLogged}) {
 
     return (
         <ContainerMargin>
-            <ContainerGrid>
-                <ContainerMenu>
-                    <MenuAccount setSelectedMenuItem={setSelectedMenuItem} />
-                </ContainerMenu>
+            <motion.div
+                initial={{opacity: 0}}
+                animate={{opacity: 1}}
+                exit={{opacity: 0}}>
+                <ContainerGrid>
+                    <ContainerMenu>
+                        <MenuAccount
+                            setSelectedMenuItem={setSelectedMenuItem}
+                        />
+                    </ContainerMenu>
 
-                <ContainerLogout>
-                    <Button>Logout</Button>
-                </ContainerLogout>
+                    <ContainerLogout>
+                        <Button>Logout</Button>
+                    </ContainerLogout>
 
-                <ContainerMain>
-                    <MainAccount selectedMenuItem={selectedMenuItem} />
-                </ContainerMain>
-            </ContainerGrid>
+                    <ContainerMain>
+                        <MainAccount selectedMenuItem={selectedMenuItem} />
+                    </ContainerMain>
+                </ContainerGrid>
+            </motion.div>
         </ContainerMargin>
     );
 }

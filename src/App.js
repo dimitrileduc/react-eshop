@@ -26,6 +26,8 @@ import getAllProducts from "./components/utils/axiosRequest/getAllProducts";
 
 import svg from "./components/assets/icons/arrow2.svg";
 
+import TransitionExit from "./components/transitions/TransitionExit";
+
 export default function App() {
     const [products, setProducts] = useState(null);
     const [error, setError] = useState(null);
@@ -53,17 +55,27 @@ export default function App() {
 
     const [currentPageIsHome, setCurrentPageIsHome] = useState(false);
 
+    const [pageName, setPageName] = useState("");
+
+    const [delayMaquee, setDelayMaquee] = useState(4);
+
     // detect if page is Home .
+    // hide cart when page change
     useEffect(() => {
         if (location.pathname === "/") {
             setCurrentPageIsHome(true);
+            setPageName("home");
+        } else {
+            setPageName(location.pathname);
+            setDelayMaquee(1);
         }
+        setIsCartVisible(false);
     }, [location]);
 
     // Get products - axios
     useEffect(() => {
         getAllProducts(
-            "http://localhost:3001/products",
+            "http://localhost:3000/products",
 
             setIsLoading,
             setError,
@@ -105,78 +117,101 @@ export default function App() {
                     {intro}
 
                     <ScrollToTop>
-                        <Routes location={location} key={location.pathname}>
-                            <Route
-                                path="/"
-                                element={{
-                                    ...(isMobile ? (
-                                        <LayoutMobile />
-                                    ) : (
-                                        <Layout
-                                            isCartVisible={isCartVisible}
-                                            setIsCartVisible={setIsCartVisible}
-                                            cart={cart}
-                                            orders={orders}
-                                            productsItems={productsItems}
-                                            setOrders={setOrders}
-                                            isImageHeaderVisible={
-                                                isImageHeaderVisible
-                                            }
-                                            scrollDirection={scrollDirection}
-                                        />
-                                    )),
-                                }}>
+                        <AnimatePresence exitBeforeEnter>
+                            <Routes location={location} key={location.pathname}>
                                 <Route
-                                    index
-                                    element={
-                                        <Home
-                                            setIsImageHeaderVisible={
-                                                setIsImageHeaderVisible
-                                            }
-                                            setIsCustomCursor={
-                                                setIsCustomCursor
-                                            }
-                                            scrollDirection={scrollDirection}
-                                        />
-                                    }
-                                />
-                                <Route path="products" element={<Products />}>
+                                    path="/"
+                                    element={{
+                                        ...(isMobile ? (
+                                            <LayoutMobile />
+                                        ) : (
+                                            <Layout
+                                                isCartVisible={isCartVisible}
+                                                setIsCartVisible={
+                                                    setIsCartVisible
+                                                }
+                                                cart={cart}
+                                                orders={orders}
+                                                productsItems={productsItems}
+                                                setOrders={setOrders}
+                                                isImageHeaderVisible={
+                                                    isImageHeaderVisible
+                                                }
+                                                scrollDirection={
+                                                    scrollDirection
+                                                }
+                                            />
+                                        )),
+                                    }}>
                                     <Route
                                         index
                                         element={
-                                            <ProductsList
+                                            <Home
+                                                setIsImageHeaderVisible={
+                                                    setIsImageHeaderVisible
+                                                }
+                                                setIsCustomCursor={
+                                                    setIsCustomCursor
+                                                }
+                                                scrollDirection={
+                                                    scrollDirection
+                                                }
                                                 productsItems={productsItems}
-                                                products={products}
+                                                delayMaquee={delayMaquee}
                                             />
                                         }
                                     />
                                     <Route
-                                        path=":slug"
+                                        path="products"
                                         element={
-                                            <Product
-                                                productsItems={productsItems}
-                                                setOrders={setOrders}
-                                                orders={orders}
-                                                cart={cart}
-                                                setIsCartVisible={
-                                                    setIsCartVisible
-                                                }
+                                            <Products pageName={pageName} />
+                                        }>
+                                        <Route
+                                            index
+                                            element={
+                                                <ProductsList
+                                                    productsItems={
+                                                        productsItems
+                                                    }
+                                                    products={products}
+                                                />
+                                            }
+                                        />
+                                        <Route
+                                            path=":slug"
+                                            element={
+                                                <Product
+                                                    productsItems={
+                                                        productsItems
+                                                    }
+                                                    setOrders={setOrders}
+                                                    orders={orders}
+                                                    cart={cart}
+                                                    setIsCartVisible={
+                                                        setIsCartVisible
+                                                    }
+                                                />
+                                            }
+                                        />
+                                    </Route>
+                                    <Route
+                                        path="contacts"
+                                        element={
+                                            <Contacts pageName={pageName} />
+                                        }
+                                    />
+                                    <Route
+                                        path="myaccount"
+                                        element={
+                                            <Account
+                                                isLogged={isLogged}
+                                                setIsLogged={setIsLogged}
                                             />
                                         }
                                     />
                                 </Route>
-                                <Route path="contacts" element={<Contacts />} />
-                                <Route
-                                    path="myaccount"
-                                    element={
-                                        <Account
-                                            isLogged={isLogged}
-                                            setIsLogged={setIsLogged}
-                                        />
-                                    }
-                                />
-                            </Route>
-                        </Routes>
+                            </Routes>
+                        </AnimatePresence>
                     </ScrollToTop>
 
                     <CustomCursor

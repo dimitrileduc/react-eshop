@@ -15,6 +15,8 @@ export const Container = styled.div`
     gap: 0px 0px;
     height: auto;
     background-color: white;
+    border: 1px solid black;
+    font-family: "Lato", sans-serif;
 `;
 
 export const ContainerLeft = styled.div`
@@ -24,20 +26,26 @@ export const ContainerLeft = styled.div`
     gap: 0px 0px;
     justify-self: stretch;
     align-self: stretch;
-    grid-area: 1/1/1/1;
+    grid-area: 1 / 2 / 2 / 3;
+
     width: 100%;
     height: 100%;
     font-size: 36px;
 
+    font-weight: 600;
+    letter-spacing: 0.05em;
+
     padding-left: 40px;
-    background-color: black;
-    color: white;
+
+    background-color: white;
+    color: black;
 `;
 
 export const ContainerText = styled.div`
     justify-self: start;
     align-self: center;
     grid-area: 1 / 1 / 2 / 2;
+    width: 35vw;
 `;
 
 export const ContainerButton = styled.div`
@@ -47,26 +55,25 @@ export const ContainerButton = styled.div`
 `;
 
 export const ContainerRight = styled.div`
-    grid-area: 1 / 2 / 2 / 3;
-
+    grid-area: 1/1/1/1;
     justify-self: center;
     align-self: center;
     width: 100%;
-    height: 100%;
+
     background-color: black;
 `;
 
 export const Button = styled.button`
     all: unset;
     cursor: pointer;
-    border: 1px white solid;
+    border: 1px black solid;
     padding: 10px;
     font-size: 18px;
     margin-bottom: 40px;
-    color: white;
+    color: black;
 
     :hover {
-        background-color: white;
-        color: black;
+        background-color: black;
+        color: white;
     }
 `;

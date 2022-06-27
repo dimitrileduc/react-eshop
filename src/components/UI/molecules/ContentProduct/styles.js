@@ -43,7 +43,7 @@ export const ButtonContainer = styled.div`
 export const Title = styled.p`
     opacity: 0.8;
     font-weight: 700;
-    font-family: "Inter-Bold", "Inter", sans-serif;
+
     color: #000000;
     font-size: 32px;
     letter-spacing: 0px;
@@ -56,7 +56,7 @@ export const Title = styled.p`
 
 export const Category = styled.p`
     opacity: 0.6;
-    font-family: "Inter", sans-serif;
+
     color: #000000;
     font-size: 20px;
     letter-spacing: 0px;
@@ -72,7 +72,7 @@ export const Description = styled.p`
     word-break: break-word;
 
     opacity: 0.7;
-    font-family: "Inter", sans-serif;
+
     color: #000000;
     font-size: 14px;
     letter-spacing: 0px;
@@ -84,7 +84,7 @@ export const Description = styled.p`
 
 export const Price = styled.p`
     opacity: 0.8;
-    font-family: "Inter", sans-serif;
+
     color: #000000;
     font-size: 20px;
     letter-spacing: 0px;
@@ -106,7 +106,7 @@ export const Button = styled.button`
     text-align: center;
 
     font-weight: 600;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: white;
     font-size: 12px;
     letter-spacing: 0.2px;

@@ -37,7 +37,7 @@ export const ContainerGrid = styled.div`
 export const TitleCart = styled.div`
     text-align: center;
     font-weight: 600;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: #000000;
     font-size: 14px;
     letter-spacing: 0.4px;
@@ -83,7 +83,6 @@ export const SubButton = styled.button`
     text-align: center;
 
     font-weight: 500;
-    font-family: "Inter-Medium", "Inter", sans-serif;
 
     font-size: 14px;
     letter-spacing: 0.6px;
@@ -104,7 +103,7 @@ export const Button = styled.button`
     text-align: center;
 
     font-weight: 600;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: white;
     font-size: 12px;
     letter-spacing: 0.2px;

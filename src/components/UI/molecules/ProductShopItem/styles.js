@@ -71,7 +71,7 @@ export const Label = styled.p`
     overflow: visible;
     opacity: 0.8;
     font-weight: 600;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: #000000;
     font-size: 12px;
     letter-spacing: 0.4px;
@@ -85,7 +85,7 @@ export const Label = styled.p`
 export const Title = styled.div`
     opacity: 0.8;
     font-weight: 600;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: #000000;
     font-size: 14px;
     letter-spacing: 0.4px;
@@ -96,7 +96,7 @@ export const Title = styled.div`
 export const Category = styled.div`
     opacity: 0.6;
     font-weight: 500;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: #000000;
     font-size: 12px;
     letter-spacing: 0.4px;
@@ -109,7 +109,7 @@ export const Category = styled.div`
 export const Price = styled.div`
     opacity: 0.8;
     font-weight: 500;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: #000000;
     font-size: 14px;
     letter-spacing: 0.4px;

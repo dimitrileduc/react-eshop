@@ -12,8 +12,8 @@ import {
     Button,
 } from "./styles";
 
-import ImageJpg from "../../../assets/images/slide6.jpg";
-import ImageWebp from "../../../assets/images/slide6.webp";
+import ImageJpg from "../../../assets/images/slide3.jpeg";
+import ImageWebp from "../../../assets/images/slide3.webp";
 
 import ImageHome from "../../atoms/ImageHome";
 

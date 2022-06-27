@@ -10,20 +10,14 @@ export const Container = styled.div`
     width: 100%;
     height: auto; /* 74px */
 
-    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 
-    border-color: lightgray;
-    border-style: solid;
-    border-top-width: 0.5px;
-    border-bottom-width: 0px;
-    border-left-width: 0px;
-    border-right-width: 0px;
-
-    opacity: 0.5;
+    border-top: 1px solid black;
+    opacity: 1;
 
     white-space: pre;
 
-    font-family: "Inter", sans-serif;
     color: #000000;
     font-size: 10px;
     letter-spacing: 0px;

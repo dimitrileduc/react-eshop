@@ -22,7 +22,7 @@ export const H1 = styled.h1`
     white-space: pre;
     overflow: visible;
     font-weight: 700;
-    font-family: "Inter-Bold", "Inter", sans-serif;
+
     color: #000000;
     font-size: 48px;
     letter-spacing: -2.6px;
@@ -43,7 +43,7 @@ export const P = styled.p`
     word-break: break-word;
 
     opacity: 0.8;
-    font-family: "Inter", sans-serif;
+
     color: #000000;
     font-size: 18px;
     letter-spacing: 0px;

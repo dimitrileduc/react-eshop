@@ -6,6 +6,7 @@ export const Button = styled.button`
     padding: 10px;
     background-color: white;
     cursor: pointer;
+    border: 1px black solid;
 
     :hover {
         background-color: black;

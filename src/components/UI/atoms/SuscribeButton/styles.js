@@ -9,7 +9,7 @@ export const StyledButton = styled.input`
     white-space: pre;
     overflow: visible;
     font-weight: 600;
-    font-family: "Inter-SemiBold", "Inter", sans-serif;
+
     color: #ffffff;
     font-size: 12px;
     letter-spacing: 0.4px;

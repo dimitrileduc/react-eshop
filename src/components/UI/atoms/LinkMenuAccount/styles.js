@@ -8,7 +8,6 @@ export const StyledLink = styled.a`
     overflow: visible;
     opacity: 0.8;
     font-weight: 500;
-    font-family: "Inter-SemiBold", "Inter", sans-serif;
 
     font-size: 16px;
     letter-spacing: 0.4px;

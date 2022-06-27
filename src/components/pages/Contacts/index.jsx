@@ -11,6 +11,10 @@ import Image from "../../UI/atoms/Image";
 
 import Map from "../../UI/atoms/Map";
 
+import TransitionExit from "../../transitions/TransitionExit";
+
+import InputForm from "../../UI/atoms/InputForm";
+
 import {
     ContainerForm,
     ContainerPage,
@@ -36,7 +40,7 @@ import {
     ButtonSend,
 } from "./styles";
 
-function Contact() {
+function Contact({pageName}) {
     const initialValues = {
         firstName: "",
         lastName: "",
@@ -63,81 +67,86 @@ function Contact() {
         console.log(values);
     };
     return (
-        <ContainerPage>
-            <ContainerGrid>
-                <HeaderContainer>
-                    <H1>Contact</H1>
-                </HeaderContainer>
-                <TextContainer>
-                    <Text>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                        sed do eiusmod tempor incididunt ut labore et dolore
-                        magna aliqua. Ut enim ad minim veniam, quis nostrud
-                        exercitation
-                    </Text>
-                </TextContainer>
-                <ContentContainer>
-                    <Formik
-                        initialValues={initialValues}
-                        validationSchema={validationSchema}
-                        onSubmit={(values) => handleSubmit(values)}>
-                        {({resetForm}) => (
-                            <Form>
-                                <ContainerForm>
-                                    <ContainerFirstName>
-                                        <LabelFirstName htmlFor="firstName">
-                                            First Name:
-                                        </LabelFirstName>
-                                        <InputFirstName
-                                            type="text"
-                                            id="firstName"
-                                            name="firstName"
-                                        />
-                                    </ContainerFirstName>
-                                    <ContainerLastName>
-                                        <Label htmlFor="lastName">
-                                            Last Name
-                                        </Label>
-                                        <InputLastName
-                                            type="text"
-                                            id="lastName"
-                                            name="lastName"
-                                        />
-                                    </ContainerLastName>
-                                    <ContainerEmail>
-                                        <Label htmlFor="email">Email:</Label>
-                                        <InputEmail
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                        />
-                                    </ContainerEmail>
-                                    <ContainerMessage>
-                                        <Label htmlFor="message">Message</Label>
-                                        <TextArea
-                                            type="text"
-                                            id="message"
-                                            name="message"
-                                            component="textarea"
-                                            rows="15"
-                                        />
-                                    </ContainerMessage>
-                                </ContainerForm>
-                                <div>
-                                    <ButtonSend type="submit">
-                                        Send Message
-                                    </ButtonSend>
-                                </div>
-                            </Form>
-                        )}
-                    </Formik>
+        <>
+            <ContainerPage>
+                <motion.div
+                    initial={{opacity: 0}}
+                    animate={{opacity: 1}}
+                    exit={{opacity: 0}}>
+                    <ContainerGrid>
+                        <HeaderContainer>
+                            <H1>Contact</H1>
+                        </HeaderContainer>
+                        <TextContainer>
+                            <Text>
+                                Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit, sed do eiusmod tempor
+                                incididunt ut labore et dolore magna aliqua. Ut
+                                enim ad minim veniam, quis nostrud exercitation
+                            </Text>
+                        </TextContainer>
+                        <ContentContainer>
+                            <Formik
+                                initialValues={initialValues}
+                                validationSchema={validationSchema}
+                                onSubmit={(values) => handleSubmit(values)}>
+                                {({resetForm}) => (
+                                    <Form>
+                                        <ContainerForm>
+                                            <ContainerFirstName>
+                                                <InputForm
+                                                    holder={"First Name"}
+                                                    type="text"
+                                                    id="firstName"
+                                                    name="firstName"
+                                                />
+                                            </ContainerFirstName>
+                                            <ContainerLastName>
+                                                <InputForm
+                                                    holder={"Last Name"}
+                                                    type="text"
+                                                    id="lastName"
+                                                    name="lastName"
+                                                />
+                                            </ContainerLastName>
+                                            <ContainerEmail>
+                                                <InputForm
+                                                    holder={"Email"}
+                                                    type="email"
+                                                    id="email"
+                                                    name="email"
+                                                />
+                                            </ContainerEmail>
+                                            <ContainerMessage>
+                                                <Label htmlFor="message">
+                                                    Message
+                                                </Label>
+                                                <TextArea
+                                                    type="text"
+                                                    id="message"
+                                                    name="message"
+                                                    component="textarea"
+                                                    rows="15"
+                                                />
+                                            </ContainerMessage>
+                                        </ContainerForm>
+                                        <div>
+                                            <ButtonSend type="submit">
+                                                Send Message
+                                            </ButtonSend>
+                                        </div>
+                                    </Form>
+                                )}
+                            </Formik>
 
-                    <ContainerMap>
-                        <Map />
-                    </ContainerMap>
-                </ContentContainer>
-            </ContainerGrid>
-        </ContainerPage>
+                            <ContainerMap>
+                                <Map />
+                            </ContainerMap>
+                        </ContentContainer>
+                    </ContainerGrid>
+                </motion.div>
+            </ContainerPage>
+        </>
     );
 }
 

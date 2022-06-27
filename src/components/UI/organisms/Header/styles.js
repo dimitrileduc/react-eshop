@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderDiv = styled.div`
+    margin-top: 20px;
     box-sizing: border-box;
 
     display: flex;
@@ -13,11 +14,15 @@ export const HeaderDiv = styled.div`
 
     overflow: visible;
     position: fixed;
+    background-color: white;
 
-    z-index: 40;
+    z-index: 60;
 
     color: black;
     background-color: white;
+
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 
     transition: opacity 0.2s ease-in-out;
 

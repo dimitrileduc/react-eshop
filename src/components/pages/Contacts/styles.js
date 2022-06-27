@@ -15,6 +15,7 @@ export const ContainerGrid = styled.div`
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto auto 50% auto;
     gap: 0px 0px;
+
     grid-template-areas:
         "header header"
         "text text"
@@ -34,7 +35,7 @@ export const TextContainer = styled.div`
 `;
 
 export const ContentContainer = styled.div`
-    margin-top: 40px;
+    margin-bottom: 40px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr;
@@ -58,6 +59,8 @@ export const ContainerMap = styled.div`
     border: 1px lightgray solid;
 
     width: 100%;
+    min-width: 30vw;
+    overflow: hidden;
     //height: 400px;
     -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
     filter: grayscale(100%);
@@ -82,7 +85,7 @@ export const H1 = styled.p`
     overflow: visible;
     opacity: 0.8;
     font-weight: 700;
-    font-family: "Inter-Bold", "Inter", sans-serif;
+
     color: #000000;
     font-size: 16px;
     letter-spacing: 0.4px;
@@ -99,7 +102,7 @@ export const Text = styled.p`
     word-break: break-word;
 
     opacity: 0.8;
-    font-family: "Inter", sans-serif;
+
     color: #000000;
     font-size: 14px;
     letter-spacing: 0px;
@@ -110,6 +113,7 @@ export const Text = styled.p`
 export const ContainerForm = styled.div`
     margin-right: 20px;
     justify-self: end;
+    min-width: 30vw;
 
     grid-area: form;
 
@@ -198,11 +202,14 @@ export const InputEmail = styled(Input)`
 
 export const TextArea = styled(Input)`
     width: 100%;
+    border: none;
+    border-bottom: 1px solid black;
+    padding-bottom: -100px;
 `;
 
 export const Label = styled.label`
     opacity: 0.8;
-    font-family: "Inter", sans-serif;
+
     color: #000000;
     font-size: 14px;
     letter-spacing: 0px;
@@ -221,7 +228,7 @@ export const LabelFirstName = styled(Label)`
 
 export const ButtonSend = styled.button`
     opacity: 0.8;
-    font-family: "Inter", sans-serif;
+
     color: black;
 
     letter-spacing: 0px;

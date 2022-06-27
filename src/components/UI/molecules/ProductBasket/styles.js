@@ -46,7 +46,7 @@ export const TitleContainer = styled.div`
 
     text-align: center;
     font-weight: 600;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: #000000;
     font-size: 14px;
     letter-spacing: 0.2px;
@@ -72,7 +72,7 @@ export const QuantityContainer = styled.div`
 
     opacity: 0.6;
     font-weight: 500;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: #000000;
     font-size: 14px;
     letter-spacing: 0.4px;
@@ -87,7 +87,7 @@ export const PriceContainer = styled.div`
 
     opacity: 0.8;
     font-weight: 500;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: #000000;
     font-size: 14px;
     letter-spacing: 0.4px;
@@ -126,7 +126,7 @@ export const Button = styled.button`
     text-align: center;
 
     font-weight: 600;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: #000000;
     font-size: 12px;
     letter-spacing: 0.2px;
@@ -149,7 +149,7 @@ const ButtonQuantity = styled.button`
     text-align: center;
 
     font-weight: 600;
-    font-family: "Inter-Medium", "Inter", sans-serif;
+
     color: #000000;
     font-size: 12px;
     letter-spacing: 0.2px;

@@ -16,56 +16,25 @@ import TransitionExit from "../../transitions/TransitionExit";
 import InputForm from "../../UI/atoms/InputForm";
 
 import {
-    ContainerForm,
     ContainerPage,
-    ContainerGrid,
     HeaderContainer,
     TextContainer,
-    ContentContainer,
-    ContainerMap,
-    ContainerButton,
     H1,
     Text,
-    ContainerFirstName,
-    ContainerLastName,
-    ContainerEmail,
-    ContainerMessage,
-    Input,
-    TextArea,
-    InputEmail,
-    InputFirstName,
-    InputLastName,
-    Label,
-    LabelFirstName,
-    ButtonSend,
+    ContainerContact,
+    Support,
+    Partnership,
+    Jobs,
+    Return,
+    Special,
+    MailSupport,
+    MailPartnership,
+    MailJobs,
+    MailReturn,
+    MailSpecial,
 } from "./styles";
 
 function Contact({pageName}) {
-    const initialValues = {
-        firstName: "",
-        lastName: "",
-        email: "",
-        message: "",
-    };
-    const validationSchema = Yup.object().shape({
-        firstName: Yup.string()
-            .min(5, "trop petit")
-            .max(50, "trop long!")
-            .required("Ce champ est obligatoire"),
-        lastName: Yup.string()
-            .min(2, "trop petit")
-            .max(10, "trop long!")
-            .required("Ce champ est obligatoire"),
-        email: Yup.string()
-            .email("email invalide")
-            .required("l'email est obligatoire"),
-        message: Yup.string()
-            .required("Sorry, this is required")
-            .max(300, "Sorry, message is too long"),
-    });
-    const handleSubmit = (values) => {
-        console.log(values);
-    };
     return (
         <>
             <ContainerPage>
@@ -73,77 +42,27 @@ function Contact({pageName}) {
                     initial={{opacity: 0}}
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}>
-                    <ContainerGrid>
-                        <HeaderContainer>
-                            <H1>Contact</H1>
-                        </HeaderContainer>
-                        <TextContainer>
-                            <Text>
-                                Lorem ipsum dolor sit amet, consectetur
-                                adipiscing elit, sed do eiusmod tempor
-                                incididunt ut labore et dolore magna aliqua. Ut
-                                enim ad minim veniam, quis nostrud exercitation
-                            </Text>
-                        </TextContainer>
-                        <ContentContainer>
-                            <Formik
-                                initialValues={initialValues}
-                                validationSchema={validationSchema}
-                                onSubmit={(values) => handleSubmit(values)}>
-                                {({resetForm}) => (
-                                    <Form>
-                                        <ContainerForm>
-                                            <ContainerFirstName>
-                                                <InputForm
-                                                    holder={"First Name"}
-                                                    type="text"
-                                                    id="firstName"
-                                                    name="firstName"
-                                                />
-                                            </ContainerFirstName>
-                                            <ContainerLastName>
-                                                <InputForm
-                                                    holder={"Last Name"}
-                                                    type="text"
-                                                    id="lastName"
-                                                    name="lastName"
-                                                />
-                                            </ContainerLastName>
-                                            <ContainerEmail>
-                                                <InputForm
-                                                    holder={"Email"}
-                                                    type="email"
-                                                    id="email"
-                                                    name="email"
-                                                />
-                                            </ContainerEmail>
-                                            <ContainerMessage>
-                                                <Label htmlFor="message">
-                                                    Message
-                                                </Label>
-                                                <TextArea
-                                                    type="text"
-                                                    id="message"
-                                                    name="message"
-                                                    component="textarea"
-                                                    rows="15"
-                                                />
-                                            </ContainerMessage>
-                                        </ContainerForm>
-                                        <div>
-                                            <ButtonSend type="submit">
-                                                Send Message
-                                            </ButtonSend>
-                                        </div>
-                                    </Form>
-                                )}
-                            </Formik>
-
-                            <ContainerMap>
-                                <Map />
-                            </ContainerMap>
-                        </ContentContainer>
-                    </ContainerGrid>
+                    <HeaderContainer>
+                        <H1>Get in touch</H1>
+                    </HeaderContainer>
+                    <TextContainer>
+                        <Text>
+                            Our customer service is always prepared to support
+                            you. How can we help you today?
+                        </Text>
+                    </TextContainer>
+                    <ContainerContact>
+                        <Support>Support</Support>
+                        <Partnership>Partnership</Partnership>
+                        <Jobs>Jobs opportunities</Jobs>
+                        <Return>Return & Issues</Return>
+                        <Special>Special Requires</Special>
+                        <MailSupport>support@store.com</MailSupport>
+                        <MailPartnership>partnership@store.com</MailPartnership>
+                        <MailJobs>jobs@store.com</MailJobs>
+                        <MailReturn>returns@store.com</MailReturn>
+                        <MailSpecial>requires@store.com</MailSpecial>
+                    </ContainerContact>
                 </motion.div>
             </ContainerPage>
         </>

@@ -87,7 +87,7 @@ export const H1 = styled.p`
     font-weight: 700;
 
     color: #000000;
-    font-size: 16px;
+    font-size: 36px;
     letter-spacing: 0.4px;
     line-height: 1.2;
     text-transform: uppercase;
@@ -110,140 +110,66 @@ export const Text = styled.p`
     text-align: center;
 `;
 
-export const ContainerForm = styled.div`
-    margin-right: 20px;
-    justify-self: end;
-    min-width: 30vw;
-
-    grid-area: form;
-
+export const ContainerContact = styled.div`
+    margin-top: 60px;
     display: grid;
-
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: auto auto auto;
-    gap: 15px 0px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px 40px;
     grid-template-areas:
-        "lastName firstName"
-        "email email"
-        "Message Message";
-    @media screen and (max-width: 600px) {
-        grid-template-columns: 1fr;
-        grid-template-rows: auto auto auto auto;
-        grid-template-areas:
-            "firstName"
-            "lastName"
-            "email"
-            "Message";
-    }
+        "Support MailSupport"
+        "Partnership MailPartnership"
+        "Jobs MailJobs"
+        "Return MailReturn"
+        "Special MailSpecial";
 `;
 
-export const ContainerFirstName = styled.div`
-    grid-area: firstName;
-    width: 100%;
+export const Support = styled.div`
+    justify-self: start;
+    grid-area: Support;
 `;
 
-export const ContainerLastName = styled.div`
-    grid-area: lastName;
-    width: 100%;
+export const Partnership = styled.div`
+    justify-self: start;
+    grid-area: Partnership;
 `;
 
-export const ContainerEmail = styled.div`
-    width: 100%;
-    grid-area: email;
-    justify-self: center;
-    display: flex;
-    flex-direction: column;
+export const Jobs = styled.div`
+    justify-self: start;
+    grid-area: Jobs;
 `;
 
-export const ContainerMessage = styled.div`
-    grid-area: Message;
-    width: 100%;
-    justify-self: center;
-    display: flex;
-    flex-direction: column;
+export const Return = styled.div`
+    justify-self: start;
+    grid-area: Return;
 `;
 
-const Input = styled(Field)`
-    border: 0;
-    outline: 0;
-
-    border-bottom: 0.5px lightgray solid;
-    border-left: 0.5px lightgray solid;
-    border-right: 0.5px lightgray solid;
-    border-top: 0.5px lightgray solid;
-
-    &:focus {
-        outline: none;
-        box-shadow: 0px 0px 2px black;
-    }
+export const Special = styled.div`
+    justify-self: start;
+    grid-area: Special;
 `;
 
-export const InputFirstName = styled(Input)`
-    margin-top: 0px;
-    width: 90%;
-    margin-left: 10%;
-
-    @media screen and (max-width: 600px) {
-        width: 100%;
-        margin-left: 0;
-    }
+export const MailSupport = styled.div`
+    justify-self: start;
+    grid-area: MailSupport;
 `;
 
-export const InputLastName = styled(Input)`
-    width: 90%;
-    @media screen and (max-width: 600px) {
-        width: 100%;
-    }
+export const MailPartnership = styled.div`
+    justify-self: start;
+    grid-area: MailPartnership;
 `;
 
-export const InputEmail = styled(Input)`
-    width: 100%;
+export const MailJobs = styled.div`
+    justify-self: start;
+    grid-area: MailJobs;
 `;
 
-export const TextArea = styled(Input)`
-    width: 100%;
-    border: none;
-    border-bottom: 1px solid black;
-    padding-bottom: -100px;
+export const MailReturn = styled.div`
+    justify-self: start;
+    grid-area: MailReturn;
 `;
 
-export const Label = styled.label`
-    opacity: 0.8;
-
-    color: #000000;
-    font-size: 14px;
-    letter-spacing: 0px;
-    line-height: 1.7;
-    @media screen and (max-width: 600px) {
-    }
-`;
-
-export const LabelFirstName = styled(Label)`
-    margin-left: 10%;
-
-    @media screen and (max-width: 600px) {
-        margin-left: 0;
-    }
-`;
-
-export const ButtonSend = styled.button`
-    opacity: 0.8;
-
-    color: black;
-
-    letter-spacing: 0px;
-    line-height: 1.7;
-    background-color: white;
-    all: unset;
-    cursor: pointer;
-    border: 1px grey solid;
-    margin-top: 10px;
-    padding: 10px;
-    border-radius: 2px;
-    font-size: 12px;
-
-    :hover {
-        background-color: black;
-        color: white;
-    }
+export const MailSpecial = styled.div`
+    justify-self: start;
+    grid-area: MailSpecial;
 `;

@@ -9,11 +9,7 @@ import LogoPng from "../../../../assets/logo/logo.png";
 import LogoWebp from "../../../../assets/logo/logo.webp";
 
 function HeaderMobile() {
-    return (
-        <HeaderDiv>
-            <Logo logoPng={LogoPng} logoWebp={LogoWebp} />
-        </HeaderDiv>
-    );
+    return <Logo logoPng={LogoPng} logoWebp={LogoWebp} />;
 }
 
 export default HeaderMobile;

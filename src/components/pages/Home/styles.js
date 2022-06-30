@@ -29,6 +29,9 @@ export const MainText2 = styled.div`
 
 export const ContainerMain = styled.div`
     padding-top: 100px;
+    @media (max-width: 680px) {
+        padding-top: 0px;
+    }
 `;
 
 export const ContainerMarquee = styled.div`

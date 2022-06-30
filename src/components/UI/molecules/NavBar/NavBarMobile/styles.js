@@ -14,10 +14,11 @@ export const Container = styled.div`
 
     padding-left: 40px;
     padding-right: 40px;
-    padding-bottom: 20px;
-    padding-top: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 
     border: 1px solid lightgray;
     border-top-right-radius: 10px;
     border-top-left-radius: 10px;
+    background-color: white;
 `;

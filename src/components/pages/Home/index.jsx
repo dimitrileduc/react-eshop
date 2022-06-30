@@ -21,6 +21,7 @@ import useOnScreen from "../../utils/useOnScreen";
 import {Parallax, ParallaxBanner} from "react-scroll-parallax";
 
 import CollectionHome from "../../UI/molecules/CollectionHome";
+import CollectionHomeMobile from "../../UI/molecules/CollectionHome/CollectionHomeMobile";
 import BannerHome from "../../UI/molecules/BannerHome";
 import BannerProducts from "../../UI/molecules/BannerProducts";
 
@@ -28,7 +29,7 @@ import {motion} from "framer-motion";
 
 import TransitionExit from "../../transitions/TransitionExit";
 
-function Home({setIsCustomCursor, productsItems, delayMaquee}) {
+function Home({setIsCustomCursor, productsItems, delayMaquee, isMobile}) {
     ///// Scroll to ref
 
     const {
@@ -63,9 +64,15 @@ function Home({setIsCustomCursor, productsItems, delayMaquee}) {
                     animate={{opacity: 1}}
                     exit={{opacity: 0}}>
                     <ContainerMain ref={myRef}>
-                        <CollectionHome />
+                        {
+                            //Check if mobile
+                            isMobile ? (
+                                <CollectionHomeMobile />
+                            ) : (
+                                <CollectionHome />
+                            )
+                        }
                         <BannerHome />
-
                         <BannerProducts productsItems={productsItems} />
                         <ContainerMarquee>
                             <motion.div

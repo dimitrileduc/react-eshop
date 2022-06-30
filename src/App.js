@@ -1,6 +1,8 @@
 import React, {useState, useEffect} from "react";
 import {Routes, Route, useLocation, useHistory} from "react-router-dom";
 
+import {LocomotiveScrollProvider} from "react-locomotive-scroll";
+
 import uuid from "react-uuid";
 import {ParallaxProvider} from "react-scroll-parallax";
 import {CustomCursor} from "react-svg-cursor";
@@ -158,6 +160,7 @@ export default function App() {
                                                 }
                                                 productsItems={productsItems}
                                                 delayMaquee={delayMaquee}
+                                                isMobile={isMobile}
                                             />
                                         }
                                     />
